@@ -18,16 +18,26 @@ namespace EmployeeRecognitionPortal.Migrations
 
             modelBuilder.Entity("EmployeeRecognitionPortal.Models.User", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("DateCreated");
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .IsRequired();
 
-                    b.Property<string>("Name");
+                    b.Property<bool?>("IsDeleted");
 
-                    b.HasKey("UserId");
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.Property<string>("Password")
+                        .IsRequired();
+
+                    b.Property<byte[]>("Signature")
+                        .IsRequired();
+
+                    b.HasKey("Id");
 
                     b.ToTable("Users");
                 });

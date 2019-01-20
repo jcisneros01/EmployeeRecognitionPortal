@@ -1,7 +1,7 @@
 using EmployeeRecognitionPortal.Models;
+using EmployeeRecognitionPortal.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
@@ -28,7 +28,8 @@ namespace EmployeeRecognitionPortal
             // Connect to database
             var connection = "Data Source=EmployeeRecognition.db";
             services.AddDbContext<Context>(options => options.UseSqlite(connection));
-            
+            services.AddScoped<IUserService, UserService>();
+                
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/build"; });
         }

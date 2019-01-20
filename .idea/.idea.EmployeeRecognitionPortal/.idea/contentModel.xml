@@ -40,13 +40,13 @@
           </e>
         </e>
         <e p="Controllers" t="Include">
-          <e p="SampleDataController.cs" t="Include" />
+          <e p="UsersController.cs" t="Include" />
         </e>
         <e p="EmployeeRecognition.db" t="Include" />
         <e p="EmployeeRecognitionPortal.csproj" t="IncludeRecursive" />
         <e p="Migrations" t="Include">
-          <e p="20190110064852_InitialCreate.cs" t="Include" />
-          <e p="20190110064852_InitialCreate.Designer.cs" t="Include" />
+          <e p="20190120081838_added user table.cs" t="Include" />
+          <e p="20190120081838_added user table.Designer.cs" t="Include" />
           <e p="ContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
@@ -60,16 +60,20 @@
             </e>
           </e>
         </e>
-        <e p="Pages" t="Include">
-          <e p="_ViewImports.cshtml" t="Include" />
-          <e p="Error.cshtml" t="Include" />
-          <e p="Error.cshtml.cs" t="Include" />
-        </e>
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
         </e>
+        <e p="Services" t="Include">
+          <e p="IUserService.cs" t="Include" />
+          <e p="UserService.cs" t="Include" />
+        </e>
         <e p="Startup.cs" t="Include" />
+        <e p="Users" t="Include">
+          <e p="_ViewImports.cshtml" t="Include" />
+          <e p="Error.cshtml" t="Include" />
+          <e p="Error.cshtml.cs" t="Include" />
+        </e>
       </e>
       <e p="EmployeeRecognitionPortal.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
