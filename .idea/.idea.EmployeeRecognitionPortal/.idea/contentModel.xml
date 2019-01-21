@@ -44,14 +44,18 @@
         </e>
         <e p="EmployeeRecognition.db" t="Include" />
         <e p="EmployeeRecognitionPortal.csproj" t="IncludeRecursive" />
+        <e p="entities" t="Include">
+          <e p="context.cs" t="Include" />
+          <e p="User.cs" t="Include" />
+        </e>
         <e p="Migrations" t="Include">
           <e p="20190120081838_added user table.cs" t="Include" />
           <e p="20190120081838_added user table.Designer.cs" t="Include" />
           <e p="ContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
-          <e p="context.cs" t="Include" />
-          <e p="User.cs" t="Include" />
+          <e p="request" t="Include" />
+          <e p="Response" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
