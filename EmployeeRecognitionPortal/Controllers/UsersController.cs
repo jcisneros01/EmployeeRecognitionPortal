@@ -7,12 +7,10 @@ using Microsoft.AspNetCore.Mvc;
      [Route("[controller]")]
      public class UsersController : Controller
      {
-         private readonly Context _context;
          private readonly IUserService _userService;
  
-         public UsersController(Context context, IUserService userService)
+         public UsersController(IUserService userService)
          {
-             _context = context;
              _userService = userService;
          }
            
