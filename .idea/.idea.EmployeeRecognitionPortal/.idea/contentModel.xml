@@ -54,8 +54,12 @@
           <e p="ContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
-          <e p="request" t="Include" />
-          <e p="Response" t="Include" />
+          <e p="request" t="Include">
+            <e p="UserRequest.cs" t="Include" />
+          </e>
+          <e p="Response" t="Include">
+            <e p="UserResponse.cs" t="Include" />
+          </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
