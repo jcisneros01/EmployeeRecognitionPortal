@@ -1,4 +1,4 @@
-using EmployeeRecognitionPortal.Models;
+using EmployeeRecognitionPortal.Models.Request;
 using EmployeeRecognitionPortal.Services;
 using Microsoft.AspNetCore.Mvc;
  
@@ -39,27 +39,27 @@ using Microsoft.AspNetCore.Mvc;
          }
  
          [HttpPost]
-         public IActionResult CreateUser([FromBody]User user)
+         public IActionResult CreateUser([FromBody]UserRequest user)
          {    
              if (!ModelState.IsValid)
              {
                  return BadRequest();
              }
              
-             User response = _userService.CreateUser(user);
+             var response = _userService.CreateUser(user);
 
              return Ok(response);
          }      
          
-         [HttpPut]
-         public IActionResult UpdateUser([FromBody]User user)
+         [HttpPut("{id}")]
+         public IActionResult UpdateUser(int id, [FromBody]UserRequest user)
          {    
              if (!ModelState.IsValid)
              {
                  return BadRequest();
              }
              
-             User response = _userService.UpdateUser(user);
+             var response = _userService.UpdateUser(id, user);
 
              return Ok(response);
          }

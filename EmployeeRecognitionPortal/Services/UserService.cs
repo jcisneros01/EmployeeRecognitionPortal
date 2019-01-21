@@ -1,32 +1,39 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 using EmployeeRecognitionPortal.Models;
+using EmployeeRecognitionPortal.Models.Request;
+using EmployeeRecognitionPortal.Models.Response;
 
 namespace EmployeeRecognitionPortal.Services
 {
     //todo: create custom exceptions for errors and add global exception handler
-    //todo: add request models and response models
     public class UserService : IUserService
     {
         private readonly Context _context;
-        
-        public UserService(Context context)
+        private readonly IMapper _mapper;
+
+        public UserService(Context context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
         
-        public User CreateUser(User user)
+        public UserResponse CreateUser(UserRequest user)
         {
-           _context.Users.Add(user);
+            var newUser = _mapper.Map<UserRequest, User>(user);
+            
+           _context.Users.Add(newUser);
            _context.SaveChanges();
            
-           return user;
+           return _mapper.Map<User, UserResponse>(newUser);
         }
 
-        public List<User> GetUsers()
+        public List<UserResponse> GetUsers()
         {
-            return _context.Users.ToList();
+            var users = _context.Users.ToList();
+            return _mapper.Map<List<User>, List<UserResponse>>(users);
         }
 
         public void DeleteUser(int id)
@@ -42,25 +49,25 @@ namespace EmployeeRecognitionPortal.Services
         }
 
         //todo: user validation for user and admin
-        //todo: change fields you can modify by role
-        public User UpdateUser(User user)
+        //todo: modify fields by role
+        public UserResponse UpdateUser(int id, UserRequest user)
         {
-            var existingUser = _context.Users.FirstOrDefault(x => x.Id == user.Id);
-            if (user == null)
+            var existingUser = _context.Users.FirstOrDefault(x => x.Id == id);
+            if (existingUser == null)
             {
-                throw new Exception($"User with {user.Id} not found");
+                throw new Exception($"User with {id} not found");
             }
-
-            existingUser.Name = user.Name;
-            existingUser.Email = user.Email;
-            existingUser.Password = user.Password;
-            existingUser.Signature = user.Signature;
+            
+            existingUser.Name = string.IsNullOrWhiteSpace(user.Name) ? existingUser.Name: user.Name;
+            existingUser.Email = string.IsNullOrWhiteSpace(user.Email) ? existingUser.Email: user.Email;
+            existingUser.Password = string.IsNullOrWhiteSpace(user.Password) ? existingUser.Password: user.Password;
+            existingUser.Signature = user.Signature ?? existingUser.Signature;
             _context.SaveChanges();
             
-            return existingUser;
+            return _mapper.Map<User, UserResponse>(existingUser);
         }
 
-        public User GetUser(int id)
+        public UserResponse GetUser(int id)
         {
             var user = _context.Users.FirstOrDefault(x => x.Id == id);
             if (user == null)
@@ -68,7 +75,7 @@ namespace EmployeeRecognitionPortal.Services
                 throw new Exception($"User with {id} not found");
             }
 
-            return user;
+            return _mapper.Map<User, UserResponse>(user);
         }
         
         

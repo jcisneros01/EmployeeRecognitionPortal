@@ -1,3 +1,4 @@
+using AutoMapper;
 using EmployeeRecognitionPortal.Models;
 using EmployeeRecognitionPortal.Services;
 using Microsoft.AspNetCore.Builder;
@@ -22,6 +23,7 @@ namespace EmployeeRecognitionPortal
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             
             //todo: move connection string to config file

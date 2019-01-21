@@ -68,6 +68,10 @@
             </e>
           </e>
         </e>
+        <e p="Profiles" t="Include">
+          <e p="UserProfile.cs" t="Include" />
+          <e p="UserResponseProfilecs.cs" t="Include" />
+        </e>
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />

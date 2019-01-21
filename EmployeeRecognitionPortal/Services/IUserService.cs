@@ -1,15 +1,17 @@
 using System;
 using System.Collections.Generic;
 using EmployeeRecognitionPortal.Models;
+using EmployeeRecognitionPortal.Models.Request;
+using EmployeeRecognitionPortal.Models.Response;
 
 namespace EmployeeRecognitionPortal.Services
 {
     public interface IUserService
     {
-        User CreateUser(User user);
-        User GetUser(int id);
-        List<User> GetUsers();
+        UserResponse CreateUser(UserRequest user);
+        UserResponse GetUser(int id);
+        List<UserResponse> GetUsers();
         void DeleteUser(int id);
-        User UpdateUser(User user);
+        UserResponse UpdateUser(int id, UserRequest user);
     }
 }
