@@ -1,14 +1,13 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
+using EmployeeRecognitionPortal.Exceptions;
 using EmployeeRecognitionPortal.Models;
 using EmployeeRecognitionPortal.Models.Request;
 using EmployeeRecognitionPortal.Models.Response;
 
 namespace EmployeeRecognitionPortal.Services
 {
-    //todo: create custom exceptions for errors and add global exception handler
     public class UserService : IUserService
     {
         private readonly Context _context;
@@ -41,7 +40,7 @@ namespace EmployeeRecognitionPortal.Services
             var user = _context.Users.FirstOrDefault(x => x.Id == id);
             if (user == null)
             {
-                throw new Exception($"User with {id} not found");
+                throw new UserNotFoundException($"User with id {id} not found");
             }
 
             _context.Users.Remove(user);
@@ -55,7 +54,7 @@ namespace EmployeeRecognitionPortal.Services
             var existingUser = _context.Users.FirstOrDefault(x => x.Id == id);
             if (existingUser == null)
             {
-                throw new Exception($"User with {id} not found");
+                throw new UserNotFoundException($"User with id {id} not found");
             }
             
             existingUser.Name = string.IsNullOrWhiteSpace(user.Name) ? existingUser.Name: user.Name;
@@ -72,7 +71,7 @@ namespace EmployeeRecognitionPortal.Services
             var user = _context.Users.FirstOrDefault(x => x.Id == id);
             if (user == null)
             {
-                throw new Exception($"User with {id} not found");
+                throw new UserNotFoundException($"User with id {id} not found");
             }
 
             return _mapper.Map<User, UserResponse>(user);
