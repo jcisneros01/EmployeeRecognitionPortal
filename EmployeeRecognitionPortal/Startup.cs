@@ -32,6 +32,7 @@ namespace EmployeeRecognitionPortal
             var connection = "Data Source=EmployeeRecognition.db";
             services.AddDbContext<Context>(options => options.UseSqlite(connection));
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IAdminService, AdminService>();
                 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/build"; });
