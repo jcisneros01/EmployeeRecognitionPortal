@@ -19,6 +19,7 @@ namespace EmployeeRecognitionPortal.Services
             _mapper = mapper;
         }
         
+        //todo: hash password
         public UserResponse CreateUser(UserRequest user)
         {
             var newUser = _mapper.Map<UserRequest, User>(user);

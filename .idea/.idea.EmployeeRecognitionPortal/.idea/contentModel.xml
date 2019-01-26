@@ -40,11 +40,13 @@
           </e>
         </e>
         <e p="Controllers" t="Include">
+          <e p="AdminsController.cs" t="Include" />
           <e p="UsersController.cs" t="Include" />
         </e>
         <e p="EmployeeRecognition.db" t="Include" />
         <e p="EmployeeRecognitionPortal.csproj" t="IncludeRecursive" />
         <e p="entities" t="Include">
+          <e p="Admin.cs" t="Include" />
           <e p="context.cs" t="Include" />
           <e p="User.cs" t="Include" />
         </e>
@@ -57,14 +59,18 @@
         <e p="Migrations" t="Include">
           <e p="20190120081838_added user table.cs" t="Include" />
           <e p="20190120081838_added user table.Designer.cs" t="Include" />
+          <e p="20190126074419_CreatedAdminsTable.cs" t="Include" />
+          <e p="20190126074419_CreatedAdminsTable.Designer.cs" t="Include" />
           <e p="ContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
           <e p="ErrorModel.cs" t="Include" />
           <e p="request" t="Include">
+            <e p="AdminRequest.cs" t="Include" />
             <e p="UserRequest.cs" t="Include" />
           </e>
           <e p="Response" t="Include">
+            <e p="AdminResponse.cs" t="Include" />
             <e p="UserResponse.cs" t="Include" />
           </e>
         </e>
@@ -76,14 +82,18 @@
           </e>
         </e>
         <e p="Profiles" t="Include">
+          <e p="AdminProfile.cs" t="Include" />
+          <e p="AdminResponseProfile.cs" t="Include" />
           <e p="UserProfile.cs" t="Include" />
-          <e p="UserResponseProfilecs.cs" t="Include" />
+          <e p="UserResponseProfile.cs" t="Include" />
         </e>
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
         </e>
         <e p="Services" t="Include">
+          <e p="AdminService.cs" t="Include" />
+          <e p="IAdminService.cs" t="Include" />
           <e p="IUserService.cs" t="Include" />
           <e p="UserService.cs" t="Include" />
         </e>
