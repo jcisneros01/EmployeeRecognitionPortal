@@ -2,7 +2,8 @@
 
 ## Users API Documentation
 
-//todo: Update base URL upon hosting
+- todo: Update Base URL upon hosting
+
 Base URL: https://localhost:5001/
 
 ### Create a New User
@@ -12,10 +13,10 @@ Adds a new User to the database.
 **Call:** *POST /Users*
 
 **Parameters:**
-“email”: String - email address of user
-“password”: String - password for login
-“name”: “String - User’s name
-“signature”: Byte[] - encoded IMG file representation
+- “email”: String - email address of user
+- “password”: String - password for login
+- “name”: “String - User’s name
+- “signature”: Byte[] - encoded IMG file representation
 
 **Response:**
 Status: 200 OK
@@ -89,10 +90,10 @@ Edit a User in the database
 **Call:** *PUT /Users/{id}*
 
 **Parameters:**
-“email”: String - email address of user
-“password”: String - password for login
-“name”: “String - User’s name
-“signature”: Byte[] - encoded IMG file representation
+- “email”: String - email address of user
+- “password”: String - password for login
+- “name”: “String - User’s name
+- “signature”: Byte[] - encoded IMG file representation
 
 **Response:**
 Status: 200 OK
