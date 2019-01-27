@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using EmployeeRecognitionPortal.Exceptions;
+using EmployeeRecognitionPortal.Helpers;
 using EmployeeRecognitionPortal.Models;
 using EmployeeRecognitionPortal.Models.Request;
 using EmployeeRecognitionPortal.Models.Response;
@@ -19,7 +20,6 @@ namespace EmployeeRecognitionPortal.Services
             _mapper = mapper;
         }
         
-        //todo: hash password
         public AdminResponse CreateAdmin(AdminRequest admin)
         {
             var newAdmin = _mapper.Map<AdminRequest, Admin>(admin);
@@ -58,7 +58,7 @@ namespace EmployeeRecognitionPortal.Services
             _context.SaveChanges();
         }
 
-        public AdminResponse UpdateAdmin(int id, AdminRequest admin)
+        public AdminResponse UpdateAdmin(int id, AdminPostRequest admin)
         {
             var existingAdmin = _context.Admins.FirstOrDefault(x => x.Id == id);
             if (existingAdmin == null)
@@ -67,7 +67,8 @@ namespace EmployeeRecognitionPortal.Services
             }
             
             existingAdmin.Email = string.IsNullOrWhiteSpace(admin.Email) ? existingAdmin.Email: admin.Email;
-            existingAdmin.Password = string.IsNullOrWhiteSpace(admin.Password) ? existingAdmin.Password: admin.Password;
+            existingAdmin.Password = string.IsNullOrWhiteSpace(admin.Password) ? 
+                existingAdmin.Password: PasswordHelper.HashPassword(admin.Password);
             _context.SaveChanges();
             
             return _mapper.Map<Admin, AdminResponse>(existingAdmin);

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using EmployeeRecognitionPortal.Exceptions;
+using EmployeeRecognitionPortal.Helpers;
 using EmployeeRecognitionPortal.Models;
 using EmployeeRecognitionPortal.Models.Request;
 using EmployeeRecognitionPortal.Models.Response;
@@ -19,10 +20,9 @@ namespace EmployeeRecognitionPortal.Services
             _mapper = mapper;
         }
         
-        //todo: hash password
         public UserResponse CreateUser(UserRequest user)
         {
-            var newUser = _mapper.Map<UserRequest, User>(user);
+           var newUser = _mapper.Map<UserRequest, User>(user);
             
            _context.Users.Add(newUser);
            _context.SaveChanges();
@@ -50,7 +50,7 @@ namespace EmployeeRecognitionPortal.Services
 
         //todo: user validation for user and admin
         //todo: modify fields by role
-        public UserResponse UpdateUser(int id, UserRequest user)
+        public UserResponse UpdateUser(int id, UserPostRequest user)
         {
             var existingUser = _context.Users.FirstOrDefault(x => x.Id == id);
             if (existingUser == null)
@@ -60,7 +60,7 @@ namespace EmployeeRecognitionPortal.Services
             
             existingUser.Name = string.IsNullOrWhiteSpace(user.Name) ? existingUser.Name: user.Name;
             existingUser.Email = string.IsNullOrWhiteSpace(user.Email) ? existingUser.Email: user.Email;
-            existingUser.Password = string.IsNullOrWhiteSpace(user.Password) ? existingUser.Password: user.Password;
+            existingUser.Password = string.IsNullOrWhiteSpace(user.Password) ? existingUser.Password: PasswordHelper.HashPassword(user.Password);
             existingUser.Signature = user.Signature ?? existingUser.Signature;
             _context.SaveChanges();
             
