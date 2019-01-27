@@ -75,6 +75,8 @@
           <e p="request" t="Include">
             <e p="AdminPostRequest.cs" t="Include" />
             <e p="AdminRequest.cs" t="Include" />
+            <e p="LoginRequest.cs" t="Include" />
+            <e p="PasswordResetRequest.cs" t="Include" />
             <e p="UserPostRequest.cs" t="Include" />
             <e p="UserRequest.cs" t="Include" />
           </e>
@@ -102,7 +104,9 @@
         </e>
         <e p="Services" t="Include">
           <e p="AdminService.cs" t="Include" />
+          <e p="AuthService.cs" t="Include" />
           <e p="IAdminService.cs" t="Include" />
+          <e p="IAuthService.cs" t="Include" />
           <e p="IUserService.cs" t="Include" />
           <e p="UserService.cs" t="Include" />
         </e>

@@ -22,7 +22,8 @@ namespace EmployeeRecognitionPortal.Models
         
         [Required]
         public DateTime DateCreated { get; set; }
-
+        
+        //todo: change userservice to soft delete
         public bool? IsDeleted { get; set; }
     }
 }

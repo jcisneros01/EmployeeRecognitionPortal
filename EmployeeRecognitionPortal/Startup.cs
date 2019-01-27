@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using System.Text;
 using AutoMapper;
+using EmployeeRecognitionPortal.Controllers;
 using EmployeeRecognitionPortal.Extensions;
 using EmployeeRecognitionPortal.Filters;
 using EmployeeRecognitionPortal.Models;
@@ -32,7 +34,7 @@ namespace EmployeeRecognitionPortal
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             
             // configure jwt auth
-            var key = Encoding.ASCII.GetBytes("secret"); //Todo: move to config
+            var key = Encoding.UTF8.GetBytes("this is my custom Secret key for authentication"); //Todo: move to config
             services.AddAuthentication(x =>
                 {
                     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -46,8 +48,12 @@ namespace EmployeeRecognitionPortal
                     {
                         ValidateIssuerSigningKey = true,
                         IssuerSigningKey = new SymmetricSecurityKey(key),
-                        ValidateIssuer = false,
-                        ValidateAudience = false
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        
+                        ValidIssuer = "http://localhost:5000",
+                        ValidAudience = "http://localhost:5000"
                     };
                 });
             
@@ -57,6 +63,7 @@ namespace EmployeeRecognitionPortal
             services.AddDbContext<Context>(options => options.UseSqlite(connection));
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAdminService, AdminService>();
+            services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<ValidateModelAttribute>();
                 
             // In production, the React files will be served from this directory
@@ -71,7 +78,9 @@ namespace EmployeeRecognitionPortal
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
-
+            
+            app.UseAuthentication();
+            
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
