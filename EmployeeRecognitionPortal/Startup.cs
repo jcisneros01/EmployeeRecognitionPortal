@@ -1,5 +1,6 @@
 using AutoMapper;
 using EmployeeRecognitionPortal.Extensions;
+using EmployeeRecognitionPortal.Filters;
 using EmployeeRecognitionPortal.Models;
 using EmployeeRecognitionPortal.Services;
 using Microsoft.AspNetCore.Builder;
@@ -33,6 +34,7 @@ namespace EmployeeRecognitionPortal
             services.AddDbContext<Context>(options => options.UseSqlite(connection));
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAdminService, AdminService>();
+            services.AddScoped<ValidateModelAttribute>();
                 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/build"; });

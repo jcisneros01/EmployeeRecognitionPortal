@@ -41,6 +41,7 @@
         </e>
         <e p="Controllers" t="Include">
           <e p="AdminsController.cs" t="Include" />
+          <e p="AuthController.cs" t="Include" />
           <e p="UsersController.cs" t="Include" />
         </e>
         <e p="EmployeeRecognition.db" t="Include" />
@@ -55,6 +56,9 @@
         </e>
         <e p="Extensions" t="Include">
           <e p="ExceptionMiddlewareExtensions.cs" t="Include" />
+        </e>
+        <e p="Filters" t="Include">
+          <e p="ValidateModelAttribute.cs" t="Include" />
         </e>
         <e p="Helpers" t="Include">
           <e p="PasswordHelper.cs" t="Include" />
