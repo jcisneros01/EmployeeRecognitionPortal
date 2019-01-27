@@ -37,7 +37,8 @@ using Microsoft.AspNetCore.Mvc;
              
              return Ok();
          }
- 
+         
+         // check for empty fields 
          [HttpPost]
          public IActionResult CreateUser([FromBody]UserRequest user)
          {    
@@ -52,7 +53,7 @@ using Microsoft.AspNetCore.Mvc;
          }      
          
          [HttpPut("{id}")]
-         public IActionResult UpdateUser(int id, [FromBody]UserRequest user)
+         public IActionResult UpdateUser(int id, [FromBody]UserPostRequest user)
          {    
              if (!ModelState.IsValid)
              {

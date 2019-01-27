@@ -52,7 +52,7 @@ using Microsoft.AspNetCore.Mvc;
          }      
          
          [HttpPut("{id}")]
-         public IActionResult UpdateUser(int id, [FromBody]AdminRequest user)
+         public IActionResult UpdateUser(int id, [FromBody]AdminPostRequest user)
          {    
              if (!ModelState.IsValid)
              {
