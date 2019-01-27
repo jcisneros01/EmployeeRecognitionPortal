@@ -1,10 +1,12 @@
 using EmployeeRecognitionPortal.Filters;
 using EmployeeRecognitionPortal.Models.Request;
 using EmployeeRecognitionPortal.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
  
  namespace EmployeeRecognitionPortal.Controllers
  {
+     [Authorize]
      [Route("[controller]")]
      public class UsersController : Controller
      {
