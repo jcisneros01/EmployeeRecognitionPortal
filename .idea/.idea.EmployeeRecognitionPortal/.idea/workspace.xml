@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f082e854-0c6a-4218-8fda-7f19235effa0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/EmployeeRecognitionPortal/Models/Request/LoginRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmployeeRecognitionPortal/Models/Request/PasswordResetRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmployeeRecognitionPortal/Services/AuthService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmployeeRecognitionPortal/Services/IAuthService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.EmployeeRecognitionPortal/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EmployeeRecognitionPortal/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.EmployeeRecognitionPortal/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EmployeeRecognitionPortal/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortal/EmployeeRecognition.db" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortal/EmployeeRecognition.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortal/Entities/Admin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortal/Entities/Admin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortal/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortal/Entities/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortal/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortal/Startup.cs" afterDir="false" />
-    </list>
+    <list default="true" id="f082e854-0c6a-4218-8fda-7f19235effa0" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,18 +74,18 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Services/AuthService.cs">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="525">
-                    <caret line="45" column="15" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
+                  <state relative-caret-position="645">
+                    <caret line="53" column="64" selection-start-line="53" selection-start-column="64" selection-end-line="53" selection-end-column="64" />
                     <folding>
-                      <marker date="1548631454025" expanded="false" signature="6:365" ph="..." />
-                      <marker date="1548631454025" expanded="true" signature="411:2517" ph="{...}" />
-                      <marker date="1548631454025" expanded="true" signature="456:2515" ph="{...}" />
-                      <marker date="1548631454025" expanded="true" signature="550:602" ph="{...}" />
-                      <marker date="1548631454025" expanded="true" signature="726:1525" ph="{...}" />
-                      <marker date="1548631454025" expanded="true" signature="783:880" ph="{...}" />
-                      <marker date="1548631454025" expanded="true" signature="1624:1708" ph="{...}" />
-                      <marker date="1548631454025" expanded="true" signature="1726:1875" ph="/* todo: unify user and admins to remove redundant query and then unify user/admin services ... */" />
-                      <marker date="1548631454025" expanded="true" signature="1938:2509" ph="{...}" />
+                      <marker date="1548631669070" expanded="false" signature="6:365" ph="..." />
+                      <marker date="1548631669070" expanded="true" signature="411:2582" ph="{...}" />
+                      <marker date="1548631669070" expanded="true" signature="456:2580" ph="{...}" />
+                      <marker date="1548631669070" expanded="true" signature="550:602" ph="{...}" />
+                      <marker date="1548631669070" expanded="true" signature="726:1525" ph="{...}" />
+                      <marker date="1548631669070" expanded="true" signature="783:880" ph="{...}" />
+                      <marker date="1548631669070" expanded="true" signature="1624:1708" ph="{...}" />
+                      <marker date="1548631669070" expanded="true" signature="1726:1940" ph="/* todo: unify user and admins to remove redundant query and then unify user/admin services ... */" />
+                      <marker date="1548631669070" expanded="true" signature="2003:2574" ph="{...}" />
                     </folding>
                   </state>
                 </provider>
@@ -154,13 +143,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="5669" />
+          <entry key="cs" value="5682" />
           <entry key="txt" value="147" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="5669" />
+          <entry key="C#" value="5682" />
           <entry key="PLAIN_TEXT" value="147" />
         </counts>
       </usages-collector>
@@ -171,16 +160,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Controllers/AuthController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="37" column="2" lean-forward="true" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="2" />
+            <state relative-caret-position="255">
+              <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
               <folding>
-                <marker date="1548631473254" expanded="false" signature="6:162" ph="..." />
-                <marker date="1548631473254" expanded="true" signature="213:1157" ph="{...}" />
-                <marker date="1548631473254" expanded="true" signature="294:1154" ph="{...}" />
-                <marker date="1548631473254" expanded="true" signature="412:475" ph="{...}" />
-                <marker date="1548631473254" expanded="true" signature="495:599" ph="/* todo: make user/admin object generic ... */" />
-                <marker date="1548631473254" expanded="true" signature="722:871" ph="{...}" />
-                <marker date="1548631473254" expanded="true" signature="1023:1147" ph="{...}" />
+                <marker date="1548631674214" expanded="true" signature="6:162" ph="..." />
+                <marker date="1548631674214" expanded="true" signature="213:1052" ph="{...}" />
+                <marker date="1548631674214" expanded="true" signature="294:1049" ph="{...}" />
+                <marker date="1548631674214" expanded="true" signature="412:475" ph="{...}" />
+                <marker date="1548631674214" expanded="true" signature="617:766" ph="{...}" />
+                <marker date="1548631674214" expanded="true" signature="918:1042" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -450,7 +438,7 @@
       <workItem from="1548543282882" duration="517000" />
       <workItem from="1548546026595" duration="153000" />
       <workItem from="1548578073029" duration="4062000" />
-      <workItem from="1548610932483" duration="18555000" />
+      <workItem from="1548610932483" duration="18849000" />
     </task>
     <task id="LOCAL-00001" summary="arranges model dirs">
       <created>1548048090061</created>
@@ -477,7 +465,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80901000" />
+    <option name="totallyTimeSpent" value="81195000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -496,7 +484,7 @@
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4943005" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.27564767" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.15958549" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -515,7 +503,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Errors In Solution" order="3" weight="0.21568628" />
       <window_info anchor="right" id="Database" order="4" weight="0.32897604" />
-      <window_info anchor="right" content_ui="combo" id="Project" order="5" weight="0.21459696" />
+      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.2875817" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -984,34 +972,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Services/AuthService.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="45" column="15" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
+        <state relative-caret-position="645">
+          <caret line="53" column="64" selection-start-line="53" selection-start-column="64" selection-end-line="53" selection-end-column="64" />
           <folding>
-            <marker date="1548631454025" expanded="false" signature="6:365" ph="..." />
-            <marker date="1548631454025" expanded="true" signature="411:2517" ph="{...}" />
-            <marker date="1548631454025" expanded="true" signature="456:2515" ph="{...}" />
-            <marker date="1548631454025" expanded="true" signature="550:602" ph="{...}" />
-            <marker date="1548631454025" expanded="true" signature="726:1525" ph="{...}" />
-            <marker date="1548631454025" expanded="true" signature="783:880" ph="{...}" />
-            <marker date="1548631454025" expanded="true" signature="1624:1708" ph="{...}" />
-            <marker date="1548631454025" expanded="true" signature="1726:1875" ph="/* todo: unify user and admins to remove redundant query and then unify user/admin services ... */" />
-            <marker date="1548631454025" expanded="true" signature="1938:2509" ph="{...}" />
+            <marker date="1548631669070" expanded="false" signature="6:365" ph="..." />
+            <marker date="1548631669070" expanded="true" signature="411:2582" ph="{...}" />
+            <marker date="1548631669070" expanded="true" signature="456:2580" ph="{...}" />
+            <marker date="1548631669070" expanded="true" signature="550:602" ph="{...}" />
+            <marker date="1548631669070" expanded="true" signature="726:1525" ph="{...}" />
+            <marker date="1548631669070" expanded="true" signature="783:880" ph="{...}" />
+            <marker date="1548631669070" expanded="true" signature="1624:1708" ph="{...}" />
+            <marker date="1548631669070" expanded="true" signature="1726:1940" ph="/* todo: unify user and admins to remove redundant query and then unify user/admin services ... */" />
+            <marker date="1548631669070" expanded="true" signature="2003:2574" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Controllers/AuthController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="37" column="2" lean-forward="true" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="2" />
+        <state relative-caret-position="255">
+          <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
           <folding>
-            <marker date="1548631473254" expanded="false" signature="6:162" ph="..." />
-            <marker date="1548631473254" expanded="true" signature="213:1157" ph="{...}" />
-            <marker date="1548631473254" expanded="true" signature="294:1154" ph="{...}" />
-            <marker date="1548631473254" expanded="true" signature="412:475" ph="{...}" />
-            <marker date="1548631473254" expanded="true" signature="495:599" ph="/* todo: make user/admin object generic ... */" />
-            <marker date="1548631473254" expanded="true" signature="722:871" ph="{...}" />
-            <marker date="1548631473254" expanded="true" signature="1023:1147" ph="{...}" />
+            <marker date="1548631674214" expanded="true" signature="6:162" ph="..." />
+            <marker date="1548631674214" expanded="true" signature="213:1052" ph="{...}" />
+            <marker date="1548631674214" expanded="true" signature="294:1049" ph="{...}" />
+            <marker date="1548631674214" expanded="true" signature="412:475" ph="{...}" />
+            <marker date="1548631674214" expanded="true" signature="617:766" ph="{...}" />
+            <marker date="1548631674214" expanded="true" signature="918:1042" ph="{...}" />
           </folding>
         </state>
       </provider>

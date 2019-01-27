@@ -118,3 +118,27 @@ Removes a User from the database
 
 **Response:**
 Status: 200 OK
+
+### Create a token
+
+Authorizes the user and retrieves a token
+
+**Call:** *Post /auth/token*
+
+**Parameters:**
+- “email”: String - email address of user
+- “password”: String - password for login
+
+**Response:**  
+Status: 200 OK
+
+```             
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NDg3MTgwMjksImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCJ9.KJefXEk4ACUcoNUULSV1O-IsF6lKGsmXbH3t1Qf6C-s"
+}
+```
+**Token Usage:**  
+```             
+Set Authorization in Header
+Authorization: Bearer [token]
+```
