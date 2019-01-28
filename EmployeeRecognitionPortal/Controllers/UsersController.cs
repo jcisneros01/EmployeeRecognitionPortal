@@ -1,9 +1,12 @@
+using EmployeeRecognitionPortal.Filters;
 using EmployeeRecognitionPortal.Models.Request;
 using EmployeeRecognitionPortal.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
  
  namespace EmployeeRecognitionPortal.Controllers
  {
+     [Authorize]
      [Route("[controller]")]
      public class UsersController : Controller
      {
@@ -38,28 +41,19 @@ using Microsoft.AspNetCore.Mvc;
              return Ok();
          }
          
-         // check for empty fields 
          [HttpPost]
+         [ValidateModel]
          public IActionResult CreateUser([FromBody]UserRequest user)
          {    
-             if (!ModelState.IsValid)
-             {
-                 return BadRequest();
-             }
-             
              var response = _userService.CreateUser(user);
 
              return Ok(response);
          }      
          
          [HttpPut("{id}")]
+         [ValidateModel]
          public IActionResult UpdateUser(int id, [FromBody]UserPostRequest user)
-         {    
-             if (!ModelState.IsValid)
-             {
-                 return BadRequest();
-             }
-             
+         {                 
              var response = _userService.UpdateUser(id, user);
 
              return Ok(response);

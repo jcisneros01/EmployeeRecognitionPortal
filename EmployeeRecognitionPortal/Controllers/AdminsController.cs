@@ -1,9 +1,12 @@
+using EmployeeRecognitionPortal.Filters;
 using EmployeeRecognitionPortal.Models.Request;
 using EmployeeRecognitionPortal.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
  
  namespace EmployeeRecognitionPortal.Controllers
  {
+     [Authorize]
      [Route("[controller]")]
      public class AdminsController : Controller
      {
@@ -39,26 +42,18 @@ using Microsoft.AspNetCore.Mvc;
          }
  
          [HttpPost]
+         [ValidateModel]
          public IActionResult CreateUser([FromBody]AdminRequest user)
          {    
-             if (!ModelState.IsValid)
-             {
-                 return BadRequest();
-             }
-             
              var response = _adminService.CreateAdmin(user);
 
              return Ok(response);
          }      
          
          [HttpPut("{id}")]
+         [ValidateModel]
          public IActionResult UpdateUser(int id, [FromBody]AdminPostRequest user)
-         {    
-             if (!ModelState.IsValid)
-             {
-                 return BadRequest();
-             }
-             
+         {     
              var response = _adminService.UpdateAdmin(id, user);
 
              return Ok(response);

@@ -22,7 +22,7 @@ namespace EmployeeRecognitionPortal.Extensions
                     var error = context.Features.Get<IExceptionHandlerFeature>();
                     if(error != null)
                     {   
-                        //todo: add status prop in exception class and use inheritence to check type for overriding statuscode
+                        //todo: add status prop in exception class and use inheritance to check type for overriding statuscode
                         var ex = error.Error;    
                         if (ex is UserNotFoundException)
                             context.Response.StatusCode = (int) HttpStatusCode.NotFound;    
