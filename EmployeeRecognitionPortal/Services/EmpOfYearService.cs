@@ -56,6 +56,8 @@ namespace EmployeeRecognitionPortal.Services
           {
             throw new AwardNotFoundException($"Award with id {id} was not in the database.");
           }
+          _context.EmpOfYears.Remove(eoy);
+          _context.SaveChanges();
         }
 
     }
