@@ -15,7 +15,13 @@
     "redux-saga": "^1.0.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.84.0",
-    "validator": "^10.11.0"
+    "validator": "^10.11.0",
+    "ajv": "^6.7.0",
+    "eslint-plugin-flowtype": "2.18.1",
+    "eslint-config-react-app": "^3.0.6",
+    "ajv-keywords": "^3.3.0",
+    "ajv-errors": "^1.0.1",
+    "classnames": "^2.2.6"
   },
   "scripts": {
     "start": "react-scripts start",
