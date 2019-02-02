@@ -31,8 +31,15 @@ namespace EmployeeRecognitionPortal
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            
+            services.AddCors(options => options.AddPolicy("AllowAllOrigins", 
+            builder =>
+            {
+                builder
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            }));            
+                        
             // configure jwt auth
             var key = Encoding.UTF8.GetBytes("this is my custom Secret key for authentication"); //Todo: move to config
             services.AddAuthentication(x =>
@@ -53,10 +60,12 @@ namespace EmployeeRecognitionPortal
                         ValidateLifetime = true,
                         
                         ValidIssuer = "http://localhost:5000",
-                        ValidAudience = "http://localhost:5000"
+                        ValidAudience = "https://localhost:5001"
                     };
                 });
             
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
             //todo: move connection string to config file
             // Connect to database
             var connection = "Data Source=EmployeeRecognition.db";
@@ -74,20 +83,16 @@ namespace EmployeeRecognitionPortal
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.ConfigureExceptionHandler();
-            
-            app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
-            
+            app.UseCors("AllowAllOrigins");
             app.UseAuthentication();
-            
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller}/{action=Index}/{id?}");
             });
-
             app.UseSpa(spa =>
             {
                 spa.Options.SourcePath = "ClientApp";

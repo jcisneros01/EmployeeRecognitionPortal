@@ -65,6 +65,7 @@ function* loginFlow(action) {
     const { email, password } = action.credentials;
   
    const resp = yield call(loginApi, email, password);
+   console.log(resp)
    //const resp = {token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NDg3MTgwMjksImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCJ9.KJefXEk4ACUcoNUULSV1O-IsF6lKGsmXbH3t1Qf6C-s'}
    if(resp.token) {
      localStorage.userJWT = resp.token; 
@@ -78,7 +79,7 @@ function* loginFlow(action) {
   } catch (error) {
     // error? send it to redux
     //yield put({ type: LOGIN_ERROR, error });
-    console.log('Login Error')
+    console.log('Login Error:' + error)
   }
  
 }
