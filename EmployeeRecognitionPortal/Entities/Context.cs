@@ -6,10 +6,12 @@ namespace EmployeeRecognitionPortal.Models
     {
         public Context(DbContextOptions<Context> options): base(options)
         {
-            
+
         }
 
         public DbSet<User> Users { get; set; }
         public DbSet<Admin> Admins { get; set; }
+        public DbSet<EmpOfMonth> EmpOfMonths {get; set;}
+        public DbSet<EmpOfYear> EmpOfYears {get; set;}
     }
 }

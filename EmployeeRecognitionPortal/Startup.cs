@@ -73,6 +73,8 @@ namespace EmployeeRecognitionPortal
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAdminService, AdminService>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IEmpOfMonthService, EmpOfMonthService>();
+            services.AddScoped<IEmpOfYearService, EmpOfYearService>();
             services.AddScoped<ValidateModelAttribute>();
                 
             // In production, the React files will be served from this directory

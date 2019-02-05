@@ -1,9 +1,9 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace EmployeeRecognitionPortal.Models
+namespace EmployeeRecognitionPortal.Models.Request
 {
-    public class AwardMonth
+    public class EmpOfMonthRequest
     {
       [Required]
       public string EmployeeName {get; set;}
@@ -15,8 +15,6 @@ namespace EmployeeRecognitionPortal.Models
       public DateTime DateAwarded {get; set;}
 
       [Required]
-      public User AwardCreator {get; set; }
-
-      public string LaTexFile { get; set; }
+      public int AwardCreatorId {get; set; }
     }
 }

@@ -2,13 +2,13 @@ using System;
 
 namespace EmployeeRecognitionPortal.Exceptions
 {
-    public class UserNotFoundException : Exception
+    public class AwardNotFoundException : Exception
     {
-        public UserNotFoundException()
+        public AwardNotFoundException()
         {
         }
 
-        public UserNotFoundException(string message)
+        public AwardNotFoundException(string message)
             : base(message)
         {
         }
