@@ -15,6 +15,6 @@ namespace EmployeeRecognitionPortal.Models.Request
       public DateTime DateAwarded {get; set;}
 
       [Required]
-      public User AwardCreator {get; set; }
+      public int AwardCreatorId {get; set; }
     }
 }

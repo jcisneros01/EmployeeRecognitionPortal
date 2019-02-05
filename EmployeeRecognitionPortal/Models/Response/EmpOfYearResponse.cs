@@ -13,7 +13,7 @@ namespace EmployeeRecognitionPortal.Models.Response
 
       public DateTime DateAwarded {get; set;}
 
-      public User AwardCreator {get; set; }
+      public int AwardCreatorId { get; set; }
 
       public string LaTexFile { get; set; }
     }

@@ -64,7 +64,7 @@ namespace EmployeeRecognitionPortal.Models
         s.Append(this.EmployeeEmail);
         s.Append(@"}
             \LARGE{ \\");
-        s.Append(this.DateAwarded);
+        s.Append(this.DateAwarded.ToShortDateString());
         s.Append(@"}
             \end{minipage}
 

@@ -5,6 +5,7 @@ using EmployeeRecognitionPortal.Exceptions;
 using EmployeeRecognitionPortal.Models;
 using EmployeeRecognitionPortal.Models.Request;
 using EmployeeRecognitionPortal.Models.Response;
+using EmployeeRecognitionPortal.Services;
 
 namespace EmployeeRecognitionPortal.Services
 {
@@ -22,6 +23,12 @@ namespace EmployeeRecognitionPortal.Services
         public EmpOfMonthResponse CreateEmpOfMonth(EmpOfMonthRequest eom)
         {
            var newEOM = _mapper.Map<EmpOfMonthRequest, EmpOfMonth>(eom);
+
+           //Grab User and dynamically write the LaTex File
+           UserService gtusr = new UserService(_context, _mapper);
+           UserResponse usr = gtusr.GetUser(newEOM.AwardCreatorId);
+           User finUsr = _mapper.Map<UserResponse, User>(usr);
+           newEOM.AwardCreator = finUsr;
 
            //Create LaTex File
            newEOM.CreateLaTex();
