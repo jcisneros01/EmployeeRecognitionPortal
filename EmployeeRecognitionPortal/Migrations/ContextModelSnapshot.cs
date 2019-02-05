@@ -3,8 +3,6 @@ using System;
 using EmployeeRecognitionPortal.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using System.Linq;
-using System.Data;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EmployeeRecognitionPortal.Migrations
@@ -18,24 +16,52 @@ namespace EmployeeRecognitionPortal.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.1-servicing-10028");
 
-            modelBuilder.Entity("EmployeeRecognitionPortal.Models.Admin", b =>
+            modelBuilder.Entity("EmployeeRecognitionPortal.Models.EmpOfMonth", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("DateCreated");
+                    b.Property<int>("AwardCreatorId");
 
-                    b.Property<string>("Email")
+                    b.Property<DateTime>("DateAwarded");
+
+                    b.Property<string>("EmployeeEmail")
                         .IsRequired();
 
-                    b.Property<bool?>("IsDeleted");
-
-                    b.Property<string>("Password")
+                    b.Property<string>("EmployeeName")
                         .IsRequired();
+
+                    b.Property<string>("LaTexFile");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Admins");
+                    b.HasIndex("AwardCreatorId");
+
+                    b.ToTable("EmpOfMonths");
+                });
+
+            modelBuilder.Entity("EmployeeRecognitionPortal.Models.EmpOfYear", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("AwardCreatorId");
+
+                    b.Property<DateTime>("DateAwarded");
+
+                    b.Property<string>("EmployeeEmail")
+                        .IsRequired();
+
+                    b.Property<string>("EmployeeName")
+                        .IsRequired();
+
+                    b.Property<string>("LaTexFile");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AwardCreatorId");
+
+                    b.ToTable("EmpOfYears");
                 });
 
             modelBuilder.Entity("EmployeeRecognitionPortal.Models.User", b =>
@@ -48,16 +74,14 @@ namespace EmployeeRecognitionPortal.Migrations
                     b.Property<string>("Email")
                         .IsRequired();
 
-                    b.Property<bool?>("IsDeleted");
+                    b.Property<bool>("IsAdmin");
 
-                    b.Property<string>("Name")
-                        .IsRequired();
+                    b.Property<string>("Name");
 
                     b.Property<string>("Password")
                         .IsRequired();
 
-                    b.Property<byte[]>("Signature")
-                        .IsRequired();
+                    b.Property<byte[]>("Signature");
 
                     b.HasKey("Id");
 
@@ -65,70 +89,20 @@ namespace EmployeeRecognitionPortal.Migrations
                 });
 
             modelBuilder.Entity("EmployeeRecognitionPortal.Models.EmpOfMonth", b =>
-            {
-
-
-                b.Property<int>("Id")
-                    .ValueGeneratedOnAdd();
-
-                b.Property<DateTime>("DateAwarded")
-                    .IsRequired();
-
-                b.Property<string>("EmployeeEmail")
-                    .IsRequired();
-
-                b.Property<string>("EmployeeName")
-                    .IsRequired();
-
-                b.Property<int>("AwardCreatorId")
-                    .IsRequired();
-
-                b.Property<User>("AwardCreator");
-
-                b.Property<string>("LaTexFile");
-
-                b.ToTable("EmpOfMonths");
-
-                b.HasKey("Id");
-
-                b.HasOne("EmployeeRecognitionPortal.Models.User")
-                    .WithOne()
-                    .HasForeignKey("Id");
-            });
+                {
+                    b.HasOne("EmployeeRecognitionPortal.Models.User", "AwardCreator")
+                        .WithMany()
+                        .HasForeignKey("AwardCreatorId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
 
             modelBuilder.Entity("EmployeeRecognitionPortal.Models.EmpOfYear", b =>
-            {
-
-
-                b.Property<int>("Id")
-                    .ValueGeneratedOnAdd();
-
-                b.Property<DateTime>("DateAwarded")
-                    .IsRequired();
-
-                b.Property<string>("EmployeeEmail")
-                    .IsRequired();
-
-                b.Property<string>("EmployeeName")
-                    .IsRequired();
-
-                b.Property<int>("AwardCreatorId")
-                    .IsRequired();
-
-                b.Property<User>("AwardCreator");
-
-                b.Property<string>("LaTexFile");
-
-                b.ToTable("EmpOfYears");
-
-                b.HasKey("Id");
-
-                b.HasOne("EmployeeRecognitionPortal.Models.User")
-                    .WithOne()
-                    .HasForeignKey("Id");
-            });
-
-
+                {
+                    b.HasOne("EmployeeRecognitionPortal.Models.User", "AwardCreator")
+                        .WithMany()
+                        .HasForeignKey("AwardCreatorId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
 #pragma warning restore 612, 618
         }
     }
