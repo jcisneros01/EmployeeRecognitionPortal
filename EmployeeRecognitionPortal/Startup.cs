@@ -58,11 +58,15 @@ namespace EmployeeRecognitionPortal
                         ValidateAudience = true,
                         ValidateLifetime = true,
                         ValidIssuer = "http://localhost:5000",
+
                         ValidAudiences = new List<string>
                         {
                             "https://localhost:5001",
                             "http://localhost:5000"
                         }
+
+                        ValidAudience = "https://localhost:5001"
+
                     };
                 });
             
@@ -75,6 +79,8 @@ namespace EmployeeRecognitionPortal
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAdminService, AdminService>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IEmpOfMonthService, EmpOfMonthService>();
+            services.AddScoped<IEmpOfYearService, EmpOfYearService>();
             services.AddScoped<ValidateModelAttribute>();
                 
             // In production, the React files will be served from this directory
