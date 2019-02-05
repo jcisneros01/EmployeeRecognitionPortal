@@ -11,6 +11,25 @@
         <e p="Bin" t="ExcludeRecursive" />
         <e p="ClientApp" t="Include">
           <e p=".gitignore" t="Include" />
+          <e p="node_modules" t="ExcludeRecursive">
+            <e p="@types" t="IncludeRecursive" />
+            <e p="ajv" t="IncludeRecursive" />
+            <e p="babel-eslint" t="IncludeRecursive" />
+            <e p="eslint" t="IncludeRecursive" />
+            <e p="eslint-config-react-app" t="IncludeRecursive" />
+            <e p="eslint-plugin-flowtype" t="IncludeRecursive" />
+            <e p="eslint-plugin-import" t="IncludeRecursive" />
+            <e p="eslint-plugin-jsx-a11y" t="IncludeRecursive" />
+            <e p="eslint-plugin-react" t="IncludeRecursive" />
+            <e p="jquery" t="IncludeRecursive" />
+            <e p="react" t="IncludeRecursive" />
+            <e p="react-dom" t="IncludeRecursive" />
+            <e p="react-redux" t="IncludeRecursive" />
+            <e p="react-router-dom" t="IncludeRecursive" />
+            <e p="react-scripts" t="IncludeRecursive" />
+            <e p="redux" t="IncludeRecursive" />
+            <e p="rimraf" t="IncludeRecursive" />
+          </e>
           <e p="package-lock.json" t="Include" />
           <e p="package.json" t="Include" />
           <e p="public" t="Include">
@@ -42,16 +61,29 @@
         <e p="Controllers" t="Include">
           <e p="AdminsController.cs" t="Include" />
           <e p="AuthController.cs" t="Include" />
+          <e p="EmpOfMonthController.cs" t="Include" />
+          <e p="EmpOfYearController.cs" t="Include" />
           <e p="UsersController.cs" t="Include" />
         </e>
         <e p="EmployeeRecognition.db" t="Include" />
         <e p="EmployeeRecognitionPortal.csproj" t="IncludeRecursive" />
         <e p="entities" t="Include">
-          <e p="Admin.cs" t="Include" />
+          <e p="Award.cs" t="Include" />
+          <e p="AwardTemplates" t="Include">
+            <e p="certBorder.jpg" t="Include" />
+            <e p="Employee_of_the_Month.pdf" t="Include" />
+            <e p="Employee_of_the_Year.pdf" t="Include" />
+            <e p="EmpOfMonth.tex" t="Include" />
+            <e p="EmpOfYear.tex" t="Include" />
+            <e p="sig.png" t="Include" />
+          </e>
           <e p="context.cs" t="Include" />
+          <e p="EmpOfMonth.cs" t="Include" />
+          <e p="EmpOfYear.cs" t="Include" />
           <e p="User.cs" t="Include" />
         </e>
         <e p="Exceptions" t="Include">
+          <e p="AwardNotFound.cs" t="Include" />
           <e p="UserNotFound.cs" t="Include" />
         </e>
         <e p="Extensions" t="Include">
@@ -64,10 +96,8 @@
           <e p="PasswordHelper.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
-          <e p="20190120081838_added user table.cs" t="Include" />
-          <e p="20190120081838_added user table.Designer.cs" t="Include" />
-          <e p="20190126074419_CreatedAdminsTable.cs" t="Include" />
-          <e p="20190126074419_CreatedAdminsTable.Designer.cs" t="Include" />
+          <e p="20190205065359_InitialCreate.cs" t="Include" />
+          <e p="20190205065359_InitialCreate.Designer.cs" t="Include" />
           <e p="ContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
@@ -75,6 +105,10 @@
           <e p="request" t="Include">
             <e p="AdminPostRequest.cs" t="Include" />
             <e p="AdminRequest.cs" t="Include" />
+            <e p="EmpOfMonthPostRequest.cs" t="Include" />
+            <e p="EmpOfMonthRequest.cs" t="Include" />
+            <e p="EmpOfYearPostRequest.cs" t="Include" />
+            <e p="EmpOfYearRequest.cs" t="Include" />
             <e p="LoginRequest.cs" t="Include" />
             <e p="PasswordResetRequest.cs" t="Include" />
             <e p="UserPostRequest.cs" t="Include" />
@@ -82,6 +116,8 @@
           </e>
           <e p="Response" t="Include">
             <e p="AdminResponse.cs" t="Include" />
+            <e p="EmpOfMonthResponse.cs" t="Include" />
+            <e p="EmpOfYearResponse.cs" t="Include" />
             <e p="UserResponse.cs" t="Include" />
           </e>
         </e>
@@ -93,8 +129,11 @@
           </e>
         </e>
         <e p="Profiles" t="Include">
-          <e p="AdminProfile.cs" t="Include" />
           <e p="AdminResponseProfile.cs" t="Include" />
+          <e p="EmpOfMonthProfile.cs" t="Include" />
+          <e p="EmpOfMonthResponseProfile.cs" t="Include" />
+          <e p="EmpOfYearProfile.cs" t="Include" />
+          <e p="EmpOfYearResponseProfile.cs" t="Include" />
           <e p="UserProfile.cs" t="Include" />
           <e p="UserResponseProfile.cs" t="Include" />
         </e>
@@ -103,10 +142,13 @@
           <e p="launchSettings.json" t="Include" />
         </e>
         <e p="Services" t="Include">
-          <e p="AdminService.cs" t="Include" />
           <e p="AuthService.cs" t="Include" />
+          <e p="EmpOfMonthService.cs" t="Include" />
+          <e p="EmpOfYearService.cs" t="Include" />
           <e p="IAdminService.cs" t="Include" />
           <e p="IAuthService.cs" t="Include" />
+          <e p="IEmpOfMonthService.cs" t="Include" />
+          <e p="IEmpOfYearService.cs" t="Include" />
           <e p="IUserService.cs" t="Include" />
           <e p="UserService.cs" t="Include" />
         </e>
