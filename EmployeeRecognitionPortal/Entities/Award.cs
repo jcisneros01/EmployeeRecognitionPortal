@@ -1,6 +1,7 @@
 using System;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EmployeeRecognitionPortal.Models
 {
@@ -17,10 +18,14 @@ namespace EmployeeRecognitionPortal.Models
 
       [Required]
       public DateTime DateAwarded {get; set;}
-
+      
       [Required]
-      public User AwardCreator {get; set; }
+      public int AwardCreatorId { get; set; }
+      [ForeignKey("AwardCreatorId")]
 
+      public User AwardCreator {get; set; }
+      
+      //todo: Convert base64 img to png for LaTex 
       public string LaTexFile { get; set; }
 
       //Initialize LaTexFile

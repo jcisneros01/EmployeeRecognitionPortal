@@ -23,6 +23,12 @@ namespace EmployeeRecognitionPortal.Services
         {
            var newEOY = _mapper.Map<EmpOfYearRequest, EmpOfYear>(eoy);
 
+           //Grab User and dynamically write the LaTex File
+           UserService gtusr = new UserService(_context, _mapper);
+           UserResponse usr = gtusr.GetUser(newEOY.AwardCreatorId);
+           User finUsr = _mapper.Map<UserResponse, User>(usr);
+           newEOY.AwardCreator = finUsr;
+
            //Create LaTex File
            newEOY.CreateLaTex();
 

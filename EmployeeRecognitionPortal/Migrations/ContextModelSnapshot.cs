@@ -3,6 +3,8 @@ using System;
 using EmployeeRecognitionPortal.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using System.Linq;
+using System.Data;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EmployeeRecognitionPortal.Migrations
@@ -61,6 +63,72 @@ namespace EmployeeRecognitionPortal.Migrations
 
                     b.ToTable("Users");
                 });
+
+            modelBuilder.Entity("EmployeeRecognitionPortal.Models.EmpOfMonth", b =>
+            {
+
+
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd();
+
+                b.Property<DateTime>("DateAwarded")
+                    .IsRequired();
+
+                b.Property<string>("EmployeeEmail")
+                    .IsRequired();
+
+                b.Property<string>("EmployeeName")
+                    .IsRequired();
+
+                b.Property<int>("AwardCreatorId")
+                    .IsRequired();
+
+                b.Property<User>("AwardCreator");
+
+                b.Property<string>("LaTexFile");
+
+                b.ToTable("EmpOfMonths");
+
+                b.HasKey("Id");
+
+                b.HasOne("EmployeeRecognitionPortal.Models.User")
+                    .WithOne()
+                    .HasForeignKey("Id");
+            });
+
+            modelBuilder.Entity("EmployeeRecognitionPortal.Models.EmpOfYear", b =>
+            {
+
+
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd();
+
+                b.Property<DateTime>("DateAwarded")
+                    .IsRequired();
+
+                b.Property<string>("EmployeeEmail")
+                    .IsRequired();
+
+                b.Property<string>("EmployeeName")
+                    .IsRequired();
+
+                b.Property<int>("AwardCreatorId")
+                    .IsRequired();
+
+                b.Property<User>("AwardCreator");
+
+                b.Property<string>("LaTexFile");
+
+                b.ToTable("EmpOfYears");
+
+                b.HasKey("Id");
+
+                b.HasOne("EmployeeRecognitionPortal.Models.User")
+                    .WithOne()
+                    .HasForeignKey("Id");
+            });
+
+
 #pragma warning restore 612, 618
         }
     }

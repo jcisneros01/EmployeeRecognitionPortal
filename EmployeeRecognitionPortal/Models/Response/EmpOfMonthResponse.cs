@@ -12,8 +12,8 @@ namespace EmployeeRecognitionPortal.Models.Response
       public string EmployeeEmail {get; set;}
 
       public DateTime DateAwarded {get; set;}
-
-      public User AwardCreator {get; set; }
+      
+      public int AwardCreatorId { get; set; }
 
       public string LaTexFile { get; set; }
     }
