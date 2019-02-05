@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Text;
 using AutoMapper;
-using EmployeeRecognitionPortal.Controllers;
 using EmployeeRecognitionPortal.Extensions;
 using EmployeeRecognitionPortal.Filters;
 using EmployeeRecognitionPortal.Models;
@@ -58,9 +57,16 @@ namespace EmployeeRecognitionPortal
                         ValidateIssuer = true,
                         ValidateAudience = true,
                         ValidateLifetime = true,
-                        
                         ValidIssuer = "http://localhost:5000",
+
+                        ValidAudiences = new List<string>
+                        {
+                            "https://localhost:5001",
+                            "http://localhost:5000"
+                        }
+
                         ValidAudience = "https://localhost:5001"
+
                     };
                 });
             
