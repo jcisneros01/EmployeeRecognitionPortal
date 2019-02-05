@@ -8,7 +8,7 @@ namespace EmployeeRecognitionPortal.Profiles
     {
         public AdminResponseProfile()
         {
-            CreateMap<Admin, AdminResponse>();
+            CreateMap<User, AdminResponse>();
         }
     }
 }

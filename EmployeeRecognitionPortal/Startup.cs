@@ -73,7 +73,6 @@ namespace EmployeeRecognitionPortal
             var connection = "Data Source=EmployeeRecognition.db";
             services.AddDbContext<Context>(options => options.UseSqlite(connection));
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IAdminService, AdminService>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<ValidateModelAttribute>();
                 
