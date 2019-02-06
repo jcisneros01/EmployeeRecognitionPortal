@@ -82,7 +82,7 @@ namespace EmployeeRecognitionPortal.Models
         s.Append(this.AwardCreator.Name);
         s.Append(@"} \\
              \small {");
-        s.Append(this.AwardCreator.Email);
+        s.Append(this.AwardCreator.User.Email);
         s.Append(@"}}}
             \end{minipage}
             \pagebreak

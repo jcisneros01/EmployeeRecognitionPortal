@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeRecognitionPortal.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20190205065359_InitialCreate")]
+    [Migration("20190206043617_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -17,6 +17,25 @@ namespace EmployeeRecognitionPortal.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.1-servicing-10028");
+
+            modelBuilder.Entity("EmployeeRecognitionPortal.Models.AwardCreator", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.Property<byte[]>("Signature");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("AwardCreator");
+                });
 
             modelBuilder.Entity("EmployeeRecognitionPortal.Models.EmpOfMonth", b =>
                 {
@@ -78,21 +97,28 @@ namespace EmployeeRecognitionPortal.Migrations
 
                     b.Property<bool>("IsAdmin");
 
-                    b.Property<string>("Name");
-
                     b.Property<string>("Password")
                         .IsRequired();
 
-                    b.Property<byte[]>("Signature");
-
                     b.HasKey("Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("EmployeeRecognitionPortal.Models.AwardCreator", b =>
+                {
+                    b.HasOne("EmployeeRecognitionPortal.Models.User", "User")
+                        .WithOne("AwardCreator")
+                        .HasForeignKey("EmployeeRecognitionPortal.Models.AwardCreator", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("EmployeeRecognitionPortal.Models.EmpOfMonth", b =>
                 {
-                    b.HasOne("EmployeeRecognitionPortal.Models.User", "AwardCreator")
+                    b.HasOne("EmployeeRecognitionPortal.Models.AwardCreator", "AwardCreator")
                         .WithMany()
                         .HasForeignKey("AwardCreatorId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -100,7 +126,7 @@ namespace EmployeeRecognitionPortal.Migrations
 
             modelBuilder.Entity("EmployeeRecognitionPortal.Models.EmpOfYear", b =>
                 {
-                    b.HasOne("EmployeeRecognitionPortal.Models.User", "AwardCreator")
+                    b.HasOne("EmployeeRecognitionPortal.Models.AwardCreator", "AwardCreator")
                         .WithMany()
                         .HasForeignKey("AwardCreatorId")
                         .OnDelete(DeleteBehavior.Cascade);

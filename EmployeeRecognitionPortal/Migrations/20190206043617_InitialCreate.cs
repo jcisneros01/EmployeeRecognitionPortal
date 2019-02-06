@@ -16,13 +16,32 @@ namespace EmployeeRecognitionPortal.Migrations
                     Email = table.Column<string>(nullable: false),
                     Password = table.Column<string>(nullable: false),
                     DateCreated = table.Column<DateTime>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Signature = table.Column<byte[]>(nullable: true),
                     IsAdmin = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AwardCreator",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(nullable: true),
+                    Signature = table.Column<byte[]>(nullable: true),
+                    UserId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AwardCreator", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AwardCreator_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -41,9 +60,9 @@ namespace EmployeeRecognitionPortal.Migrations
                 {
                     table.PrimaryKey("PK_EmpOfMonths", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_EmpOfMonths_Users_AwardCreatorId",
+                        name: "FK_EmpOfMonths_AwardCreator_AwardCreatorId",
                         column: x => x.AwardCreatorId,
-                        principalTable: "Users",
+                        principalTable: "AwardCreator",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -64,12 +83,18 @@ namespace EmployeeRecognitionPortal.Migrations
                 {
                     table.PrimaryKey("PK_EmpOfYears", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_EmpOfYears_Users_AwardCreatorId",
+                        name: "FK_EmpOfYears_AwardCreator_AwardCreatorId",
                         column: x => x.AwardCreatorId,
-                        principalTable: "Users",
+                        principalTable: "AwardCreator",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AwardCreator_UserId",
+                table: "AwardCreator",
+                column: "UserId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_EmpOfMonths_AwardCreatorId",
@@ -80,6 +105,12 @@ namespace EmployeeRecognitionPortal.Migrations
                 name: "IX_EmpOfYears_AwardCreatorId",
                 table: "EmpOfYears",
                 column: "AwardCreatorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_Email",
+                table: "Users",
+                column: "Email",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -89,6 +120,9 @@ namespace EmployeeRecognitionPortal.Migrations
 
             migrationBuilder.DropTable(
                 name: "EmpOfYears");
+
+            migrationBuilder.DropTable(
+                name: "AwardCreator");
 
             migrationBuilder.DropTable(
                 name: "Users");

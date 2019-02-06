@@ -25,7 +25,9 @@ namespace EmployeeRecognitionPortal.Extensions
                         //todo: add status prop in exception class and use inheritance to check type for overriding statuscode
                         var ex = error.Error;    
                         if (ex is UserNotFoundException)
-                            context.Response.StatusCode = (int) HttpStatusCode.NotFound;    
+                            context.Response.StatusCode = (int) HttpStatusCode.NotFound;                  
+                        if (ex is EmailAlreadyExistsException)
+                            context.Response.StatusCode = (int) HttpStatusCode.BadRequest;    
                         
                         await context.Response.WriteAsync(new ErrorModel()
                         {

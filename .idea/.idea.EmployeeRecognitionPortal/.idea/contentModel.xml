@@ -11,25 +11,6 @@
         <e p="Bin" t="ExcludeRecursive" />
         <e p="ClientApp" t="Include">
           <e p=".gitignore" t="Include" />
-          <e p="node_modules" t="ExcludeRecursive">
-            <e p="@types" t="IncludeRecursive" />
-            <e p="ajv" t="IncludeRecursive" />
-            <e p="babel-eslint" t="IncludeRecursive" />
-            <e p="eslint" t="IncludeRecursive" />
-            <e p="eslint-config-react-app" t="IncludeRecursive" />
-            <e p="eslint-plugin-flowtype" t="IncludeRecursive" />
-            <e p="eslint-plugin-import" t="IncludeRecursive" />
-            <e p="eslint-plugin-jsx-a11y" t="IncludeRecursive" />
-            <e p="eslint-plugin-react" t="IncludeRecursive" />
-            <e p="jquery" t="IncludeRecursive" />
-            <e p="react" t="IncludeRecursive" />
-            <e p="react-dom" t="IncludeRecursive" />
-            <e p="react-redux" t="IncludeRecursive" />
-            <e p="react-router-dom" t="IncludeRecursive" />
-            <e p="react-scripts" t="IncludeRecursive" />
-            <e p="redux" t="IncludeRecursive" />
-            <e p="rimraf" t="IncludeRecursive" />
-          </e>
           <e p="package-lock.json" t="Include" />
           <e p="package.json" t="Include" />
           <e p="public" t="Include">
@@ -69,6 +50,7 @@
         <e p="EmployeeRecognitionPortal.csproj" t="IncludeRecursive" />
         <e p="entities" t="Include">
           <e p="Award.cs" t="Include" />
+          <e p="AwardCreator.cs" t="Include" />
           <e p="AwardTemplates" t="Include">
             <e p="certBorder.jpg" t="Include" />
             <e p="Employee_of_the_Month.pdf" t="Include" />
@@ -83,8 +65,9 @@
           <e p="User.cs" t="Include" />
         </e>
         <e p="Exceptions" t="Include">
-          <e p="AwardNotFound.cs" t="Include" />
-          <e p="UserNotFound.cs" t="Include" />
+          <e p="AwardNotFoundException.cs" t="Include" />
+          <e p="EmailAlreadyExistsException.cs" t="Include" />
+          <e p="UserNotFoundException.cs" t="Include" />
         </e>
         <e p="Extensions" t="Include">
           <e p="ExceptionMiddlewareExtensions.cs" t="Include" />
@@ -96,8 +79,8 @@
           <e p="PasswordHelper.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
-          <e p="20190205065359_InitialCreate.cs" t="Include" />
-          <e p="20190205065359_InitialCreate.Designer.cs" t="Include" />
+          <e p="20190206043617_InitialCreate.cs" t="Include" />
+          <e p="20190206043617_InitialCreate.Designer.cs" t="Include" />
           <e p="ContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">

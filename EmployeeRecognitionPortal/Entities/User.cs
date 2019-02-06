@@ -18,10 +18,8 @@ namespace EmployeeRecognitionPortal.Models
         [Required]
         public DateTime DateCreated { get; set; }
         
-        public string Name { get; set; }
-        
-        public byte[] Signature { get; set; }
-
         public bool IsAdmin { get; set; }
+
+        public AwardCreator AwardCreator { get; set; }
     }
 }

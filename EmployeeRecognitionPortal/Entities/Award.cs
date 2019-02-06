@@ -23,7 +23,7 @@ namespace EmployeeRecognitionPortal.Models
       public int AwardCreatorId { get; set; }
       
       [ForeignKey("AwardCreatorId")]
-      public User AwardCreator {get; set; }
+      public AwardCreator AwardCreator {get; set; }
       
       //todo: Convert base64 img to png for LaTex 
       public string LaTexFile { get; set; }

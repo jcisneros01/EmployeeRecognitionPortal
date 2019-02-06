@@ -6,6 +6,7 @@ using EmployeeRecognitionPortal.Helpers;
 using EmployeeRecognitionPortal.Models;
 using EmployeeRecognitionPortal.Models.Request;
 using EmployeeRecognitionPortal.Models.Response;
+using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeRecognitionPortal.Services
 {
@@ -22,6 +23,12 @@ namespace EmployeeRecognitionPortal.Services
         
         public UserResponse CreateUser(UserRequest user)
         {
+            var existingUser = _context.Users.FirstOrDefault(x => x.Email == user.Email);
+            if (existingUser != null)
+            {
+                throw new EmailAlreadyExistsException($"User with username {user.Email} already exists");
+            }
+
            var newUser = _mapper.Map<UserRequest, User>(user);
             
            _context.Users.Add(newUser);
@@ -33,6 +40,7 @@ namespace EmployeeRecognitionPortal.Services
         public List<UserResponse> GetUsers()
         {
             var users = _context.Users
+                .Include(x => x.AwardCreator)
                 .Where(x => x.IsAdmin == false)
                 .ToList();
             
@@ -45,8 +53,7 @@ namespace EmployeeRecognitionPortal.Services
                 .Where(x => x.IsAdmin == true)
                 .ToList();
             
-            return _mapper.Map<List<User>, List<AdminResponse>>(users);
-            
+            return _mapper.Map<List<User>, List<AdminResponse>>(users);        
         }
 
         public void DeleteUser(int id)
@@ -63,16 +70,18 @@ namespace EmployeeRecognitionPortal.Services
 
         public UserResponse UpdateUser(int id, UserPostRequest user)
         {
-            var existingUser = _context.Users.FirstOrDefault(x => x.Id == id);
+            var existingUser = _context.Users.Include(x => x.AwardCreator).FirstOrDefault(x => x.Id == id);
             if (existingUser == null)
             {
                 throw new UserNotFoundException($"User with id {id} not found");
             }
             
-            existingUser.Name = string.IsNullOrWhiteSpace(user.Name) ? existingUser.Name: user.Name;
+            existingUser.AwardCreator.Name = string.IsNullOrWhiteSpace(user.Name) ? 
+                existingUser.AwardCreator.Name: user.Name;
             existingUser.Email = string.IsNullOrWhiteSpace(user.Email) ? existingUser.Email: user.Email;
-            existingUser.Password = string.IsNullOrWhiteSpace(user.Password) ? existingUser.Password: PasswordHelper.HashPassword(user.Password);
-            existingUser.Signature = user.Signature ?? existingUser.Signature;
+            existingUser.Password = string.IsNullOrWhiteSpace(user.Password) ? 
+                existingUser.Password: PasswordHelper.HashPassword(user.Password);
+            existingUser.AwardCreator.Signature = user.Signature ?? existingUser.AwardCreator.Signature;
             _context.SaveChanges();
             
             return _mapper.Map<User, UserResponse>(existingUser);
@@ -116,7 +125,7 @@ namespace EmployeeRecognitionPortal.Services
 
         public UserResponse GetUser(int id)
         {
-            var user = _context.Users.FirstOrDefault(x => x.Id == id);
+            var user = _context.Users.Include(x => x.AwardCreator).FirstOrDefault(x => x.Id == id);
             if (user == null)
             {
                 throw new UserNotFoundException($"User with id {id} not found");

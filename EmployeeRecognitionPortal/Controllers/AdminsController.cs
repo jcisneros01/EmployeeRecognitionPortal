@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 
  namespace EmployeeRecognitionPortal.Controllers
  {
-     //todo: validate admin credentials
-     //[Authorize]
+     //todo: validate admin creds
+     [Authorize]
      [Route("[controller]")]
      public class AdminsController : Controller
      {

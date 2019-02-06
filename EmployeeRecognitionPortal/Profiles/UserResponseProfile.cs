@@ -8,7 +8,9 @@ namespace EmployeeRecognitionPortal.Profiles
     {
         public UserResponseProfile()
         {
-            CreateMap<User, UserResponse>();
+            CreateMap<User, UserResponse>()
+                .ForPath(dest => dest.Name, opt => opt.MapFrom(src => src.AwardCreator.Name))
+                .ForPath(dest => dest.Signature, opt => opt.MapFrom(src => src.AwardCreator.Signature));
         }
     }
 }
