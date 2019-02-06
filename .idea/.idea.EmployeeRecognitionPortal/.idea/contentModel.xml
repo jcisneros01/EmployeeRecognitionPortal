@@ -11,6 +11,28 @@
         <e p="Bin" t="ExcludeRecursive" />
         <e p="ClientApp" t="Include">
           <e p=".gitignore" t="Include" />
+          <e p="node_modules" t="ExcludeRecursive">
+            <e p="@types" t="IncludeRecursive" />
+            <e p="ajv" t="IncludeRecursive" />
+            <e p="ajv-errors" t="IncludeRecursive" />
+            <e p="ajv-keywords" t="IncludeRecursive" />
+            <e p="classnames" t="IncludeRecursive" />
+            <e p="eslint-config-react-app" t="IncludeRecursive" />
+            <e p="eslint-plugin-flowtype" t="IncludeRecursive" />
+            <e p="jwt-decode" t="IncludeRecursive" />
+            <e p="react" t="IncludeRecursive" />
+            <e p="react-dom" t="IncludeRecursive" />
+            <e p="react-dropzone" t="IncludeRecursive" />
+            <e p="react-redux" t="IncludeRecursive" />
+            <e p="react-router-dom" t="IncludeRecursive" />
+            <e p="react-scripts" t="IncludeRecursive" />
+            <e p="redux" t="IncludeRecursive" />
+            <e p="redux-logger" t="IncludeRecursive" />
+            <e p="redux-saga" t="IncludeRecursive" />
+            <e p="semantic-ui-css" t="IncludeRecursive" />
+            <e p="semantic-ui-react" t="IncludeRecursive" />
+            <e p="validator" t="IncludeRecursive" />
+          </e>
           <e p="package-lock.json" t="Include" />
           <e p="package.json" t="Include" />
           <e p="public" t="Include">
@@ -18,25 +40,69 @@
             <e p="index.html" t="Include" />
             <e p="manifest.json" t="Include" />
           </e>
-          <e p="README.md" t="Include" />
           <e p="src" t="Include">
+            <e p="actions" t="Include">
+              <e p="authentication.js" t="Include" />
+              <e p="users.js" t="Include" />
+            </e>
+            <e p="App.css" t="Include" />
             <e p="App.js" t="Include" />
             <e p="App.test.js" t="Include" />
             <e p="components" t="Include">
-              <e p="Counter.js" t="Include" />
-              <e p="FetchData.js" t="Include" />
-              <e p="Home.js" t="Include" />
-              <e p="Layout.js" t="Include" />
-              <e p="NavMenu.css" t="Include" />
-              <e p="NavMenu.js" t="Include" />
+              <e p="dashboard" t="Include">
+                <e p="common" t="Include">
+                  <e p="confirmModal.js" t="Include" />
+                </e>
+                <e p="index.js" t="Include" />
+                <e p="Users" t="Include">
+                  <e p="index.js" t="Include" />
+                  <e p="styles.js" t="Include" />
+                  <e p="userForm.js" t="Include" />
+                  <e p="userList.js" t="Include" />
+                  <e p="userModal.js" t="Include" />
+                </e>
+              </e>
+              <e p="home" t="Include">
+                <e p="index.js" t="Include" />
+              </e>
+              <e p="login" t="Include">
+                <e p="index.js" t="Include" />
+                <e p="LoginForm.js" t="Include" />
+              </e>
+              <e p="recoverPassword" t="Include">
+                <e p="index.js" t="Include" />
+                <e p="RecoverPasswordForm.js" t="Include" />
+              </e>
+              <e p="shared" t="Include">
+                <e p="ConfirmEmailMessage.js" t="Include" />
+                <e p="InlineError.js" t="Include" />
+              </e>
             </e>
+            <e p="constants" t="Include">
+              <e p="routes.js" t="Include" />
+            </e>
+            <e p="index.css" t="Include" />
             <e p="index.js" t="Include" />
-            <e p="registerServiceWorker.js" t="Include" />
-            <e p="store" t="Include">
-              <e p="configureStore.js" t="Include" />
-              <e p="Counter.js" t="Include" />
-              <e p="WeatherForecasts.js" t="Include" />
+            <e p="lib" t="Include">
+              <e p="api.js" t="Include" />
             </e>
+            <e p="Navigation.js" t="Include" />
+            <e p="reducers" t="Include">
+              <e p="authentication.js" t="Include" />
+              <e p="index.js" t="Include" />
+              <e p="user.js" t="Include" />
+            </e>
+            <e p="routes" t="Include">
+              <e p="AdminRoute.js" t="Include" />
+              <e p="GuestRoute.js" t="Include" />
+            </e>
+            <e p="sagas" t="Include">
+              <e p="index.js" t="Include" />
+              <e p="loginSaga.js" t="Include" />
+              <e p="userSaga.js" t="Include" />
+            </e>
+            <e p="serviceWorker.js" t="Include" />
+            <e p="types.js" t="Include" />
           </e>
         </e>
         <e p="Controllers" t="Include">
