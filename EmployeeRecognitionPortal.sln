@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeRecognitionPortal", "EmployeeRecognitionPortal\EmployeeRecognitionPortal.csproj", "{DE8AB969-4541-4D4C-8644-8C2693CBD989}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeRecognitionPortalTests", "EmployeeRecognitionPortalTests\EmployeeRecognitionPortalTests.csproj", "{AEE3BE53-3969-4B97-9591-41AC4132C02D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{DE8AB969-4541-4D4C-8644-8C2693CBD989}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE8AB969-4541-4D4C-8644-8C2693CBD989}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE8AB969-4541-4D4C-8644-8C2693CBD989}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEE3BE53-3969-4B97-9591-41AC4132C02D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEE3BE53-3969-4B97-9591-41AC4132C02D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEE3BE53-3969-4B97-9591-41AC4132C02D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEE3BE53-3969-4B97-9591-41AC4132C02D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
