@@ -6,6 +6,7 @@ using EmployeeRecognitionPortal.Helpers;
 using EmployeeRecognitionPortal.Models;
 using EmployeeRecognitionPortal.Models.Request;
 using EmployeeRecognitionPortal.Models.Response;
+using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeRecognitionPortal.Services
 {
@@ -22,6 +23,12 @@ namespace EmployeeRecognitionPortal.Services
         
         public UserResponse CreateUser(UserRequest user)
         {
+            var existingUser = _context.Users.FirstOrDefault(x => x.Email == user.Email);
+            if (existingUser != null)
+            {
+                throw new EmailAlreadyExistsException($"User with username {user.Email} already exists");
+            }
+
            var newUser = _mapper.Map<UserRequest, User>(user);
             
            _context.Users.Add(newUser);
@@ -32,8 +39,21 @@ namespace EmployeeRecognitionPortal.Services
 
         public List<UserResponse> GetUsers()
         {
-            var users = _context.Users.ToList();
+            var users = _context.Users
+                .Include(x => x.AwardCreator)
+                .Where(x => x.IsAdmin == false)
+                .ToList();
+            
             return _mapper.Map<List<User>, List<UserResponse>>(users);
+        }
+        
+        public List<AdminResponse> GetAdmins()
+        {
+            var users = _context.Users
+                .Where(x => x.IsAdmin == true)
+                .ToList();
+            
+            return _mapper.Map<List<User>, List<AdminResponse>>(users);        
         }
 
         public void DeleteUser(int id)
@@ -48,26 +68,26 @@ namespace EmployeeRecognitionPortal.Services
             _context.SaveChanges();
         }
 
-        //todo: user validation for user and admin
-        //todo: modify fields by role
         public UserResponse UpdateUser(int id, UserPostRequest user)
         {
-            var existingUser = _context.Users.FirstOrDefault(x => x.Id == id);
+            var existingUser = _context.Users.Include(x => x.AwardCreator).FirstOrDefault(x => x.Id == id);
             if (existingUser == null)
             {
                 throw new UserNotFoundException($"User with id {id} not found");
             }
             
-            existingUser.Name = string.IsNullOrWhiteSpace(user.Name) ? existingUser.Name: user.Name;
+            existingUser.AwardCreator.Name = string.IsNullOrWhiteSpace(user.Name) ? 
+                existingUser.AwardCreator.Name: user.Name;
             existingUser.Email = string.IsNullOrWhiteSpace(user.Email) ? existingUser.Email: user.Email;
-            existingUser.Password = string.IsNullOrWhiteSpace(user.Password) ? existingUser.Password: PasswordHelper.HashPassword(user.Password);
-            existingUser.Signature = user.Signature ?? existingUser.Signature;
+            existingUser.Password = string.IsNullOrWhiteSpace(user.Password) ? 
+                existingUser.Password: PasswordHelper.HashPassword(user.Password);
+            existingUser.AwardCreator.Signature = user.Signature ?? existingUser.AwardCreator.Signature;
             _context.SaveChanges();
             
             return _mapper.Map<User, UserResponse>(existingUser);
         }
 
-        public UserResponse GetUser(int id)
+        public AdminResponse GetAdmin(int id)
         {
             var user = _context.Users.FirstOrDefault(x => x.Id == id);
             if (user == null)
@@ -75,9 +95,43 @@ namespace EmployeeRecognitionPortal.Services
                 throw new UserNotFoundException($"User with id {id} not found");
             }
 
+            return _mapper.Map<User, AdminResponse>(user);        
+        }
+
+        public AdminResponse CreateAdmin(AdminRequest user)
+        {
+            var newUser = _mapper.Map<AdminRequest, User>(user);
+            
+            _context.Users.Add(newUser);
+            _context.SaveChanges();
+           
+            return _mapper.Map<User, AdminResponse>(newUser);        }
+
+        public AdminResponse UpdateAdmin(int id, AdminPostRequest user)
+        {
+            var existingAdmin = _context.Users.FirstOrDefault(x => x.Id == id);
+            if (existingAdmin == null)
+            {
+                throw new UserNotFoundException($"User with id {id} not found");
+            }
+            
+            existingAdmin.Email = string.IsNullOrWhiteSpace(user.Email) ? existingAdmin.Email: user.Email;
+            existingAdmin.Password = string.IsNullOrWhiteSpace(user.Password) ? 
+                existingAdmin.Password: PasswordHelper.HashPassword(user.Password);
+            _context.SaveChanges();
+            
+            return _mapper.Map<User, AdminResponse>(existingAdmin);
+        }
+
+        public UserResponse GetUser(int id)
+        {
+            var user = _context.Users.Include(x => x.AwardCreator).FirstOrDefault(x => x.Id == id);
+            if (user == null)
+            {
+                throw new UserNotFoundException($"User with id {id} not found");
+            }
+
             return _mapper.Map<User, UserResponse>(user);
         }
-        
-        
     }
 }

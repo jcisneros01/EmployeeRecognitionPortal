@@ -6,55 +6,56 @@ using Microsoft.AspNetCore.Mvc;
 
  namespace EmployeeRecognitionPortal.Controllers
  {
+     //todo: validate admin creds
      [Authorize]
      [Route("[controller]")]
      public class AdminsController : Controller
      {
-         private readonly IAdminService _adminService;
+         private readonly IUserService _userService;
 
-         public AdminsController(IAdminService adminService)
+         public AdminsController(IUserService userService)
          {
-             _adminService = adminService;
+             _userService = userService;
          }
 
          [HttpGet]
          public IActionResult Get()
          {
-             var response = _adminService.GetAdmins();
+             var response = _userService.GetAdmins();
 
              return Ok(response);
          }
 
          [HttpGet("{id}")]
-         public IActionResult GetUser(int id)
+         public IActionResult GetAdmins(int id)
          {
-             var response = _adminService.GetAdmin(id);
+             var response = _userService.GetAdmin(id);
 
              return Ok(response);
          }
 
          [HttpDelete("{id}")]
-         public IActionResult DeleteUser(int id)
+         public IActionResult DeleteAdmin(int id)
          {
-             _adminService.DeleteAdmin(id);
+             _userService.DeleteUser(id);
 
              return Ok();
          }
 
          [HttpPost]
          [ValidateModel]
-         public IActionResult CreateUser([FromBody]AdminRequest user)
+         public IActionResult CreateAdmin([FromBody]AdminRequest user)
          {
-             var response = _adminService.CreateAdmin(user);
+             var response = _userService.CreateAdmin(user);
 
              return Ok(response);
          }
 
          [HttpPut("{id}")]
          [ValidateModel]
-         public IActionResult UpdateUser(int id, [FromBody]AdminPostRequest user)
+         public IActionResult UpdateAdmin(int id, [FromBody]AdminPostRequest user)
          {
-             var response = _adminService.UpdateAdmin(id, user);
+             var response = _userService.UpdateAdmin(id, user);
 
              return Ok(response);
          }

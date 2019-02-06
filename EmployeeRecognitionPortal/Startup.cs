@@ -63,7 +63,7 @@ namespace EmployeeRecognitionPortal
                         {
                             "https://localhost:5001",
                             "http://localhost:5000"
-                        }
+                        },
 
                         ValidAudience = "https://localhost:5001"
 
@@ -77,7 +77,6 @@ namespace EmployeeRecognitionPortal
             var connection = "Data Source=EmployeeRecognition.db";
             services.AddDbContext<Context>(options => options.UseSqlite(connection));
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IAdminService, AdminService>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IEmpOfMonthService, EmpOfMonthService>();
             services.AddScoped<IEmpOfYearService, EmpOfYearService>();

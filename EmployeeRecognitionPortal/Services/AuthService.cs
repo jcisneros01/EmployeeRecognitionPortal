@@ -49,19 +49,12 @@ namespace EmployeeRecognitionPortal.Services
             throw new System.NotImplementedException(username);
         }
         
-        //todo: unify user and admins to remove redundant query and then unify user/admin services
-        //todo: edge case- admin and user have same email!
-        //todo: add validate to make all email addresses unique 
         private bool IsAuthenticated(LoginRequest credentials)
         {
             var user =_context.Users.FirstOrDefault(x => x.Email == credentials.Email);
             if (user != null) 
                 return PasswordHelper.VerifyPassword(user.Password, credentials.Password);
-            
-            var admin = _context.Admins.FirstOrDefault(x => x.Email == credentials.Email);
-            if (admin != null) 
-                return PasswordHelper.VerifyPassword(admin.Password, credentials.Password);
-            
+          
              throw new UserNotFoundException($"User with username {credentials.Email} not found"); 
         }
     }

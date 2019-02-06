@@ -13,5 +13,9 @@ namespace EmployeeRecognitionPortal.Services
         List<UserResponse> GetUsers();
         void DeleteUser(int id);
         UserResponse UpdateUser(int id, UserPostRequest user);
+        List<AdminResponse> GetAdmins();
+        AdminResponse GetAdmin(int id);
+        AdminResponse CreateAdmin(AdminRequest user);
+        AdminResponse UpdateAdmin(int id, AdminPostRequest user);
     }
 }

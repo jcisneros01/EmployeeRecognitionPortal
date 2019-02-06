@@ -27,7 +27,7 @@ namespace EmployeeRecognitionPortal.Services
            UserService gtusr = new UserService(_context, _mapper);
            UserResponse usr = gtusr.GetUser(newEOY.AwardCreatorId);
            User finUsr = _mapper.Map<UserResponse, User>(usr);
-           newEOY.AwardCreator = finUsr;
+           newEOY.AwardCreator = finUsr.AwardCreator;
 
            //Create LaTex File
            newEOY.CreateLaTex();
