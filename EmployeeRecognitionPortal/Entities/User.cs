@@ -20,6 +20,6 @@ namespace EmployeeRecognitionPortal.Models
         
         public bool IsAdmin { get; set; }
 
-        public AwardCreator AwardCreator { get; set; }
+        public virtual AwardCreator AwardCreator { get; set; }
     }
 }

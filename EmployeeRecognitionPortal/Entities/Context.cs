@@ -3,8 +3,13 @@ using Microsoft.EntityFrameworkCore;
 namespace EmployeeRecognitionPortal.Models
 {
     public class Context : DbContext
-    {
+    { 
         public Context(DbContextOptions<Context> options) : base(options)
+        {
+
+        } 
+        
+        public Context()
         {
 
         }
@@ -16,8 +21,9 @@ namespace EmployeeRecognitionPortal.Models
                 .IsUnique();
         }
         
-        public DbSet<User> Users { get; set; }
-        public DbSet<EmpOfMonth> EmpOfMonths { get; set; }
-        public DbSet<EmpOfYear> EmpOfYears { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<AwardCreator> AwardCreators { get; set; }
+        public virtual DbSet<EmpOfMonth> EmpOfMonths { get; set; }
+        public virtual DbSet<EmpOfYear> EmpOfYears { get; set; }
     }
 }

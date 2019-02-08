@@ -30,6 +30,10 @@
   "frameworks": {
     "netcoreapp2.2": {
       "dependencies": {
+        "AutoMapper": {
+          "target": "Package",
+          "version": "[8.0.0, )"
+        },
         "Microsoft.NET.Test.Sdk": {
           "target": "Package",
           "version": "[15.9.0, )"
@@ -39,6 +43,10 @@
           "target": "Package",
           "version": "[2.2.0, )",
           "autoReferenced": true
+        },
+        "Moq": {
+          "target": "Package",
+          "version": "[4.10.1, )"
         },
         "NSubstitute": {
           "target": "Package",
