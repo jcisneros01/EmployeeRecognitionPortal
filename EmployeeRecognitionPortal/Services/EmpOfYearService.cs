@@ -22,14 +22,14 @@ namespace EmployeeRecognitionPortal.Services
 
         public EmpOfYearResponse CreateEmpOfYear(EmpOfYearRequest eoy)
         {
-           var newEOY = _mapper.Map<EmpOfYearRequest, EmpOfYear>(eoy);
+           var empOfYear = _mapper.Map<EmpOfYearRequest, EmpOfYear>(eoy);
             
-           GenerateLatexFile(eoy.AwardCreatorId, newEOY);
+           GenerateLatexFile(eoy.AwardCreatorId, empOfYear);
             
-           _context.EmpOfYears.Add(newEOY);
+           _context.EmpOfYears.Add(empOfYear);
            _context.SaveChanges();
 
-           return _mapper.Map<EmpOfYear, EmpOfYearResponse>(newEOY);
+           return _mapper.Map<EmpOfYear, EmpOfYearResponse>(empOfYear);
         }
         
         private void GenerateLatexFile(int AwardCreatorId, EmpOfYear empOfYear)
