@@ -5,7 +5,7 @@ using EmployeeRecognitionPortal.Exceptions;
 using EmployeeRecognitionPortal.Models;
 using EmployeeRecognitionPortal.Models.Request;
 using EmployeeRecognitionPortal.Models.Response;
-using EmployeeRecognitionPortal.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeRecognitionPortal.Services
 {
@@ -13,30 +13,35 @@ namespace EmployeeRecognitionPortal.Services
     {
         private readonly Context _context;
         private readonly IMapper _mapper;
+        private readonly IUserService _userService;
 
-        public EmpOfMonthService(Context context, IMapper mapper)
+        public EmpOfMonthService(Context context, IMapper mapper, IUserService userService)
         {
             _context = context;
             _mapper = mapper;
+            _userService = userService;
         }
 
         public EmpOfMonthResponse CreateEmpOfMonth(EmpOfMonthRequest eom)
         {
-           var newEOM = _mapper.Map<EmpOfMonthRequest, EmpOfMonth>(eom);
-
-           //Grab User and dynamically write the LaTex File
-           UserService gtusr = new UserService(_context, _mapper);
-           UserResponse usr = gtusr.GetUser(newEOM.AwardCreatorId);
-           User finUsr = _mapper.Map<UserResponse, User>(usr);
-           newEOM.AwardCreator = finUsr.AwardCreator;
+           var empOfMonth = _mapper.Map<EmpOfMonthRequest, EmpOfMonth>(eom);
 
            //Create LaTex File
-           newEOM.CreateLaTex();
+           var awardCreator = _context.Users
+               .Include(x => x.AwardCreator)
+               .FirstOrDefault(x => x.Id == eom.AwardCreatorId)?
+               .AwardCreator;
+            if (awardCreator == null)
+            {
+                throw new UserNotFoundException($"AwardCreator with id {eom.AwardCreatorId} not found");
+            }
+           empOfMonth.AwardCreator = awardCreator;
+           empOfMonth.CreateLaTex();
 
-           _context.EmpOfMonths.Add(newEOM);
+           _context.EmpOfMonths.Add(empOfMonth);
            _context.SaveChanges();
 
-           return _mapper.Map<EmpOfMonth, EmpOfMonthResponse>(newEOM);
+           return _mapper.Map<EmpOfMonth, EmpOfMonthResponse>(empOfMonth);
         }
 
         public List<EmpOfMonthResponse> GetEmpOfMonths()
