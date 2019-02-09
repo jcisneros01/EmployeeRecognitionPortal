@@ -13,35 +13,37 @@ namespace EmployeeRecognitionPortal.Services
     {
         private readonly Context _context;
         private readonly IMapper _mapper;
-        private readonly IUserService _userService;
 
         public EmpOfMonthService(Context context, IMapper mapper, IUserService userService)
         {
             _context = context;
             _mapper = mapper;
-            _userService = userService;
         }
 
         public EmpOfMonthResponse CreateEmpOfMonth(EmpOfMonthRequest eom)
         {
            var empOfMonth = _mapper.Map<EmpOfMonthRequest, EmpOfMonth>(eom);
 
-           //Create LaTex File
-           var awardCreator = _context.Users
-               .Include(x => x.AwardCreator)
-               .FirstOrDefault(x => x.Id == eom.AwardCreatorId)?
-               .AwardCreator;
-            if (awardCreator == null)
-            {
-                throw new UserNotFoundException($"AwardCreator with id {eom.AwardCreatorId} not found");
-            }
-           empOfMonth.AwardCreator = awardCreator;
-           empOfMonth.CreateLaTex();
+           GenerateLatexFile(eom.AwardCreatorId, empOfMonth);
 
            _context.EmpOfMonths.Add(empOfMonth);
            _context.SaveChanges();
 
            return _mapper.Map<EmpOfMonth, EmpOfMonthResponse>(empOfMonth);
+        }
+
+        private void GenerateLatexFile(int AwardCreatorId, EmpOfMonth empOfMonth)
+        {
+            var awardCreator = _context.Users
+                .Include(x => x.AwardCreator)
+                .FirstOrDefault(x => x.Id == AwardCreatorId)?.AwardCreator;
+            if (awardCreator == null)
+            {
+                throw new UserNotFoundException($"AwardCreator with id {AwardCreatorId} not found");
+            }
+
+            empOfMonth.AwardCreator = awardCreator;
+            empOfMonth.CreateLaTex();
         }
 
         public List<EmpOfMonthResponse> GetEmpOfMonths()
@@ -71,6 +73,5 @@ namespace EmployeeRecognitionPortal.Services
           _context.EmpOfMonths.Remove(eom);
           _context.SaveChanges();
         }
-
     }
 }
