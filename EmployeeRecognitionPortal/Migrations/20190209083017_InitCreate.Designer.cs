@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeRecognitionPortal.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20190206043617_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20190209083017_InitCreate")]
+    partial class InitCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,7 +34,7 @@ namespace EmployeeRecognitionPortal.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("AwardCreator");
+                    b.ToTable("AwardCreators");
                 });
 
             modelBuilder.Entity("EmployeeRecognitionPortal.Models.EmpOfMonth", b =>

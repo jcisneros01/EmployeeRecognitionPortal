@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EmployeeRecognitionPortal.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -24,7 +24,7 @@ namespace EmployeeRecognitionPortal.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AwardCreator",
+                name: "AwardCreators",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -35,9 +35,9 @@ namespace EmployeeRecognitionPortal.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AwardCreator", x => x.Id);
+                    table.PrimaryKey("PK_AwardCreators", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AwardCreator_Users_UserId",
+                        name: "FK_AwardCreators_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -60,9 +60,9 @@ namespace EmployeeRecognitionPortal.Migrations
                 {
                     table.PrimaryKey("PK_EmpOfMonths", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_EmpOfMonths_AwardCreator_AwardCreatorId",
+                        name: "FK_EmpOfMonths_AwardCreators_AwardCreatorId",
                         column: x => x.AwardCreatorId,
-                        principalTable: "AwardCreator",
+                        principalTable: "AwardCreators",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -83,16 +83,16 @@ namespace EmployeeRecognitionPortal.Migrations
                 {
                     table.PrimaryKey("PK_EmpOfYears", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_EmpOfYears_AwardCreator_AwardCreatorId",
+                        name: "FK_EmpOfYears_AwardCreators_AwardCreatorId",
                         column: x => x.AwardCreatorId,
-                        principalTable: "AwardCreator",
+                        principalTable: "AwardCreators",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_AwardCreator_UserId",
-                table: "AwardCreator",
+                name: "IX_AwardCreators_UserId",
+                table: "AwardCreators",
                 column: "UserId",
                 unique: true);
 
@@ -122,7 +122,7 @@ namespace EmployeeRecognitionPortal.Migrations
                 name: "EmpOfYears");
 
             migrationBuilder.DropTable(
-                name: "AwardCreator");
+                name: "AwardCreators");
 
             migrationBuilder.DropTable(
                 name: "Users");
