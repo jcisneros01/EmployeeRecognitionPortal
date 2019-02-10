@@ -89,6 +89,8 @@ namespace EmployeeRecognitionPortal
                 services.AddDbContext<Context>(options =>
                     options.UseSqlite("Data Source=EmployeeRecognition.db"));
             }
+            
+            // Migrate DB
             services.BuildServiceProvider().GetService<Context>().Database.Migrate();            
             
             services.AddScoped<IUserService, UserService>();
