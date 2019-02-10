@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Text;
 using AutoMapper;
@@ -71,18 +72,26 @@ namespace EmployeeRecognitionPortal
                     };
                 });
             
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            
-            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "Employee Recognition Portal API", Version = "v1" });
             });
 
-            //todo: move connection string to config file
             // Connect to database
-            var connection = "Data Source=EmployeeRecognition.db";
-            services.AddDbContext<Context>(options => options.UseSqlite(connection));
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
+            {
+                services.AddDbContext<Context>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
+            }
+            else
+            {
+                services.AddDbContext<Context>(options =>
+                    options.UseSqlite("Data Source=EmployeeRecognition.db"));
+            }
+            // Automatically perform database migration
+            services.BuildServiceProvider().GetService<Context>().Database.Migrate();            
+            
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IEmpOfMonthService, EmpOfMonthService>();
@@ -101,16 +110,11 @@ namespace EmployeeRecognitionPortal
             app.UseSpaStaticFiles();
             app.UseCors("AllowAllOrigins");
             app.UseAuthentication();
-            // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
-
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
-            // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Employee Recognition Portal API");
             });
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
