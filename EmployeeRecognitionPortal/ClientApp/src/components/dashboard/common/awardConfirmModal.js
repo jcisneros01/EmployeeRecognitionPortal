@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Button,  Modal } from 'semantic-ui-react';
-class ConfirmModal extends React.Component {
+class AwardConfirmModal extends React.Component {
  
 
   componentDidMount() {
@@ -21,7 +21,7 @@ class ConfirmModal extends React.Component {
       <Modal size="mini" open={true} >
         <Modal.Header>Delete Record!</Modal.Header>
         <Modal.Content>
-          <p>Are you sure you want to delete {collection.name}</p>
+          <p>Are you sure you want to delete {collection.employeeName}</p>
         </Modal.Content>
         <Modal.Actions>
           <Button negative onClick={() => hideConfirmFormModal()}>No</Button>
@@ -32,11 +32,11 @@ class ConfirmModal extends React.Component {
   }
 } 
 
-ConfirmModal.propTypes = {
+AwardConfirmModal.propTypes = {
   hideConfirmFormModal: PropTypes.func.isRequired,
   collection: PropTypes.object.isRequired,
   deleteRecord: PropTypes.func.isRequired,
   initializeForm: PropTypes.func.isRequired,
 }
 
-export default ConfirmModal;
+export default AwardConfirmModal;

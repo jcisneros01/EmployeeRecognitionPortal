@@ -4,3 +4,6 @@ export const DASHBOARD= '/dashboard';
 export const RECOVER_PASSWORD= '/forgot-password';
 export const RESET_PASSWORD= '/reset-password/:token';
 export const USERS = 'users';
+export const ADMINS = 'admins';
+export const AWARDSEOM = 'awardseom'
+export const AWARDSEOY = 'awardseoy'

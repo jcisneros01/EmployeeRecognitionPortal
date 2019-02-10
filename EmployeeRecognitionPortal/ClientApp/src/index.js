@@ -1,34 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
-import logger from 'redux-logger';
+import { Provider } from 'unstated';
 import decode from 'jwt-decode';
 import 'semantic-ui-css/semantic.min.css';
-import createSagaMiddleware from 'redux-saga'
 
-import rootReducer from './reducers';
-import rootSaga from './sagas';
-import { userLoggedIn } from './actions/authentication';
+
+import LoginContainer from './containers/LoginContainer'
 
 import './index.css';
 import App from './App';
 
 import * as serviceWorker from './serviceWorker';
 
-const sagaMiddleware = createSagaMiddleware()
-const store = createStore(rootReducer, compose(applyMiddleware(sagaMiddleware, logger)));
-
-sagaMiddleware.run(rootSaga);
+const loginContainer = new LoginContainer();
 
 if (localStorage.userJWT) {
     const token = localStorage.userJWT 
-    store.dispatch(userLoggedIn(token))
+    console.log(decode('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NDk4NzE5OTEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCJ9.RhsI31twMhwsNESFFallW__zQ4J7_JT6mejHaczM1Mk'))
+    loginContainer.doLogin(token)
 }
 
 ReactDOM.render(<BrowserRouter>
-    <Provider store={store}>
+    <Provider inject={[loginContainer]}>
         <Route component={App} />
     </Provider>
 </BrowserRouter>, document.getElementById('root'));

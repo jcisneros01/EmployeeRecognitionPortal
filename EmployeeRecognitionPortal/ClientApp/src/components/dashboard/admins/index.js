@@ -2,23 +2,23 @@ import React from 'react';
 import { Segment, Header, Message } from 'semantic-ui-react'
 import { Subscribe } from 'unstated';
 
-import  Users from './Users';
-import UserContainer from '../../../containers/UserContainer';
+import  Admins from './Admins';
+import AdminContainer from '../../../containers/AdminContainer';
 
-export default function DashboardUsersPage() { 
+export default function DashboardAdminsPage() { 
 
         return (
-            <Subscribe to={[UserContainer]}>
-                {users => {
+            <Subscribe to={[AdminContainer]}>
+                {admins => {
                     return <Segment>
                     
-                        <Header as='h1'>User List</Header>
-                        {!users.state.success && users.state.error ? (
+                        <Header as='h1'>Admin List</Header>
+                        {!admins.state.success && admins.state.error ? (
                             <Message negative>
                                 <Message.Header>Somthing went wrong</Message.Header>
-                                <p>{users.state.error}</p>
+                                <p>{admins.state.error}</p>
                             </Message>) : 
-                            <Users users={users}/>
+                            <Admins admins={admins}/>
                         }
                         
                 </Segment>

@@ -1,6 +1,7 @@
 class Api {
     static headers() {
         return { 
+            'Accept': 'application/json',
             'Content-Type': 'application/json',
             //'dataType': 'json',
             //'X-Requested-With': 'XMLHttpRequest',
@@ -24,7 +25,7 @@ class Api {
     }
 
     static xhr(route, params, verb) {
-        const host = 'http://localhost:5000';
+        const host = 'https://localhost:44359';
         const url = `${host}${route}`;
         let options = Object.assign({ method: verb}, params ? { body: JSON.stringify(params)}: null);
         options.headers = Api.headers();

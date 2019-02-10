@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 namespace EmployeeRecognitionPortal.Controllers
 {
-   [Authorize]
+   //[Authorize]
    [Route("[controller]")]
    public class EmpOfMonthController : Controller
    {

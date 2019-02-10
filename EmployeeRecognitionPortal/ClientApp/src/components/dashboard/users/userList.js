@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Icon, Menu, Table, Image, Header } from 'semantic-ui-react';
+import { Icon, Menu, Table, Image } from 'semantic-ui-react';
 
 const UserList = ({users, showModal, showFormModal,showConfirmModal}) => (
     users.map((user, index) => {
