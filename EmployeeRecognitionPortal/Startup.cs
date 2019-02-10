@@ -82,7 +82,7 @@ namespace EmployeeRecognitionPortal
             if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
             {
                 services.AddDbContext<Context>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                    options.UseSqlServer(Configuration.GetConnectionString("DbConnection")));
             }
             else
             {
