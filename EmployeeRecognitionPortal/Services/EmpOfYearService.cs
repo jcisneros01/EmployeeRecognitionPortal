@@ -5,6 +5,7 @@ using EmployeeRecognitionPortal.Exceptions;
 using EmployeeRecognitionPortal.Models;
 using EmployeeRecognitionPortal.Models.Request;
 using EmployeeRecognitionPortal.Models.Response;
+using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeRecognitionPortal.Services
 {
@@ -21,21 +22,28 @@ namespace EmployeeRecognitionPortal.Services
 
         public EmpOfYearResponse CreateEmpOfYear(EmpOfYearRequest eoy)
         {
-           var newEOY = _mapper.Map<EmpOfYearRequest, EmpOfYear>(eoy);
-
-           //Grab User and dynamically write the LaTex File
-           UserService gtusr = new UserService(_context, _mapper);
-           UserResponse usr = gtusr.GetUser(newEOY.AwardCreatorId);
-           User finUsr = _mapper.Map<UserResponse, User>(usr);
-           newEOY.AwardCreator = finUsr.AwardCreator;
-
-           //Create LaTex File
-           newEOY.CreateLaTex();
-
-           _context.EmpOfYears.Add(newEOY);
+           var empOfYear = _mapper.Map<EmpOfYearRequest, EmpOfYear>(eoy);
+            
+           GenerateLatexFile(eoy.AwardCreatorId, empOfYear);
+            
+           _context.EmpOfYears.Add(empOfYear);
            _context.SaveChanges();
 
-           return _mapper.Map<EmpOfYear, EmpOfYearResponse>(newEOY);
+           return _mapper.Map<EmpOfYear, EmpOfYearResponse>(empOfYear);
+        }
+        
+        private void GenerateLatexFile(int AwardCreatorId, EmpOfYear empOfYear)
+        {
+            var awardCreator = _context.Users
+                .Include(x => x.AwardCreator)
+                .FirstOrDefault(x => x.Id == AwardCreatorId)?.AwardCreator;
+            if (awardCreator == null)
+            {
+                throw new UserNotFoundException($"AwardCreator with id {AwardCreatorId} not found");
+            }
+
+            empOfYear.AwardCreator = awardCreator;
+            empOfYear.CreateLaTex();
         }
 
         public List<EmpOfYearResponse> GetEmpOfYears()
@@ -65,6 +73,5 @@ namespace EmployeeRecognitionPortal.Services
           _context.EmpOfYears.Remove(eoy);
           _context.SaveChanges();
         }
-
     }
 }

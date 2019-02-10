@@ -32,7 +32,7 @@ namespace EmployeeRecognitionPortal.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("AwardCreator");
+                    b.ToTable("AwardCreators");
                 });
 
             modelBuilder.Entity("EmployeeRecognitionPortal.Models.EmpOfMonth", b =>
