@@ -299,12 +299,27 @@
     <option name="width" value="960" />
     <option name="height" value="1000" />
   </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Angular</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="SolutionExplorer" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -340,25 +355,11 @@
               <item name="EmployeeRecognitionPortal" type="24d0babc:SolutionExplorerModelNode" />
               <item name="EmployeeRecognitionPortalTests" type="24d0babc:SolutionExplorerModelNode" />
             </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="EmployeeRecognitionPortal" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="EmployeeRecognitionPortalTests" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Dependencies" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="EmployeeRecognitionPortal" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="EmployeeRecognitionPortalTests" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Dependencies" type="24d0babc:SolutionExplorerModelNode" />
-              <item name=".NETCoreApp 2.2" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
           </expand>
           <select />
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
-      <pane id="FileSystemExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -371,7 +372,7 @@
     <property name="RiderNuGetCacheManager.AutoClear.temp" value="1" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript.Linters" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
