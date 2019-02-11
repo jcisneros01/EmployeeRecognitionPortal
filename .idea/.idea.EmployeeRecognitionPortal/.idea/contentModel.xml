@@ -153,6 +153,8 @@
         <e p="Migrations" t="Include">
           <e p="20190209083017_InitCreate.cs" t="Include" />
           <e p="20190209083017_InitCreate.Designer.cs" t="Include" />
+          <e p="20190211005018_UpdateUserIdSqlServer.cs" t="Include" />
+          <e p="20190211005018_UpdateUserIdSqlServer.Designer.cs" t="Include" />
           <e p="ContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
