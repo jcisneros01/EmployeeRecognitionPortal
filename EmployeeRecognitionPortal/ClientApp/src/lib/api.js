@@ -24,7 +24,13 @@ class Api {
     }
 
     static xhr(route, params, verb) {
-        const host = 'http://localhost:5000';
+        var host = ''
+        if (process.env.NODE_ENV !== 'production') {
+             host = 'http://localhost:5000';
+        }
+        else {
+            host = 'http://awardapp.azurewebsites.net'
+        }
         const url = `${host}${route}`;
         let options = Object.assign({ method: verb}, params ? { body: JSON.stringify(params)}: null);
         options.headers = Api.headers();
