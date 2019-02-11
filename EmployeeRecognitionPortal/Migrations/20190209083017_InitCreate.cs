@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EmployeeRecognitionPortal.Migrations
@@ -12,7 +13,9 @@ namespace EmployeeRecognitionPortal.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("Sqlite:Autoincrement", true)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ,
                     Email = table.Column<string>(nullable: false),
                     Password = table.Column<string>(nullable: false),
                     DateCreated = table.Column<DateTime>(nullable: false),
@@ -28,7 +31,8 @@ namespace EmployeeRecognitionPortal.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("Sqlite:Autoincrement", true)
+                    
                     Name = table.Column<string>(nullable: true),
                     Signature = table.Column<byte[]>(nullable: true),
                     UserId = table.Column<int>(nullable: false)
