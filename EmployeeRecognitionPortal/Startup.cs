@@ -28,7 +28,6 @@ namespace EmployeeRecognitionPortal
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper();
@@ -41,7 +40,6 @@ namespace EmployeeRecognitionPortal
                     .AllowAnyHeader();
             }));            
                         
-            // configure jwt auth
             var key = Encoding.UTF8.GetBytes("this is my custom Secret key for authentication"); //Todo: move to config
             services.AddAuthentication(x =>
                 {
@@ -78,7 +76,6 @@ namespace EmployeeRecognitionPortal
                 c.SwaggerDoc("v1", new Info { Title = "Employee Recognition Portal API", Version = "v1" });
             });
 
-            // Connect to database
             if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
             {
                 services.AddDbContext<Context>(options =>
@@ -90,7 +87,6 @@ namespace EmployeeRecognitionPortal
                     options.UseSqlite("Data Source=EmployeeRecognition.db"));
             }
             
-            // Migrate DB
             services.BuildServiceProvider().GetService<Context>().Database.Migrate();            
             
             services.AddScoped<IUserService, UserService>();
@@ -99,11 +95,9 @@ namespace EmployeeRecognitionPortal
             services.AddScoped<IEmpOfYearService, EmpOfYearService>();
             services.AddScoped<ValidateModelAttribute>();
                 
-            // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/build"; });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.ConfigureExceptionHandler();
