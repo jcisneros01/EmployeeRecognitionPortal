@@ -46,14 +46,14 @@ namespace EmployeeRecognitionPortal.Services
            return _mapper.Map<EmpOfMonth, EmpOfMonthResponse>(empOfMonth);
         }
 
-        private void GenerateLatexFile(int awardCreatorId, EmpOfMonth empOfMonth)
+        private void GenerateLatexFile(int AwardCreatorId, EmpOfMonth empOfMonth)
         {
             var awardCreator = _context.Users
                 .Include(x => x.AwardCreator)
-                .FirstOrDefault(x => x.Id == awardCreatorId)?.AwardCreator;
+                .FirstOrDefault(x => x.Id == AwardCreatorId)?.AwardCreator;
             if (awardCreator == null)
             {
-                throw new UserNotFoundException($"AwardCreator with id {awardCreatorId} not found");
+                throw new UserNotFoundException($"AwardCreator with id {AwardCreatorId} not found");
             }
             
             empOfMonth.AwardCreator = awardCreator;
