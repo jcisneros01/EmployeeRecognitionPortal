@@ -29,9 +29,12 @@
             <e p="react" t="IncludeRecursive" />
             <e p="react-dom" t="IncludeRecursive" />
             <e p="react-dropzone" t="IncludeRecursive" />
+            <e p="react-redux" t="IncludeRecursive" />
             <e p="react-router-dom" t="IncludeRecursive" />
             <e p="react-scripts" t="IncludeRecursive" />
             <e p="redux" t="IncludeRecursive" />
+            <e p="redux-logger" t="IncludeRecursive" />
+            <e p="redux-saga" t="IncludeRecursive" />
             <e p="semantic-ui-css" t="IncludeRecursive" />
             <e p="semantic-ui-react" t="IncludeRecursive" />
             <e p="validator" t="IncludeRecursive" />
@@ -111,6 +114,7 @@
         <e p="Controllers" t="Include">
           <e p="AdminsController.cs" t="Include" />
           <e p="AuthController.cs" t="Include" />
+          <e p="AwardsController.cs" t="Include" />
           <e p="EmpOfMonthController.cs" t="Include" />
           <e p="EmpOfYearController.cs" t="Include" />
           <e p="UsersController.cs" t="Include" />
@@ -153,6 +157,8 @@
           <e p="ContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
+          <e p="AwardByTypeData.cs" t="Include" />
+          <e p="AwardCountByMonthData.cs" t="Include" />
           <e p="ErrorModel.cs" t="Include" />
           <e p="Request" t="Include">
             <e p="AdminPostRequest.cs" t="Include" />
@@ -168,6 +174,8 @@
           </e>
           <e p="Response" t="Include">
             <e p="AdminResponse.cs" t="Include" />
+            <e p="AwardCountByMonthResponse.cs" t="Include" />
+            <e p="AwardsByTypeResponse.cs" t="Include" />
             <e p="EmpOfMonthResponse.cs" t="Include" />
             <e p="EmpOfYearResponse.cs" t="Include" />
             <e p="UserResponse.cs" t="Include" />
@@ -196,10 +204,12 @@
         </e>
         <e p="Services" t="Include">
           <e p="AuthService.cs" t="Include" />
+          <e p="AwardsService.cs" t="Include" />
           <e p="EmpOfMonthService.cs" t="Include" />
           <e p="EmpOfYearService.cs" t="Include" />
           <e p="IAdminService.cs" t="Include" />
           <e p="IAuthService.cs" t="Include" />
+          <e p="IAwardsService.cs" t="Include" />
           <e p="IEmpOfMonthService.cs" t="Include" />
           <e p="IEmpOfYearService.cs" t="Include" />
           <e p="IUserService.cs" t="Include" />
