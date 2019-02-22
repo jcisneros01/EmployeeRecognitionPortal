@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
  namespace EmployeeRecognitionPortal.Controllers
- {    
+ {
      //todo: validate admin creds
      [Authorize]
      [Route("[controller]")]
@@ -50,7 +50,7 @@ using Microsoft.AspNetCore.Mvc;
 
              return Ok(response);
          }
-            
+
          //todo: allow user access
          [HttpPut("{id}")]
          [ValidateModel]

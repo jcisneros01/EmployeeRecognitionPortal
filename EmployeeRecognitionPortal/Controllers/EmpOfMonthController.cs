@@ -10,12 +10,12 @@ namespace EmployeeRecognitionPortal.Controllers
    public class EmpOfMonthController : Controller
    {
        private IEmpOfMonthService _eomService;
-  
+
        public EmpOfMonthController(IEmpOfMonthService eomService)
        {
               _eomService = eomService;
        }
-  
+
        [HttpPost]
        [ValidateModel]
        public IActionResult CreateEmpOfMonth([FromBody]EmpOfMonthRequest eom)
@@ -23,21 +23,21 @@ namespace EmployeeRecognitionPortal.Controllers
          var res = _eomService.CreateEmpOfMonth(eom);
          return Ok(res);
        }
-  
+
        [HttpGet]
        public IActionResult Get()
        {
          var res = _eomService.GetEmpOfMonths();
          return Ok(res);
        }
-  
+
        [HttpGet("{id}")]
        public IActionResult Get(int id)
        {
          var res = _eomService.GetEmpOfMonth(id);
          return Ok(res);
        }
-  
+
        [HttpDelete("{id}")]
        public IActionResult DeleteEmpOfMonth(int id){
               _eomService.DeleteEmpOfMonth(id);

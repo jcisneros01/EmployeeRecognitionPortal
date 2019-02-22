@@ -72,9 +72,7 @@ namespace EmployeeRecognitionPortal.Models
             \vfill
             \begin{minipage}[c]{3in}
             \centering
-            \includegraphics[width=.5\linewidth]{");
-        s.Append(this.AwardCreator.Signature);
-        s.Append(@"}
+            \includegraphics[width=.5\linewidth]{sig.png}
 
             \parbox{3in}{\shortstack{
                 \vrule width 3in height 0.5pt \\
