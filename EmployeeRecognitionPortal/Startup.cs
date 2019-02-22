@@ -93,6 +93,7 @@ namespace EmployeeRecognitionPortal
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IEmpOfMonthService, EmpOfMonthService>();
             services.AddScoped<IEmpOfYearService, EmpOfYearService>();
+            services.AddScoped<IAwardsService, AwardsService>();
             services.AddScoped<ValidateModelAttribute>();
                 
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/build"; });

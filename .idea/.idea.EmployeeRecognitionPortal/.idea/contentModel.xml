@@ -43,17 +43,36 @@
             <e p="index.html" t="Include" />
             <e p="manifest.json" t="Include" />
           </e>
+          <e p="README.md" t="Include" />
           <e p="src" t="Include">
-            <e p="actions" t="Include">
-              <e p="authentication.js" t="Include" />
-              <e p="users.js" t="Include" />
-            </e>
             <e p="App.css" t="Include" />
             <e p="App.js" t="Include" />
             <e p="App.test.js" t="Include" />
             <e p="components" t="Include">
               <e p="dashboard" t="Include">
+                <e p="admins" t="Include">
+                  <e p="adminForm.js" t="Include" />
+                  <e p="adminList.js" t="Include" />
+                  <e p="adminModal.js" t="Include" />
+                  <e p="Admins.js" t="Include" />
+                  <e p="index.js" t="Include" />
+                  <e p="styles.js" t="Include" />
+                </e>
+                <e p="awards" t="Include">
+                  <e p="awardForm.js" t="Include" />
+                  <e p="awardList.js" t="Include" />
+                  <e p="awardModal.js" t="Include" />
+                  <e p="Awards.js" t="Include" />
+                  <e p="eom" t="Include">
+                    <e p="index.js" t="Include" />
+                  </e>
+                  <e p="eoy" t="Include">
+                    <e p="index.js" t="Include" />
+                  </e>
+                  <e p="styles.js" t="Include" />
+                </e>
                 <e p="common" t="Include">
+                  <e p="awardConfirmModal.js" t="Include" />
                   <e p="confirmModal.js" t="Include" />
                 </e>
                 <e p="index.js" t="Include" />
@@ -63,6 +82,7 @@
                   <e p="userForm.js" t="Include" />
                   <e p="userList.js" t="Include" />
                   <e p="userModal.js" t="Include" />
+                  <e p="users.js" t="Include" />
                 </e>
               </e>
               <e p="home" t="Include">
@@ -84,25 +104,22 @@
             <e p="constants" t="Include">
               <e p="routes.js" t="Include" />
             </e>
+            <e p="containers" t="Include">
+              <e p="AdminContainer.js" t="Include" />
+              <e p="AwardContainer.js" t="Include" />
+              <e p="LoginContainer.js" t="Include" />
+              <e p="RecoverPasswordContainer.js" t="Include" />
+              <e p="UserContainer.js" t="Include" />
+            </e>
             <e p="index.css" t="Include" />
             <e p="index.js" t="Include" />
             <e p="lib" t="Include">
               <e p="api.js" t="Include" />
             </e>
             <e p="Navigation.js" t="Include" />
-            <e p="reducers" t="Include">
-              <e p="authentication.js" t="Include" />
-              <e p="index.js" t="Include" />
-              <e p="user.js" t="Include" />
-            </e>
             <e p="routes" t="Include">
               <e p="AdminRoute.js" t="Include" />
               <e p="GuestRoute.js" t="Include" />
-            </e>
-            <e p="sagas" t="Include">
-              <e p="index.js" t="Include" />
-              <e p="loginSaga.js" t="Include" />
-              <e p="userSaga.js" t="Include" />
             </e>
             <e p="serviceWorker.js" t="Include" />
             <e p="types.js" t="Include" />
@@ -111,6 +128,7 @@
         <e p="Controllers" t="Include">
           <e p="AdminsController.cs" t="Include" />
           <e p="AuthController.cs" t="Include" />
+          <e p="AwardsController.cs" t="Include" />
           <e p="EmpOfMonthController.cs" t="Include" />
           <e p="EmpOfYearController.cs" t="Include" />
           <e p="UsersController.cs" t="Include" />
@@ -153,6 +171,8 @@
           <e p="ContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
+          <e p="AwardByTypeData.cs" t="Include" />
+          <e p="AwardCountByMonthData.cs" t="Include" />
           <e p="ErrorModel.cs" t="Include" />
           <e p="Request" t="Include">
             <e p="AdminPostRequest.cs" t="Include" />
@@ -168,6 +188,8 @@
           </e>
           <e p="Response" t="Include">
             <e p="AdminResponse.cs" t="Include" />
+            <e p="AwardCountByMonthResponse.cs" t="Include" />
+            <e p="AwardsByTypeResponse.cs" t="Include" />
             <e p="EmpOfMonthResponse.cs" t="Include" />
             <e p="EmpOfYearResponse.cs" t="Include" />
             <e p="UserResponse.cs" t="Include" />
@@ -196,10 +218,12 @@
         </e>
         <e p="Services" t="Include">
           <e p="AuthService.cs" t="Include" />
+          <e p="AwardsService.cs" t="Include" />
           <e p="EmpOfMonthService.cs" t="Include" />
           <e p="EmpOfYearService.cs" t="Include" />
           <e p="IAdminService.cs" t="Include" />
           <e p="IAuthService.cs" t="Include" />
+          <e p="IAwardsService.cs" t="Include" />
           <e p="IEmpOfMonthService.cs" t="Include" />
           <e p="IEmpOfYearService.cs" t="Include" />
           <e p="IUserService.cs" t="Include" />
