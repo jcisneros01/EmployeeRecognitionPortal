@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/josecisneros/RiderProjects/EmployeeRecognitionPortal/EmployeeRecognitionPortalTests/EmployeeRecognitionPortalTests.csproj",
+    "projectUniqueName": "/Users/zach/Desktop/ltx/EmployeeRecognitionPortal/EmployeeRecognitionPortalTests/EmployeeRecognitionPortalTests.csproj",
     "projectName": "EmployeeRecognitionPortalTests",
-    "projectPath": "/Users/josecisneros/RiderProjects/EmployeeRecognitionPortal/EmployeeRecognitionPortalTests/EmployeeRecognitionPortalTests.csproj",
-    "outputPath": "/Users/josecisneros/RiderProjects/EmployeeRecognitionPortal/EmployeeRecognitionPortalTests/obj/",
+    "projectPath": "/Users/zach/Desktop/ltx/EmployeeRecognitionPortal/EmployeeRecognitionPortalTests/EmployeeRecognitionPortalTests.csproj",
+    "outputPath": "/Users/zach/Desktop/ltx/EmployeeRecognitionPortal/EmployeeRecognitionPortalTests/obj/",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
       "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -15,8 +15,8 @@
     "frameworks": {
       "netcoreapp2.2": {
         "projectReferences": {
-          "/Users/josecisneros/RiderProjects/EmployeeRecognitionPortal/EmployeeRecognitionPortal/EmployeeRecognitionPortal.csproj": {
-            "projectPath": "/Users/josecisneros/RiderProjects/EmployeeRecognitionPortal/EmployeeRecognitionPortal/EmployeeRecognitionPortal.csproj"
+          "/Users/zach/Desktop/ltx/EmployeeRecognitionPortal/EmployeeRecognitionPortal/EmployeeRecognitionPortal.csproj": {
+            "projectPath": "/Users/zach/Desktop/ltx/EmployeeRecognitionPortal/EmployeeRecognitionPortal/EmployeeRecognitionPortal.csproj"
           }
         }
       }
@@ -59,6 +59,14 @@
         "NUnit3TestAdapter": {
           "target": "Package",
           "version": "[3.12.0, )"
+        },
+        "Newtonsoft.Json": {
+          "target": "Package",
+          "version": "[12.0.1, )"
+        },
+        "RestSharp.Newtonsoft.Json": {
+          "target": "Package",
+          "version": "[1.5.1, )"
         },
         "xunit": {
           "target": "Package",

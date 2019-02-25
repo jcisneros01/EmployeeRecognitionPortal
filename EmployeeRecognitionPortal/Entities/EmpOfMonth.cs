@@ -10,7 +10,7 @@ namespace EmployeeRecognitionPortal.Models
         public override void CreateLaTex()
         {
         StringBuilder s = new StringBuilder();
-        
+
         s.Append(@"%========import packages============
             \documentclass[fontsize=18pt]{scrartcl} % document type
             \usepackage[letterpaper,top=3cm,right=3cm,bottom=3cm, left=3cm,]{geometry}  % define margins
@@ -18,28 +18,28 @@ namespace EmployeeRecognitionPortal.Models
             \usepackage{tgschola} % font
             \usepackage{fourier-orns} % font ornaments
             \usepackage{wallpaper} % background
-        
+
             %=========begin doc=============
             \begin{document}
             \begin{landscape}
             \begin{center}
             \linespread{2}\selectfont
             \pagestyle{empty}
-        
+
             %=========background=============
             \TileWallPaper{1\paperwidth}{1\paperheight}{certBorder.jpg}
-        
+
             %========Title EOM=========
-        
+
             \begin{minipage}[c]{8in}
                 \centering
                 \onehalfspacing
                 \Huge\bfseries\color{red}{ Employee of the Month \\ \par}
             \end{minipage}
             \vskip .3em
-        
+
             %=======Certificate of Apprec, symbol============
-        
+
             \begin{minipage}[c]{8in}
                 \centering
                 \onehalfspacing
@@ -48,9 +48,9 @@ namespace EmployeeRecognitionPortal.Models
                 \Huge\leafright\quad{\textxswup}\quad\leafleft\par
             \end{minipage}
             \vskip 1em
-        
+
             %=========Awarded to:====================
-        
+
             \begin{minipage}[c]{8.2in}
                 \centering
                 \linespread{1.1}
@@ -66,14 +66,12 @@ namespace EmployeeRecognitionPortal.Models
         s.Append(this.DateAwarded.ToShortDateString());
         s.Append(@"}
             \end{minipage}
-        
+
             %=========Signature====================
             \vfill
             \begin{minipage}[c]{3in}
             \centering
-            \includegraphics[width=.5\linewidth]{");
-        s.Append(this.AwardCreator.Signature);
-        s.Append(@"}
+            \includegraphics[width=.5\linewidth]{sig.png}
         
             \parbox{3in}{\shortstack{
                 \vrule width 3in height 0.5pt \\
@@ -85,14 +83,14 @@ namespace EmployeeRecognitionPortal.Models
         s.Append(@"}}}
             \end{minipage}
             \pagebreak
-        
+
             %============End Doc=================
             \end{center}
             \end{landscape}
             \end{document}");
-        
-        
-        this.LaTexFile = s.ToString();       
+
+
+        this.LaTexFile = s.ToString();
         }
     }
 }
