@@ -30,8 +30,8 @@ class LoginForm extends React.Component {
         const errors = this.validate(this.state.data);
         this.setState({errors});
         if (Object.keys(errors).length === 0) {
-            this.props.logginIn();
-            this.props.submit(this.state.data)
+          
+            this.props.requestLogin(this.state.data)
         }
     }     
    
@@ -48,7 +48,6 @@ class LoginForm extends React.Component {
                     </Card.Meta>
                     <Form onSubmit={this.onSubmit} loading={this.props.loading}>
                         { this.props.apiError && <Message negative> 
-                            <Message.Header>Somthing went wrong</Message.Header>
                             <p>{this.props.apiError}</p>
                             </Message>
                         }
@@ -87,8 +86,7 @@ class LoginForm extends React.Component {
 }
 
 LoginForm.propTypes = {
-    submit: PropTypes.func.isRequired,
-    logginIn: PropTypes.func.isRequired,
+    requestLogin: PropTypes.func.isRequired,
     loading: PropTypes.bool.isRequired,
     apiError: PropTypes.string
 }

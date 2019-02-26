@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { Button,  Form, Message, Modal, Grid } from 'semantic-ui-react';
 import validator from 'validator';
 import classNames from 'classnames'
 import Dropzone from 'react-dropzone'
 
 import InlineError from '../../shared/InlineError';
-import {  createUser, updateUser, initializeForm } from '../../../actions/users';
 import { thumb, thumbInner, img, baseStyle, activeStyle, rejectStyle} from './styles'
 
 class UserForm extends React.Component {
@@ -25,6 +22,7 @@ class UserForm extends React.Component {
     }
 
     componentWillReceiveProps(newProps) {
+        
         if(newProps.updateSuccess) {
             this.props.hideFormModal()
         } 
@@ -49,6 +47,7 @@ class UserForm extends React.Component {
         if (!data.signature) errors.signature = "Signature can't be blank";
         return errors;
     }
+
     onChange = e => 
         this.setState({
              data: { ...this.state.data, [e.target.name]: e.target.value }
@@ -58,7 +57,7 @@ class UserForm extends React.Component {
         const errors = this.validate(this.state.data);
         this.setState({errors});
         if (Object.keys(errors).length === 0) {
-            if(this.props.formType == "edit") {
+            if(this.props.formType === "edit") {
                 this.props.updateUser(this.state.data);
             } else{
                 this.props.createUser(this.state.data);
@@ -89,7 +88,7 @@ class UserForm extends React.Component {
         
         const { data, errors } = this.state;
     
-        const { show, hideFormModal, formType, loading, error, success } = this.props
+        const { show, hideFormModal, formType, loading, error } = this.props
         const thumbs = data.preview && 
             <div style={thumb}>
               <div style={thumbInner}>
@@ -105,11 +104,10 @@ class UserForm extends React.Component {
 
         return(
             <Modal open={show}>
-                <Modal.Header>{formType == "edit" ? "Edit User" : "Create User" }</Modal.Header>
+                <Modal.Header>{formType === "edit" ? "Edit User" : "Create User" }</Modal.Header>
                     <Modal.Content>
                         <Form onSubmit={this.onSubmit} loading={loading}>
                             { error && <Message negative> 
-                                <Message.Header>Somthing went wrong</Message.Header>
                                 <p>{error}</p>
                                 </Message>
                             }
@@ -187,7 +185,7 @@ class UserForm extends React.Component {
                             </Grid>
                           
                             <Button primary style={{marginTop: 5}}>
-                                {formType == "edit" ? "Update" : "Create User"}
+                                {formType === "edit" ? "Update" : "Create User"}
                             </Button>               
                         </Form>
                     </Modal.Content>
@@ -206,31 +204,13 @@ UserForm.propTypes = {
   hideFormModal: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
   formType: PropTypes.string.isRequired,
-  createUser: PropTypes.func.isRequired,
-  updateUser: PropTypes.func.isRequired,
   initializeForm: PropTypes.func.isRequired,
-  loading: PropTypes.bool.isRequired,
-  error: PropTypes.string,
-  updateSuccess: PropTypes.bool.isRequired
- 
+  updateUser: PropTypes.func
 }
 
-const mapStateToProps = state => {
-    return {
-        loading: state.user.loading,
-        error: state.user.error,
-        updateSuccess: state.user.updateSuccess
-    }
-  };
 
 
 
-const mapDispatchToProps = dispatch => {
-    return bindActionCreators({
-        createUser,
-        updateUser,
-        initializeForm
-    }, dispatch);
-  };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserForm);
+
+export default UserForm;

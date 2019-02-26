@@ -1,39 +1,41 @@
 class Api {
     static headers() {
         return { 
+            'Accept': 'application/json',
             'Content-Type': 'application/json',
             //'dataType': 'json',
             //'X-Requested-With': 'XMLHttpRequest',
         }
     }
 
-    static get(route) {
-        return this.xhr(route, null, 'GET');
+    static get(route, authorize = false) {
+        return this.xhr(route, null, 'GET', authorize);
     }
 
-    static put(route, params) {
-        return this.xhr(route, params, 'PUT')
+    static put(route, params, authorize = false) {
+        return this.xhr(route, params, 'PUT', authorize)
     }
 
-    static post(route, params) {
-        return this.xhr(route, params, 'POST')
+    static post(route, params, authorize = false) {
+        return this.xhr(route, params, 'POST', authorize)
     }
 
-    static delete(route, params) {
-        return this.xhr(route, params, 'DELETE')
+    static delete(route, params, authorize = false) {
+        return this.xhr(route, params, 'DELETE', authorize)
     }
 
-    static xhr(route, params, verb) {
-        var host = ''
+    static xhr(route, params, verb, authorize) {
+        var host = 'https://awardapp.azurewebsites.net';
         if (process.env.NODE_ENV !== 'production') {
-             host = 'https://localhost:5000';
+            host = 'https://localhost:44359';
         }
-        else {
-            host = 'https://awardapp.azurewebsites.net'
-        }
+      
         const url = `${host}${route}`;
         let options = Object.assign({ method: verb}, params ? { body: JSON.stringify(params)}: null);
         options.headers = Api.headers();
+        if(authorize) {
+            Object.assign(options.headers, { 'Authorization': `Bearer ${localStorage.userJWT}` })
+        }
         return fetch(url, options).then( resp => {
             let json = resp.json();
             if(resp.ok) {
