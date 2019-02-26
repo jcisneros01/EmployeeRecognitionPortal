@@ -18,9 +18,7 @@ const AwardList = ({awards, showModal, showFormModal,showConfirmModal}) => (
             <Table.Cell>
                 {award.awardCreatorId}
             </Table.Cell>
-            <Table.Cell>
-                {award.laTexFile}
-            </Table.Cell>
+           
             <Table.Cell className="actions">
                 <Menu.Item as='a' icon>
                     <Icon name='eye' onClick={() => showModal(award)}/>
