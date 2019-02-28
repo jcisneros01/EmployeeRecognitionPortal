@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Security.Claims;
 using System.Text;
 using EmployeeRecognitionPortal.Exceptions;
@@ -46,7 +48,38 @@ namespace EmployeeRecognitionPortal.Services
         //todo: send email via smtp
         public void SendUserPassword(string username)
         {
-            throw new System.NotImplementedException(username);
+            var user = _context.Users.FirstOrDefault(x => x.Email == username);
+            if (user == null)
+                return;
+            
+            var msg = new MailMessage(
+                "employeerecognitionapp@gmail.com",
+                user.Email,
+                "Your password for Employee Recognition Portal",
+                "Hi, \n\nYour password for Employee Recognition Portal is:\n\n" + user.Password + "\n\nBest,\nEmployee Recognition Portal"
+            );
+         
+            var client = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                Credentials = new NetworkCredential("employeerecognitionapp@gmail.com", "osuBeavers19"),
+                Timeout = 20000
+            };
+            
+            try
+            {
+                Console.WriteLine("Sending Message to " + user.Email);
+                client.Send(msg);
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.ToString());
+            }
+            
+            
         }
         
         private bool IsAuthenticated(LoginRequest credentials)

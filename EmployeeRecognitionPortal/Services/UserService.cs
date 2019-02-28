@@ -132,6 +132,6 @@ namespace EmployeeRecognitionPortal.Services
             }
 
             return _mapper.Map<User, UserResponse>(user);
-        }
+        }   
     }
 }

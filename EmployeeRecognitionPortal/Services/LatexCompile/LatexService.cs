@@ -121,7 +121,6 @@ namespace EmployeeRecognitionPortal.Services
           );
 
           // Attach pdf for award
-          Console.WriteLine("SENDING IN EMAIL: " + filePath);
           var pdf = new Attachment(filePath, MediaTypeNames.Application.Pdf);
           msg.Attachments.Add(pdf);
 
