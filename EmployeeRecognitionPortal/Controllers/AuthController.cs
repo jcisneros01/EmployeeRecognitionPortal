@@ -21,7 +21,7 @@ using Microsoft.AspNetCore.Mvc;
          {   
              var token =_authService.GenerateToken(credentials);
              
-             return Ok(new {Token = token});
+             return Ok(token);
          }
 
          [HttpPost("recoverpassword")]
