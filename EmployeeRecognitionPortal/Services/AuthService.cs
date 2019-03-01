@@ -8,6 +8,7 @@ using EmployeeRecognitionPortal.Exceptions;
 using EmployeeRecognitionPortal.Helpers;
 using EmployeeRecognitionPortal.Models;
 using EmployeeRecognitionPortal.Models.Request;
+using EmployeeRecognitionPortal.Models.Response;
 using Microsoft.IdentityModel.Tokens;
 
 namespace EmployeeRecognitionPortal.Services
@@ -22,12 +23,16 @@ namespace EmployeeRecognitionPortal.Services
         }
         
         //todo: claims for  user and some kind of id
-        public string GenerateToken(LoginRequest credentials)
+        public LoginResponse GenerateToken(LoginRequest credentials)
         {
             if (!IsAuthenticated(credentials))
             {
                 throw new Exception("Unable to authenticate user.");
             }
+            
+            var user = _context.Users.FirstOrDefault(x => x.Email == credentials.Email);
+            var loginRes = new LoginResponse();
+            loginRes.Id = user.Id;
             
             var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is my custom Secret key for authentication"));
             var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
@@ -39,8 +44,10 @@ namespace EmployeeRecognitionPortal.Services
                 expires: DateTime.Now.AddDays(1),
                 signingCredentials: signinCredentials
             );
+
+            loginRes.Jwt = new JwtSecurityTokenHandler().WriteToken(token);
             
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            return loginRes;
         }
         
         //todo: send email via smtp

@@ -1,10 +1,11 @@
 using EmployeeRecognitionPortal.Models.Request;
+using EmployeeRecognitionPortal.Models.Response;
 
 namespace EmployeeRecognitionPortal.Services
 {
     public interface IAuthService
     {
-        string GenerateToken(LoginRequest credentials);
+        LoginResponse GenerateToken(LoginRequest credentials);
         void SendUserPassword(string username);
     }
 }
