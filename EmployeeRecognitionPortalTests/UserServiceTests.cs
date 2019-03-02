@@ -91,7 +91,7 @@ namespace EmployeeRecognitionPortalTests
                 .Setup(x => x.Users).Returns(userMockDbSet.Object);
             
 
-        _context = mockContext.Object;
+            _context = mockContext.Object;
             
             var config = new MapperConfiguration(cfg => {
                 cfg.AddProfile<AdminResponseProfile>();

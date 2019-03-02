@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using AutoMapper;
 using EmployeeRecognitionPortal.Exceptions;
@@ -8,9 +6,6 @@ using EmployeeRecognitionPortal.Models;
 using EmployeeRecognitionPortal.Models.Request;
 using EmployeeRecognitionPortal.Models.Response;
 using Microsoft.EntityFrameworkCore;
-using System.IO;
-using System.Net;
-using System.Text;
 using Newtonsoft.Json;
 using RestSharp;
 
@@ -22,7 +17,7 @@ namespace EmployeeRecognitionPortal.Services
         private readonly Context _context;
         private readonly IMapper _mapper;
 
-        public EmpOfMonthService(Context context, IMapper mapper, IUserService userService)
+        public EmpOfMonthService(Context context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
