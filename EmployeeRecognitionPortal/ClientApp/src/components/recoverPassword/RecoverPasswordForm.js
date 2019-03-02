@@ -2,8 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import validator from 'validator';
-import { Button, Form, Message, Card } from 'semantic-ui-react';
+import { Button, FormControl, InputLabel, Input, Typography} from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+
 import InlineError from '../shared/InlineError';
+
+const styles = theme => ({
+   
+    avatar: {
+      margin: theme.spacing.unit,
+      backgroundColor: theme.palette.secondary.main,
+    },
+    form: {
+      width: '100%', // Fix IE 11 issue.
+      marginTop: theme.spacing.unit,
+    },
+    submit: {
+      marginTop: theme.spacing.unit * 3,
+    },
+  });
 
 class RecoverPasswordForm extends React.Component {
     state = {
@@ -36,39 +53,49 @@ class RecoverPasswordForm extends React.Component {
 
     render() {
         const { errors, data} = this.state;
-        const { loading, apiError } = this.props
+        const { loading, apiError, classes } = this.props
         return (
-            <Card>
-                <Card.Content>
-                    <Card.Header>Forgot your password? </Card.Header>
-                    <Card.Meta>
-                        <span>We'll sent you a email with instructions.</span>
-                    </Card.Meta>
-                    <Form onSubmit={this.onSubmit} loading={loading}>
-                        {!!apiError && <Message negative>{ apiError }</Message>}
-                        <Form.Field error={!!errors.email}>
-                            <label htmlFor="email">Email</label>
-                            <input
-                                type="email"
-                                name="email"
-                                id="email"
-                                value={data.email}
-                                placeholder="Enter your registered email"
-                                onChange={this.onChange}
-                            />
-                            { errors.email && <InlineError text={errors.email}/>}
-                        </Form.Field>
-                        <Button primary fluid>Reset</Button>
-                    </Form>
-                    <Link to="/login">Back to login</Link>
-                </Card.Content>
-            </Card>
+            <form onSubmit={this.onSubmit} className={classes.form} autoComplete="off">
+                
+                <Typography component="h1" variant="h4">
+                    Forgot your password?
+                </Typography> 
+                <Typography component="h1">
+                    We'll sent you a email with instructions.
+                </Typography> 
+                {!!apiError && <p>{ apiError }</p>}
+                <FormControl margin="normal" required fullWidth>
+                    <InputLabel htmlFor="email">Email Address</InputLabel>
+                    <Input 
+                        id="email" 
+                        name="email" 
+                        autoComplete="email" 
+                        autoFocus
+                        value={data.email} 
+                        placeholder="Enter your registered email"
+                        onChange={this.onChange}
+                        // error={!!errors.email}
+                    />
+                           
+                    { errors.email && <InlineError text={errors.email}/>}
+                </FormControl>
+                <Button type="submit"
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    className={classes.submit}
+                >Reset</Button>
+                <Link to="/login">Back to login</Link>
+            </form>
+           
+             
         );
     }
 }
 
 RecoverPasswordForm.propTypes = {
-    submit: PropTypes.func.isRequired
+    submit: PropTypes.func.isRequired,
+    classes: PropTypes.object.isRequired,
 }
 
-export default RecoverPasswordForm;
+export default withStyles(styles)(RecoverPasswordForm);

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container} from 'semantic-ui-react';
 import { Subscribe } from 'unstated';
+import { withStyles } from '@material-ui/core/styles';
 
 import Navigator from './Navigation';
 import * as routes from './constants/routes';
@@ -16,11 +16,18 @@ import AwardsEOYPage from './components/dashboard/awards/eoy';
 import AwardsEOMPage from './components/dashboard/awards/eom';
 import LoginContainer from './containers/LoginContainer';
 
-const App = ({ location}) => (
+const styles = theme => ({
+  root: {
+    flexGrow: 1,
+  }
+
+});
+
+const App = ({ location, classes}) => (
   <Subscribe to={[LoginContainer]}>
    {login => {
   
-    return <Container fluid>
+    return <div className={classes.root}>
         {!!login.state.token && 
           <Navigator 
             isAuthenticated={!!login.state.token}
@@ -81,7 +88,7 @@ const App = ({ location}) => (
         />
 
 
-      </Container>
+      </div>
    }}
     
   </Subscribe>
@@ -91,9 +98,10 @@ const App = ({ location}) => (
 App.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired
-  }).isRequired
+  }).isRequired,
+  classes: PropTypes.object.isRequired,
 }
 
 
 
-export default App;
+export default withStyles(styles)(App);

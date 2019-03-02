@@ -1,9 +1,25 @@
 import React from 'react';
-import { Button, Form, Message, Card } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import { Button, FormControl, InputLabel, Input} from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import validator from 'validator';
 import InlineError from '../shared/InlineError';
+
+const styles = theme => ({
+   
+    avatar: {
+      margin: theme.spacing.unit,
+      backgroundColor: theme.palette.secondary.main,
+    },
+    form: {
+      width: '100%', // Fix IE 11 issue.
+      marginTop: theme.spacing.unit,
+    },
+    submit: {
+      marginTop: theme.spacing.unit * 3,
+    },
+  });
 
 class LoginForm extends React.Component {
 
@@ -39,48 +55,52 @@ class LoginForm extends React.Component {
     render() {
         
         const {  errors, data } = this.state;
+        const { classes } = this.props;
         return(
-            <Card>
-                <Card.Content>
-                    <Card.Header>Welcome Back !</Card.Header>
-                    <Card.Meta>
-                        <span >Sign in to continue</span>
-                    </Card.Meta>
-                    <Form onSubmit={this.onSubmit} loading={this.props.loading}>
-                        { this.props.apiError && <Message negative> 
+        
+                    <form onSubmit={this.onSubmit} className={classes.form} autoComplete="off">
+                        { this.props.apiError && <div > 
                             <p>{this.props.apiError}</p>
-                            </Message>
+                            </div>
                         }
-                        <Form.Field error={!!errors.email}>
-                            <label htmlFor="email">Email</label>
-                            <input 
-                                type="email" 
+                        <FormControl margin="normal" required fullWidth>
+                            <InputLabel htmlFor="email">Email Address</InputLabel>
+                            <Input 
                                 id="email" 
                                 name="email" 
-                                placeholder="example@example.com"
-                                value={data.email}
+                                autoComplete="email" 
+                                autoFocus
+                                value={data.email} 
                                 onChange={this.onChange}
-                                /> 
-                                { errors.email && <InlineError text={errors.email}/>}
-                        </Form.Field>
-                        <Form.Field error={!!errors.password}>
-                            <label htmlFor="password">Password</label>
-                            <input 
+                                // error={!!errors.email}
+                                />
+                           
+                            { errors.email && <InlineError text={errors.email}/>}
+                        </FormControl>
+                        <FormControl margin="normal" required fullWidth>
+                            <InputLabel htmlFor="password">Password</InputLabel>
+                            <Input 
+                                name="password" 
                                 type="password" 
                                 id="password" 
-                                name="password" 
-                                placeholder="password"
+                                autoComplete="current-password" 
                                 value={data.password}
                                 onChange={this.onChange}
-                                /> 
-                                { errors.password && <InlineError text={errors.password}/>}
-                        </Form.Field>
-                        <Button primary fluid>Login</Button>
-               
-                    </Form>
-                    <Link to="/forgot-password">Forgot password?</Link>
-            </Card.Content>
-        </Card>
+                                // error={!!errors.password}
+                            />
+                            { errors.password && <InlineError text={errors.password}/>}
+                        </FormControl>
+
+                        <Button type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            className={classes.submit}
+                        >Login</Button>
+                        <Link to="/forgot-password">Forgot password?</Link>
+                    </form>
+                   
+        
         );
     }
 }
@@ -88,7 +108,8 @@ class LoginForm extends React.Component {
 LoginForm.propTypes = {
     requestLogin: PropTypes.func.isRequired,
     loading: PropTypes.bool.isRequired,
-    apiError: PropTypes.string
+    apiError: PropTypes.string,
+    classes: PropTypes.object.isRequired,
 }
 
-export default LoginForm;
+export default withStyles(styles)(LoginForm);
