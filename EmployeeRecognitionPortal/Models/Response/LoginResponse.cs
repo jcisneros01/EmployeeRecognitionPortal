@@ -2,8 +2,10 @@ namespace EmployeeRecognitionPortal.Models.Response
 {
     public class LoginResponse
     {
-        public string Jwt;
+        public string Jwt { get; set; }
 
-        public int Id;
+        public int Id { get; set; }
+
+        public bool IsAdmin { get; set; }
     }
 }

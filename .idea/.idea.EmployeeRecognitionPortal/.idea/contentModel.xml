@@ -17,6 +17,19 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="ClientApp" t="Include">
           <e p=".gitignore" t="Include" />
+          <e p="node_modules" t="ExcludeRecursive">
+            <e p="@types" t="IncludeRecursive" />
+            <e p="jwt-decode" t="IncludeRecursive" />
+            <e p="react" t="IncludeRecursive" />
+            <e p="react-dom" t="IncludeRecursive" />
+            <e p="react-dropzone" t="IncludeRecursive" />
+            <e p="react-router-dom" t="IncludeRecursive" />
+            <e p="react-scripts" t="IncludeRecursive" />
+            <e p="redux" t="IncludeRecursive" />
+            <e p="semantic-ui-css" t="IncludeRecursive" />
+            <e p="semantic-ui-react" t="IncludeRecursive" />
+            <e p="validator" t="IncludeRecursive" />
+          </e>
           <e p="package-lock.json" t="Include" />
           <e p="package.json" t="Include" />
           <e p="public" t="Include">
