@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using EmployeeRecognitionPortal.Filters;
 using EmployeeRecognitionPortal.Models.Request;
 using EmployeeRecognitionPortal.Services;
@@ -56,10 +57,12 @@ using Microsoft.AspNetCore.Mvc;
          [Authorize]
          [HttpPut("{id}")]
          [ValidateModel]
-         //todo: add logic for selective update based on role
          public IActionResult UpdateUser(int id, [FromBody]UserPostRequest user)
          {
-             var response = _userService.UpdateUser(id, user);
+             var identity = User.Identity as ClaimsIdentity;
+             var isAdmin = identity.HasClaim(c => c.Type == "IsAdmin");
+             
+             var response = _userService.UpdateUser(id, user, isAdmin);
 
              return Ok(response);
          }

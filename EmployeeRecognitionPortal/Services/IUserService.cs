@@ -12,7 +12,7 @@ namespace EmployeeRecognitionPortal.Services
         UserResponse GetUser(int id);
         List<UserResponse> GetUsers();
         void DeleteUser(int id);
-        UserResponse UpdateUser(int id, UserPostRequest user);
+        UserResponse UpdateUser(int id, UserPostRequest user, bool isAdmin);
         List<AdminResponse> GetAdmins();
         AdminResponse GetAdmin(int id);
         AdminResponse CreateAdmin(AdminRequest user);
