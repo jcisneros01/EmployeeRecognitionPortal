@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using EmployeeRecognitionPortal.Filters;
 using EmployeeRecognitionPortal.Models.Request;
 using EmployeeRecognitionPortal.Services;
@@ -6,8 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 
  namespace EmployeeRecognitionPortal.Controllers
  {
-     //todo: validate admin creds
-     //[Authorize]
      [Route("[controller]")]
      public class UsersController : Controller
      {
@@ -17,7 +16,8 @@ using Microsoft.AspNetCore.Mvc;
          {
              _userService = userService;
          }
-
+         
+         [Authorize(Policy = "Admin")]
          [HttpGet]
          public IActionResult Get()
          {
@@ -25,7 +25,8 @@ using Microsoft.AspNetCore.Mvc;
 
              return Ok(response);
          }
-
+         
+         [Authorize(Policy = "Admin")]
          [HttpGet("{id}")]
          public IActionResult GetUser(int id)
          {
@@ -33,7 +34,8 @@ using Microsoft.AspNetCore.Mvc;
 
              return Ok(response);
          }
-
+         
+         [Authorize(Policy = "Admin")]
          [HttpDelete("{id}")]
          public IActionResult DeleteUser(int id)
          {
@@ -41,7 +43,8 @@ using Microsoft.AspNetCore.Mvc;
 
              return Ok();
          }
-
+         
+         [Authorize(Policy = "Admin")]
          [HttpPost]
          [ValidateModel]
          public IActionResult CreateUser([FromBody]UserRequest user)
@@ -51,12 +54,15 @@ using Microsoft.AspNetCore.Mvc;
              return Ok(response);
          }
 
-         //todo: allow user access
+         [Authorize]
          [HttpPut("{id}")]
          [ValidateModel]
          public IActionResult UpdateUser(int id, [FromBody]UserPostRequest user)
          {
-             var response = _userService.UpdateUser(id, user);
+             var identity = User.Identity as ClaimsIdentity;
+             var isAdmin = identity.HasClaim(c => c.Type == "IsAdmin");
+             
+             var response = _userService.UpdateUser(id, user, isAdmin);
 
              return Ok(response);
          }

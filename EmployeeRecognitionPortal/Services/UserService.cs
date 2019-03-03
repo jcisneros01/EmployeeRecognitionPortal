@@ -68,7 +68,7 @@ namespace EmployeeRecognitionPortal.Services
             _context.SaveChanges();
         }
 
-        public UserResponse UpdateUser(int id, UserPostRequest user)
+        public UserResponse UpdateUser(int id, UserPostRequest user, bool isAdmin)
         {
             var existingUser = _context.Users.Include(x => x.AwardCreator).FirstOrDefault(x => x.Id == id);
             if (existingUser == null)
@@ -78,10 +78,14 @@ namespace EmployeeRecognitionPortal.Services
             
             existingUser.AwardCreator.Name = string.IsNullOrWhiteSpace(user.Name) ? 
                 existingUser.AwardCreator.Name: user.Name;
-            existingUser.Email = string.IsNullOrWhiteSpace(user.Email) ? existingUser.Email: user.Email;
-            existingUser.Password = string.IsNullOrWhiteSpace(user.Password) ? 
-                existingUser.Password: PasswordHelper.HashPassword(user.Password);
-            existingUser.AwardCreator.Signature = user.Signature ?? existingUser.AwardCreator.Signature;
+            
+            if (isAdmin)
+            {
+                existingUser.Email = string.IsNullOrWhiteSpace(user.Email) ? existingUser.Email: user.Email;
+                existingUser.Password = string.IsNullOrWhiteSpace(user.Password) ? 
+                    existingUser.Password: PasswordHelper.HashPassword(user.Password);
+                existingUser.AwardCreator.Signature = user.Signature ?? existingUser.AwardCreator.Signature;               
+            }
             _context.SaveChanges();
             
             return _mapper.Map<User, UserResponse>(existingUser);

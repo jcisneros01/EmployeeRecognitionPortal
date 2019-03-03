@@ -41,10 +41,10 @@ namespace EmployeeRecognitionPortal
             }));            
                         
             var key = Encoding.UTF8.GetBytes("this is my custom Secret key for authentication"); //Todo: move to config
-            services.AddAuthentication(x =>
+            services.AddAuthentication(options =>
                 {
-                    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 }) 
                .AddJwtBearer(x =>
                 {
@@ -68,7 +68,20 @@ namespace EmployeeRecognitionPortal
                         ValidAudience = "https://localhost:5001"
 
                     };
-                });
+                    });
+            
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Admin",
+                    policy => policy.RequireClaim("IsAdmin")
+                    );
+            });
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("User",
+                    policy => policy.RequireClaim("IsUser")
+                );
+            });
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);            
             services.AddSwaggerGen(c =>

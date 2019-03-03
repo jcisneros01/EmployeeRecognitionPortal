@@ -24,35 +24,47 @@ namespace EmployeeRecognitionPortal.Services
             _context = context;
         }
         
-        //todo: claims for  user and some kind of id
         public LoginResponse GenerateToken(LoginRequest credentials)
         {
-            if (!IsAuthenticated(credentials))
+            var user = GetAuthenticatedUser(credentials);
+            if (user == null)
             {
                 throw new Exception("Unable to authenticate user.");
             }
-            
-            var user = _context.Users.FirstOrDefault(x => x.Email == credentials.Email);
-            var loginRes = new LoginResponse();
-            loginRes.Id = user.Id;
-            
-            var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is my custom Secret key for authentication"));
-            var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
- 
+                                    
             var token = new JwtSecurityToken(
                 issuer: "http://localhost:5000",
                 audience: "http://localhost:5000",
-                claims: new List<Claim>(),
+                claims: GetUserClaims(user),
                 expires: DateTime.Now.AddDays(1),
-                signingCredentials: signinCredentials
+                signingCredentials: GetSigningCredentials()
             );
-
-            loginRes.Jwt = new JwtSecurityTokenHandler().WriteToken(token);
             
-            return loginRes;
+            return new LoginResponse
+            {
+                Id = user.Id,
+                Jwt = new JwtSecurityTokenHandler().WriteToken(token),
+                IsAdmin = user.IsAdmin
+            };;
         }
-        
-        //todo: send email via smtp
+
+        private SigningCredentials GetSigningCredentials()
+        {
+            var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+                "this is my custom Secret key for authentication"));
+            return new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+        }
+
+        private List<Claim> GetUserClaims(User user)
+        {
+            string role = user.IsAdmin ? "IsAdmin" : "IsUser";
+            return new List<Claim>
+            {
+                new Claim("UserId", user.Id.ToString()),
+                new Claim(role, "")
+            };
+        }
+
         public void SendUserPassword(string username)
         {
             var user = _context.Users.FirstOrDefault(x => x.Email == username);
@@ -63,7 +75,8 @@ namespace EmployeeRecognitionPortal.Services
                 "employeerecognitionapp@gmail.com",
                 user.Email,
                 "Your password for Employee Recognition Portal",
-                "Hi, \n\nYour password for Employee Recognition Portal is:\n\n" + user.Password + "\n\nBest,\nEmployee Recognition Portal"
+                "Hi, \n\nYour password for Employee Recognition Portal is:\n\n" + user.Password + 
+                "\n\nBest,\nEmployee Recognition Portal"
             );
 
             var client = new SmtpClient
@@ -85,17 +98,23 @@ namespace EmployeeRecognitionPortal.Services
             {
                 Console.Write(ex.ToString());
             }
-
-
         }
         
-        private bool IsAuthenticated(LoginRequest credentials)
+        private User GetAuthenticatedUser(LoginRequest credentials)
         {
             var user =_context.Users.FirstOrDefault(x => x.Email == credentials.Email);
-            if (user != null) 
-                return PasswordHelper.VerifyPassword(user.Password, credentials.Password);
-          
-             throw new UserNotFoundException($"User with username {credentials.Email} not found"); 
+            if (user != null)
+            {
+                var isAuthenticated = PasswordHelper.VerifyPassword(user.Password, credentials.Password);
+                if (isAuthenticated)
+                {
+                    return user;
+                }
+
+                return null;
+            }
+            
+            throw new UserNotFoundException($"User with username {credentials.Email} not found"); 
         }
     }
 }

@@ -27,7 +27,9 @@ namespace EmployeeRecognitionPortal.Extensions
                         if (ex is UserNotFoundException)
                             context.Response.StatusCode = (int) HttpStatusCode.NotFound;                  
                         if (ex is EmailAlreadyExistsException)
-                            context.Response.StatusCode = (int) HttpStatusCode.BadRequest;    
+                            context.Response.StatusCode = (int) HttpStatusCode.BadRequest;
+                        if (ex is AwardNotFoundException)
+                            context.Response.StatusCode = (int) HttpStatusCode.NotFound;
                         
                         await context.Response.WriteAsync(new ErrorModel()
                         {
