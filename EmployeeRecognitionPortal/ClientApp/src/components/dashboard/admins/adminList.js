@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Icon, Menu, Table, Image } from 'semantic-ui-react';
+import { Icon, Menu} from 'semantic-ui-react';
+import { TableCell, TableRow } from '@material-ui/core';
 
 const AdminList = ({admins, showModal, showFormModal,showConfirmModal}) => (
     admins.map((admin, index) => {
-        return <Table.Row key={admin.id}>
-            <Table.Cell>{admin.id}</Table.Cell>
-            
-            <Table.Cell>
-                {admin.email}
-            </Table.Cell>
-            <Table.Cell className="actions">
+        return <TableRow key={admin.id}>
+            <TableCell component="th" scope="row">
+                {admin.id}
+            </TableCell>
+            <TableCell align="right">{admin.email}</TableCell>
+            <TableCell align="right">
                 <Menu.Item as='a' icon>
                     <Icon name='eye' onClick={() => showModal(admin)}/>
                 </Menu.Item>
@@ -20,8 +20,8 @@ const AdminList = ({admins, showModal, showFormModal,showConfirmModal}) => (
                 <Menu.Item as='a' icon>
                     <Icon name='trash alternate' onClick={() => showConfirmModal(admin)}/>
                 </Menu.Item>
-            </Table.Cell>
-        </Table.Row>
+            </TableCell>
+        </TableRow>
     })
 ) 
 

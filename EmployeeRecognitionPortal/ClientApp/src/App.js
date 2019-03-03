@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Subscribe } from 'unstated';
 import { withStyles } from '@material-ui/core/styles';
 
-import Navigator from './Navigation';
+import AuthHeaderBar from './components/shared/AuthHeaderBar';
 import * as routes from './constants/routes';
 import GuestRoute from './routes/GuestRoute';
 import AdminRoute from './routes/AdminRoute';
@@ -15,8 +15,8 @@ import DashboardAdminsPage from './components/dashboard/admins';
 import AwardsEOYPage from './components/dashboard/awards/eoy';
 import AwardsEOMPage from './components/dashboard/awards/eom';
 import LoginContainer from './containers/LoginContainer';
-
-const styles = theme => ({
+import Layout from './routes/layout'
+const styles = () => ({
   root: {
     flexGrow: 1,
   }
@@ -28,12 +28,9 @@ const App = ({ location, classes}) => (
    {login => {
   
     return <div className={classes.root}>
-        {!!login.state.token && 
-          <Navigator 
-            isAuthenticated={!!login.state.token}
-            isAdmin={login.state.isAdmin}
-            logout={login.logout}
-            />}
+        {!login.state.token && 
+          <AuthHeaderBar/>
+        }
 
         <GuestRoute
           isAuthenticated={!!login.state.success}
@@ -55,37 +52,40 @@ const App = ({ location, classes}) => (
           exact path={routes.RECOVER_PASSWORD}
           component={RecoverPasswordPage}
         />
-
-        <AdminRoute
-          isAuthenticated={!!login.state.success}
-          location={location}
-          exact path={routes.DASHBOARD}
-          component={DashboardPage}
-        />
-        <AdminRoute
-          isAuthenticated={!!login.state.success}
-          location={location}
-          exact path={`${routes.DASHBOARD}/${routes.ADMINS}`}
-          component={DashboardAdminsPage}
-        />
-        <AdminRoute
-          isAuthenticated={!!login.state.success}
-          location={location}
-          exact path={`${routes.DASHBOARD}/${routes.USERS}`}
-          component={DashboardUsersPage}
-        />
-        <AdminRoute
-          isAuthenticated={!!login.state.success}
-          location={location}
-          exact path={`${routes.DASHBOARD}/${routes.AWARDSEOM}`}
-          component={AwardsEOMPage}
-        />
-        <AdminRoute
-          isAuthenticated={!!login.state.success}
-          location={location}
-          exact path={`${routes.DASHBOARD}/${routes.AWARDSEOY}`}
-          component={AwardsEOYPage}
-        />
+       {login.state.token && 
+        <Layout location={location}>
+          <AdminRoute
+            isAuthenticated={!!login.state.success}
+            location={location}
+            exact path={routes.DASHBOARD}
+            component={DashboardPage}
+          />
+          <AdminRoute
+            isAuthenticated={!!login.state.success}
+            location={location}
+            exact path={`${routes.DASHBOARD}/${routes.ADMINS}`}
+            component={DashboardAdminsPage}
+          />
+          <AdminRoute
+            isAuthenticated={!!login.state.success}
+            location={location}
+            exact path={`${routes.DASHBOARD}/${routes.USERS}`}
+            component={DashboardUsersPage}
+          />
+          <AdminRoute
+            isAuthenticated={!!login.state.success}
+            location={location}
+            exact path={`${routes.DASHBOARD}/${routes.AWARDSEOM}`}
+            component={AwardsEOMPage}
+          />
+          <AdminRoute
+            isAuthenticated={!!login.state.success}
+            location={location}
+            exact path={`${routes.DASHBOARD}/${routes.AWARDSEOY}`}
+            component={AwardsEOYPage}
+          />
+        </Layout>
+       }
 
 
       </div>

@@ -1,12 +1,20 @@
 import React from 'react'
-import { Icon, Table, Button} from 'semantic-ui-react'
+import { Icon,  Button} from 'semantic-ui-react'
+import PropTypes from 'prop-types';
+import { withStyles, Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 
 import  AdminList from './adminList';
 import AdminModal from './adminModal';
 import AdminForm from './adminForm';
 import ConfirmModal from '../common/confirmModal';
 
-export default class Admins extends React.Component {
+const styles = {
+    table: {
+      minWidth: 700,
+    },
+  };
+
+class Admins extends React.Component {
     state = {
         showAdminModal: false,
         formModalShow: false,
@@ -52,6 +60,7 @@ export default class Admins extends React.Component {
     render() {
         const {admins, loading, error, updateSuccess} = this.props.admins.state;
         const { admin, showAdminModal,formModalShow, formType, confirmModal } = this.state;
+        const {classes} = this.props
        
         return (
             <>
@@ -79,39 +88,40 @@ export default class Admins extends React.Component {
                         updateSuccess={updateSuccess}
                     />
                 }
-                <Table celled>
-                    <Table.Header>
-                        <Table.Row>
-                            <Table.HeaderCell colSpan='4'>
-                                <Button icon labelPosition='left' primary size='small' onClick={() => this.showFormModal()}>
-                                    <Icon name='user' /> Add Admin
-                                </Button>
-                            </Table.HeaderCell>
-                        </Table.Row>
-                        <Table.Row>
-                            <Table.HeaderCell>ID</Table.HeaderCell>
-                            <Table.HeaderCell>Email</Table.HeaderCell>
-                            <Table.HeaderCell>Actions</Table.HeaderCell>
-                        </Table.Row>
-                    </Table.Header>
-
-                    <Table.Body>
+                <Table className={classes.table}>
+                    <TableHead>
+                        <Button icon labelPosition='left' primary size='small' onClick={() => this.showFormModal()}>
+                            <Icon name='user' /> Add Admin
+                        </Button>
+                        <TableRow>
+                            <TableCell>ID</TableCell>
+                            <TableCell align="right">Email</TableCell>
+                            <TableCell align="right">Actions</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
                         {admins.length > 0 ? 
                             <AdminList 
-                            admins={admins} 
-                            showModal={this.showModal} 
-                            showFormModal={this.showFormModal}
-                            showConfirmModal={this.showConfirmModal}
+                                admins={admins} 
+                                showModal={this.showModal} 
+                                showFormModal={this.showFormModal}
+                                showConfirmModal={this.showConfirmModal}
                             /> :
-                            <Table.Row >
-                                <Table.Cell>No record found</Table.Cell>
-                            </Table.Row>
+                            <TableRow>
+                                <TableCell>No record found</TableCell>
+                            </TableRow>
                         }
-                        
-                    </Table.Body>
-
-                </Table>
+                   
+                    </TableBody>
+            </Table>
+               
             </>
         )
     }
 }
+
+Admins.propTypes = {
+    classes: PropTypes.object.isRequired,
+  };
+  
+  export default withStyles(styles)(Admins);

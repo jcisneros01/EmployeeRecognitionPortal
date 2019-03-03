@@ -3,7 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const AdminRoute = ({ isAuthenticated, component: Component, ...rest }) => (
-    <Route {...rest} render={props => isAuthenticated  ? <Component {...props}/> : <Redirect to="/" /> }/>
+    <Route {...rest} render={props =>  <Component {...props}/>  }/>
 );
 
 AdminRoute.propTypes = {

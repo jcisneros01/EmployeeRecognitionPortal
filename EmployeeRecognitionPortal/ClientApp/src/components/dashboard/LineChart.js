@@ -1,46 +1,40 @@
 import React from 'react';
-import {Line} from 'react-chartjs-2';
+import { 
+    ResponsiveContainer, 
+    LineChart, 
+    Line, 
+    XAxis, 
+    YAxis,
+    Tooltip, 
+    CartesianGrid, 
+    Legend
+ } from 'recharts';
 
-const data = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'Awards created by Users',
-      fill: false,
-      lineTension: 0.1,
-      backgroundColor: 'rgba(75,192,192,0.4)',
-      borderColor: 'rgba(75,192,192,1)',
-      borderCapStyle: 'butt',
-      borderDash: [],
-      borderDashOffset: 0.0,
-      borderJoinStyle: 'miter',
-      pointBorderColor: 'rgba(75,192,192,1)',
-      pointBackgroundColor: '#fff',
-      pointBorderWidth: 1,
-      pointHoverRadius: 5,
-      pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-      pointHoverBorderColor: 'rgba(220,220,220,1)',
-      pointHoverBorderWidth: 2,
-      pointRadius: 1,
-      pointHitRadius: 10,
-      data: [65, 59, 80, 81, 56, 55, 40]
-    }
-  ]
-};
+const data = [
+  { name: 'Mon', Users: 2200, Awards: 3400 },
+  { name: 'Tue', Users: 1280, Awards: 2398 },
+  { name: 'Wed', Users: 5000, Awards: 4300 },
+  { name: 'Thu', Users: 4780, Awards: 2908 },
+  { name: 'Fri', Users: 5890, Awards: 4800 },
+  { name: 'Sat', Users: 4390, Awards: 3800 },
+  { name: 'Sun', Users: 4490, Awards: 4300 },
+];
 
-const optionsLine = {
-    legend: {
-        position: 'bottom'
-    }
+function SimpleLineChart() {
+  return (
+    // 99% per https://github.com/recharts/recharts/issues/172
+    <ResponsiveContainer width="99%" height={320}>
+      <LineChart data={data}>
+        <XAxis dataKey="name" />
+        <YAxis />
+        <CartesianGrid vertical={false} strokeDasharray="3 3" />
+        <Tooltip />
+        <Legend />
+        <Line type="monotone" dataKey="Users" stroke="#82ca9d" />
+        <Line type="monotone" dataKey="Awards" stroke="#8884d8" activeDot={{ r: 8 }} />
+      </LineChart>
+    </ResponsiveContainer>
+  );
 }
 
-const Linechart = () => {
-    return (
-        <div>
-        <h2>Awards Report</h2>
-        <Line data={data} options={optionsLine}/>
-    </div>
-    );
-}
-
-export default Linechart;
+export default SimpleLineChart;
