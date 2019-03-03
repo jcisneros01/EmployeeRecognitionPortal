@@ -29,7 +29,7 @@ namespace EmployeeRecognitionPortal.Services
             var user = GetAuthenticatedUser(credentials);
             if (user == null)
             {
-                throw new Exception("Unable to authenticate user.");
+                throw new InvalidLoginAttemptException("Unable to authenticate user.");
             }
                                     
             var token = new JwtSecurityToken(
