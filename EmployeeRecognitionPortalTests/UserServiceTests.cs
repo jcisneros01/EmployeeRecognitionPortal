@@ -204,7 +204,7 @@ namespace EmployeeRecognitionPortalTests
             var user = _userService.UpdateUser(1, new UserPostRequest
             {
                 Name = "fname"
-            });
+            }, true);
             
             Assert.AreEqual("fname", user.Name);
        }           
@@ -217,7 +217,7 @@ namespace EmployeeRecognitionPortalTests
                 Name = "fname"
             };
             
-            Assert.Throws<UserNotFoundException>(() => _userService.UpdateUser(0, user));
+            Assert.Throws<UserNotFoundException>(() => _userService.UpdateUser(0, user, true));
        }           
         
         [Test]  
