@@ -25,7 +25,7 @@ class LoginContainer extends Container {
           password: data.password 
         }
       ).then(resp => {
-        localStorage.userJWT = resp.token; 
+        localStorage.userJWT = resp.jwt; 
         let isAdmin = false;
         if(data.email === 'admin@admin.com') {
           localStorage.isAdmin = true

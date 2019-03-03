@@ -52,8 +52,8 @@ const App = ({ location, classes}) => (
           exact path={routes.RECOVER_PASSWORD}
           component={RecoverPasswordPage}
         />
-       {login.state.token && 
-        <Layout location={location}>
+       
+        <Layout location={location} isAuthenticated={!!login.state.success}>
           <AdminRoute
             isAuthenticated={!!login.state.success}
             location={location}
@@ -85,7 +85,7 @@ const App = ({ location, classes}) => (
             component={AwardsEOYPage}
           />
         </Layout>
-       }
+       
 
 
       </div>

@@ -14,13 +14,14 @@ class ReportContainer extends Container {
     };
 
     getAwardReports = (type) => {
-        Api.get(`/awards/reports?type=${type}`, true).then(awards => {
-            console.log(awards);
+        Api.get(`/awards/reports?type=${type}`, true).then(resp => {
+            
           if(type === 'countbytype') {
-              const labels = awards.map(award => {
+              const labels = resp.awards && resp.awards.map(award => {
+                  
                   return award.awardName
               })
-              const counts = awards.map(award => {
+              const counts = resp.awards && resp.awards.map(award => {
                 return award.awardCount
             })
             this.setState({awards: {

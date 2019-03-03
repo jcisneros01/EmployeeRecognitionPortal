@@ -24,6 +24,7 @@ class Admins extends React.Component {
     }
 
     componentDidMount() {
+        console.log('ss')
         this.props.admins.getAdmins();
     }
 
@@ -58,7 +59,8 @@ class Admins extends React.Component {
    
 
     render() {
-        const {admins, loading, error, updateSuccess} = this.props.admins.state;
+        const { admins, loading, error, updateSuccess } = this.props.admins.state;
+        console.log(admins)
         const { admin, showAdminModal,formModalShow, formType, confirmModal } = this.state;
         const {classes} = this.props
        
