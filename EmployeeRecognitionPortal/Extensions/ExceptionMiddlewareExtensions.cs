@@ -30,6 +30,8 @@ namespace EmployeeRecognitionPortal.Extensions
                             context.Response.StatusCode = (int) HttpStatusCode.BadRequest;
                         if (ex is AwardNotFoundException)
                             context.Response.StatusCode = (int) HttpStatusCode.NotFound;
+                        if (ex is InvalidLoginAttemptException)
+                            context.Response.StatusCode = (int) HttpStatusCode.Unauthorized;
                         
                         await context.Response.WriteAsync(new ErrorModel()
                         {
