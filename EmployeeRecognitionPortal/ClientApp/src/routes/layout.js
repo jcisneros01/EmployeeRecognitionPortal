@@ -123,7 +123,7 @@ class Layout extends React.Component {
         return (<Subscribe to={[LoginContainer]}>
             {login => {
                 return <div className={classes.root}>
-                    {isAuthenticated && <>
+                    
                         <CssBaseline />
                         <AppBar
                             position="absolute"
@@ -188,7 +188,7 @@ class Layout extends React.Component {
                             <div className={classes.appBarSpacer} />
                             {this.props.children}
                         </main>
-               </> }
+               
 
                 </div>
             }}

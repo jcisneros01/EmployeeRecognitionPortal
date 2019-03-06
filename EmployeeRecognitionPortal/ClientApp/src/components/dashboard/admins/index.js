@@ -3,6 +3,7 @@ import { Header, Message } from 'semantic-ui-react'
 import { Subscribe } from 'unstated';
 import { withStyles, Paper } from '@material-ui/core';
 
+import Layout from '../../../routes/layout'
 import  Admins from './Admins';
 import AdminContainer from '../../../containers/AdminContainer';
 
@@ -19,7 +20,8 @@ function DashboardAdminsPage({classes}) {
         return (
             <Subscribe to={[AdminContainer]}>
                 {admins => {
-                    return  <Paper className={classes.root}>
+                    return <Layout>
+                            <Paper className={classes.root}>
                     
                         <Header as='h1'>Admin List</Header>
                         {!admins.state.success && admins.state.error ? (
@@ -30,7 +32,8 @@ function DashboardAdminsPage({classes}) {
                             <Admins admins={admins}/>
                         }
                         
-                </Paper>
+                        </Paper>
+                        </Layout>
                 }}
                 
             </Subscribe>

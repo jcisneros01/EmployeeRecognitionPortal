@@ -26,65 +26,65 @@ const styles = () => ({
 const App = ({ location, classes}) => (
   <Subscribe to={[LoginContainer]}>
    {login => {
-  
+           
     return <div className={classes.root}>
-        {!login.state.token && 
+        {!login.state.success && 
           <AuthHeaderBar/>
         }
 
         <GuestRoute
-          isAuthenticated={!!login.state.success}
+          isAuthenticated={login.state.success}
           location={location}
           exact path={routes.ROOT}
           component={LoginPage}
         />
 
          <GuestRoute
-          isAuthenticated={!!login.state.success}
+          isAuthenticated={login.state.success}
           location={location}
           exact path={routes.SIGN_IN}
           component={LoginPage}
         />
     
         <GuestRoute
-          isAuthenticated={!!login.state.success}
+          isAuthenticated={login.state.success}
           location={location}
           exact path={routes.RECOVER_PASSWORD}
           component={RecoverPasswordPage}
         />
        
-        <Layout location={location} isAuthenticated={!!login.state.success}>
+        {/*<Layout location={location} isAuthenticated={login.state.success}>*/}
           <AdminRoute
-            isAuthenticated={!!login.state.success}
+            isAuthenticated={login.state.success}
             location={location}
             exact path={routes.DASHBOARD}
             component={DashboardPage}
           />
           <AdminRoute
-            isAuthenticated={!!login.state.success}
+            isAuthenticated={login.state.success}
             location={location}
             exact path={`${routes.DASHBOARD}/${routes.ADMINS}`}
             component={DashboardAdminsPage}
           />
           <AdminRoute
-            isAuthenticated={!!login.state.success}
+            isAuthenticated={login.state.success}
             location={location}
             exact path={`${routes.DASHBOARD}/${routes.USERS}`}
             component={DashboardUsersPage}
           />
           <AdminRoute
-            isAuthenticated={!!login.state.success}
+            isAuthenticated={login.state.success}
             location={location}
             exact path={`${routes.DASHBOARD}/${routes.AWARDSEOM}`}
             component={AwardsEOMPage}
           />
           <AdminRoute
-            isAuthenticated={!!login.state.success}
+            isAuthenticated={login.state.success}
             location={location}
             exact path={`${routes.DASHBOARD}/${routes.AWARDSEOY}`}
             component={AwardsEOYPage}
           />
-        </Layout>
+        {/*</Layout>*/}
        
 
 

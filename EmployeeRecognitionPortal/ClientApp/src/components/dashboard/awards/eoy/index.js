@@ -2,7 +2,8 @@ import React from 'react';
 import { Segment, Header, Message } from 'semantic-ui-react'
 import { Subscribe } from 'unstated';
 
- import  Awards from '../Awards';
+import Layout from '../../../../routes/layout'
+import  Awards from '../Awards';
 import AwardContainer from '../../../../containers/AwardContainer';
 
 export default function AwardsEOYPage() { 
@@ -10,7 +11,7 @@ export default function AwardsEOYPage() {
         return (
             <Subscribe to={[AwardContainer]}>
                 {awards => {
-                    return <Segment>
+                    return <Layout>
                     
                         <Header as='h1'>Awards EOY List</Header>
                         {!awards.state.success && awards.state.error ? (
@@ -21,7 +22,7 @@ export default function AwardsEOYPage() {
                             <Awards awards={awards} title="EOY"/>
                         }
                         
-                </Segment>
+                    </Layout>
                 }}
                 
             </Subscribe>

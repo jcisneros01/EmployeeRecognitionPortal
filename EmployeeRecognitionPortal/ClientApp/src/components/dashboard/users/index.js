@@ -1,7 +1,7 @@
 import React from 'react';
 import { Segment, Header, Message } from 'semantic-ui-react'
 import { Subscribe } from 'unstated';
-
+import Layout from '../../../routes/layout'
 import  Users from './Users';
 import UserContainer from '../../../containers/UserContainer';
 
@@ -10,7 +10,7 @@ export default function DashboardUsersPage() {
         return (
             <Subscribe to={[UserContainer]}>
                 {users => {
-                    return <Segment>
+                    return <Layout>
                     
                         <Header as='h1'>User List</Header>
                         {!users.state.success && users.state.error ? (
@@ -20,7 +20,7 @@ export default function DashboardUsersPage() {
                             <Users users={users}/>
                         }
                         
-                </Segment>
+                    </Layout>
                 }}
                 
             </Subscribe>

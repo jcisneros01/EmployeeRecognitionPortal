@@ -29,8 +29,8 @@ class LoginContainer extends Container {
         localStorage.userJWT = resp.jwt; 
         //let isAdmin = false;
         // if(data.email === 'admin@admin.com') {
-          localStorage.isAdmin = data.isAdmin
-           localStorage.id = data.id
+          localStorage.isAdmin = resp.isAdmin
+           localStorage.id = resp.id
          // isAdmin = true
         //}
         this.setState({loading: false, success: true, token: resp.token, id: data.id, isAdmin: data.isAdmin})
