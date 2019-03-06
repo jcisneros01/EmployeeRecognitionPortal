@@ -1,29 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Icon, Menu, Table, Image } from 'semantic-ui-react';
+import { TableCell, TableRow, withStyles } from '@material-ui/core';
+import { Image } from 'semantic-ui-react';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Visibility from '@material-ui/icons/Visibility';
+import Create from '@material-ui/icons/Create';
 
-const UserList = ({users, showModal, showFormModal,showConfirmModal}) => (
-    users.map((user, index) => {
-        return <Table.Row key={user.id}>
-            <Table.Cell>{user.id}</Table.Cell>
-            <Table.Cell>
+const styles = theme => ({
+  
+    icon: {
+      margin: theme.spacing.unit,
+      fontSize: 32,
+    },
+  });
+
+const UserList = ({users, showModal, showFormModal,showConfirmModal, classes}) => (
+    users.map((user) => {
+        return <TableRow key={user.id}>
+            <TableCell>{user.id}</TableCell>
+            <TableCell>
                 <Image src={`data:image/png;base64, ${user.signature}`} rounded size="tiny"/>
-            </Table.Cell>
-            <Table.Cell>
+            </TableCell>
+            <TableCell>
                 {user.email}
-            </Table.Cell>
-            <Table.Cell className="actions">
-                <Menu.Item as='a' icon>
-                    <Icon name='eye' onClick={() => showModal(user)}/>
-                </Menu.Item>
-                <Menu.Item as='a' icon>
-                    <Icon name='edit' onClick={() => showFormModal(user, 'edit')}/>
-                </Menu.Item>
-                <Menu.Item as='a' icon>
-                    <Icon name='trash alternate' onClick={() => showConfirmModal(user)}/>
-                </Menu.Item>
-            </Table.Cell>
-        </Table.Row>
+            </TableCell>
+            <TableCell align="right">
+                <Visibility className={classes.icon} onClick={() => showModal(user)}/>
+                <Create className={classes.icon} onClick={() => showFormModal(user, 'edit')}/>
+                <DeleteIcon className={classes.icon} onClick={() => showConfirmModal(user)}/>
+            </TableCell>
+        </TableRow>
     })
 ) 
 
@@ -31,7 +37,8 @@ UserList.propTypes = {
     users: PropTypes.array.isRequired,
     showModal: PropTypes.func.isRequired,
     showFormModal: PropTypes.func.isRequired,
-    showConfirmModal: PropTypes.func.isRequired
+    showConfirmModal: PropTypes.func.isRequired,
+    classes: PropTypes.object.isRequired
 }
 
-export default UserList;
+export default  withStyles(styles)(UserList);

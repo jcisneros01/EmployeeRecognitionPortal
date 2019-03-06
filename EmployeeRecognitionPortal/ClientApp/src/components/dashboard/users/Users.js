@@ -1,12 +1,18 @@
 import React from 'react'
-import { Icon, Table, Button} from 'semantic-ui-react'
-
+import PropTypes from 'prop-types';
+import { Icon,  Button} from 'semantic-ui-react'
+import { withStyles, Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 import  UserList from './userList';
 import UserModal from './userModal';
 import UserForm from './userForm';
 import ConfirmModal from '../common/confirmModal';
 
-export default class Users extends React.Component {
+const styles = {
+    table: {
+      minWidth: 700,
+    },
+  };
+ class Users extends React.Component {
     state = {
         showUserModal: false,
         formModalShow: false,
@@ -54,7 +60,7 @@ export default class Users extends React.Component {
     render() {
         const {users, loading, error, updateSuccess} = this.props.users.state;
         const { user, showUserModal,formModalShow, formType, confirmModal } = this.state;
-       
+       const {classes} = this.props
         return (
             <>
                 <UserModal show={showUserModal} hideModal={this.hideModal} user={user}/>
@@ -81,24 +87,22 @@ export default class Users extends React.Component {
                         updateSuccess={updateSuccess}
                     />
                 }
-                <Table celled>
-                    <Table.Header>
-                        <Table.Row>
-                            <Table.HeaderCell colSpan='4'>
-                                <Button icon labelPosition='left' primary size='small' onClick={() => this.showFormModal()}>
-                                    <Icon name='user' /> Add User
-                                </Button>
-                            </Table.HeaderCell>
-                        </Table.Row>
-                        <Table.Row>
-                            <Table.HeaderCell>ID</Table.HeaderCell>
-                            <Table.HeaderCell>Image</Table.HeaderCell>
-                            <Table.HeaderCell>Email</Table.HeaderCell>
-                            <Table.HeaderCell>Actions</Table.HeaderCell>
-                        </Table.Row>
-                    </Table.Header>
+                <Table className={classes.table}>
+                    <TableHead>
+                        <TableRow>
+                            <Button icon labelPosition='left' primary size='small' onClick={() => this.showFormModal()}>
+                                <Icon name='user' /> Add User
+                            </Button>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>ID</TableCell>
+                            <TableCell>Image</TableCell>
+                            <TableCell>Email</TableCell>
+                            <TableCell>Actions</TableCell>
+                        </TableRow>
+                    </TableHead>
 
-                    <Table.Body>
+                    <TableBody>
                         {users.length > 0 ? 
                             <UserList 
                             users={users} 
@@ -106,15 +110,21 @@ export default class Users extends React.Component {
                             showFormModal={this.showFormModal}
                             showConfirmModal={this.showConfirmModal}
                             /> :
-                            <Table.Row >
-                                <Table.Cell>No record found</Table.Cell>
-                            </Table.Row>
+                            <TableRow >
+                                <TableCell>No record found</TableCell>
+                            </TableRow>
                         }
                         
-                    </Table.Body>
+                    </TableBody>
 
                 </Table>
             </>
         )
     }
 }
+
+Users.propTypes = {
+    classes: PropTypes.object.isRequired,
+  };
+  
+  export default withStyles(styles)(Users);

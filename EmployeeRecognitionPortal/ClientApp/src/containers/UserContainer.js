@@ -12,6 +12,7 @@ class UserContainer extends Container {
     };
 
     getUsers = () => {
+     // this.setState({users: [{id: 1, name: 'abc'}], success: true})
       Api.get(`/users`, true).then(users => {
         this.setState({users: users, success: true})
       });        

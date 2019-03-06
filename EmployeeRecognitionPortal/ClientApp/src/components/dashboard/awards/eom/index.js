@@ -6,12 +6,12 @@ import Layout from '../../../../routes/layout'
  import  Awards from '../Awards';
 import AwardContainer from '../../../../containers/AwardContainer';
 
-export default function AwardsEOMPage() { 
+export default function AwardsEOMPage({location}) { 
 
         return (
             <Subscribe to={[AwardContainer]}>
                 {awards => {
-                    return <Layout>
+                    return <Layout path={location.pathname}>
                     
                         <Header as='h1'>Awards EOM List</Header>
                         {!awards.state.success && awards.state.error ? (

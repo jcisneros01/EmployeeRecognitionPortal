@@ -13,14 +13,14 @@ const styles = theme => ({
       overflowX: 'auto',
       padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
     }
-  });
+  }); 
 
-function DashboardAdminsPage({classes}) { 
-
+function DashboardAdminsPage({classes, location}) { 
+   
         return (
             <Subscribe to={[AdminContainer]}>
                 {admins => {
-                    return <Layout>
+                    return <Layout path={location.pathname}>
                             <Paper className={classes.root}>
                     
                         <Header as='h1'>Admin List</Header>

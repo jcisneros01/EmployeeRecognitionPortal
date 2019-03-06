@@ -13,7 +13,7 @@ const styles = theme => ({
     },
   });
 
-
+ 
 const AdminList = ({admins, showModal, showFormModal,showConfirmModal, classes}) => (
     admins.map((admin) => {
         return <TableRow key={admin.id}>
@@ -35,7 +35,7 @@ AdminList.propTypes = {
     showModal: PropTypes.func.isRequired,
     showFormModal: PropTypes.func.isRequired,
     showConfirmModal: PropTypes.func.isRequired,
-    classes: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired
 }
 
 

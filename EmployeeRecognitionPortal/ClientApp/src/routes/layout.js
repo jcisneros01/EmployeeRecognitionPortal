@@ -101,9 +101,9 @@ const styles = theme => ({
 class Layout extends React.Component {
     state = {
         open: true,
-        title: ''
+        title: 'dashboard'
     };
-
+ 
     handleDrawerOpen = () => {
         this.setState({ open: true });
     };
@@ -113,12 +113,13 @@ class Layout extends React.Component {
     };
 
     setAppHeader = (title) => {
+        
         this.setState({ title })
     }
 
     render() {
 
-        const { classes, location, isAuthenticated } = this.props;
+        const { classes, location, isAuthenticated, path } = this.props;
         const { title } = this.state
         return (<Subscribe to={[LoginContainer]}>
             {login => {
@@ -148,7 +149,7 @@ class Layout extends React.Component {
                                     noWrap
                                     className={classes.title}
                                 >
-                                    {title}
+                                    {path ? path : 'dashboard'}
                                 </Typography>
                             </Toolbar>
                         </AppBar>
@@ -168,7 +169,7 @@ class Layout extends React.Component {
                                     className={classes.title}
                                 >
                                     Employee Portal
-                </Typography>
+                                </Typography>
                                 <IconButton onClick={this.handleDrawerClose}>
                                     <ChevronLeftIcon />
                                 </IconButton>
@@ -176,10 +177,9 @@ class Layout extends React.Component {
                             <Divider />
                             <List>
                                 <MainListItems
-                                    isAdmin={true}
+                                    isAdmin={false}
                                     logout={login.logout}
                                     location={location}
-                                    setAppHeader={this.setAppHeader}
                                 />
                             </List>
 

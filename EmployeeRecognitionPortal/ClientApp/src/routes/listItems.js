@@ -15,21 +15,21 @@ import * as routes from '../constants/routes';
 class MainListItems extends React.Component {
     state = { activeItem: 'dashboard' }
     handleItemClick = (name) => {
-        this.setState({ activeItem: name })
-        this.props.setAppHeader(name);
+        this.setState({ activeItem: name });
     }
     render() {
         const { activeItem } = this.state
         const {isAdmin, logout} = this.props
-       
+    
         return(
             <div>
                 {isAdmin && <>
-                    <Link to={routes.DASHBOARD}>
                         <ListItem 
                             button 
                             selected={activeItem === 'dashboard'}
                             name="dashboard"
+                            component={Link}
+                            to={routes.DASHBOARD}
                             onClick={() => this.handleItemClick('dashboard')} 
                         >
                             <ListItemIcon>
@@ -37,12 +37,13 @@ class MainListItems extends React.Component {
                             </ListItemIcon>
                             <ListItemText primary="Dashboard" />
                         </ListItem>
-                    </Link>
-                    <Link  to={`${routes.DASHBOARD}/${routes.ADMINS}`}>
+                   
                         <ListItem
                             button 
                             selected={activeItem === 'admins'}
                             name="admins"
+                            component={Link}
+                            to={`${routes.DASHBOARD}/${routes.ADMINS}`}
                             onClick={() => this.handleItemClick('admins')} 
                         >
                             <ListItemIcon>
@@ -50,12 +51,13 @@ class MainListItems extends React.Component {
                             </ListItemIcon>
                             <ListItemText primary="Admins" />
                         </ListItem>
-                    </Link>
-                    <Link  to={`${routes.DASHBOARD}/${routes.USERS}`}>
+                  
                         <ListItem
                             button 
                             selected={activeItem === 'users'}
                             name="users"
+                            component={Link}
+                            to={`${routes.DASHBOARD}/${routes.USERS}`}
                             onClick={() => this.handleItemClick('users')} 
                         >
                             <ListItemIcon>
@@ -63,14 +65,14 @@ class MainListItems extends React.Component {
                             </ListItemIcon>
                             <ListItemText primary="Users" />
                         </ListItem>
-                    </Link>
                 </>}
                 {!isAdmin && <>
-                    <Link  to={`${routes.DASHBOARD}/${routes.AWARDSEOM}`}>
                         <ListItem 
                             button 
                             selected={activeItem === 'awardsEOM'}
                             name="awardsEOM"
+                            component={Link}
+                            to={`${routes.DASHBOARD}/${routes.AWARDSEOM}`}
                             onClick={() => this.handleItemClick('awardsEOM')} 
                         >
                             <ListItemIcon>
@@ -78,12 +80,12 @@ class MainListItems extends React.Component {
                             </ListItemIcon>
                             <ListItemText primary="awardsEOM" />
                         </ListItem>
-                    </Link>
-                    <Link  to={`${routes.DASHBOARD}/${routes.AWARDSEOY}`}>
                         <ListItem 
                             button 
                             selected={activeItem === 'awardsEOY'}
                             name="awardsEOY"
+                            component={Link}
+                            to={`${routes.DASHBOARD}/${routes.AWARDSEOY}`}
                             onClick={() => this.handleItemClick('awardsEOY')} 
                         >
                             <ListItemIcon>
@@ -91,14 +93,14 @@ class MainListItems extends React.Component {
                             </ListItemIcon>
                             <ListItemText primary="awardsEOY" />
                         </ListItem>
-                    </Link>
+                    
                 </>}
-                <ListItem button>
-                <ListItemIcon>
-                    <BarChartIcon />
-                </ListItemIcon>
-                <ListItemText primary="Reports" />
-                </ListItem>
+                {/* <ListItem button>
+                    <ListItemIcon>
+                        <BarChartIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Reports" />
+                </ListItem> */}
                 <ListItem button onClick={() => logout()}>
                 <ListItemIcon>
                     <BarChartIcon />

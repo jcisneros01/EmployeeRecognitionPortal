@@ -16,10 +16,10 @@ const styles = theme => ({
     },
  });
 
-const DashboardPage = ({classes}) => 
+const DashboardPage = ({classes, location}) => 
    <Subscribe to={[ReportContainer]}>
       {reports => {
-         return(<Layout>
+         return(<Layout path={location.pathname}>
          <Paper className={classes.paper}>
             <Typography variant="h4" gutterBottom component="h2">
                Awards
