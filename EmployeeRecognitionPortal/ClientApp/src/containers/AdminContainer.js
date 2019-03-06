@@ -12,6 +12,7 @@ class AdminContainer extends Container {
     };
 
     getAdmins = () => {
+     // this.setState({admins: [{id: 1, email: 'abc'}], success: true})
       Api.get(`/admins`, true).then(admins => {
         this.setState({admins: admins, success: true})
       });        

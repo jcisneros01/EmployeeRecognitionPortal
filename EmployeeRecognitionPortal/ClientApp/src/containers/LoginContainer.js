@@ -18,6 +18,7 @@ class LoginContainer extends Container {
     }
     requestLogin = (data) => {
       this.setState({ loading: true});
+//      this.setState({loading: false, success: true, token: 'abc', id: 1, isAdmin: true})
       Api.post(
         `/auth/token`,
         {
@@ -26,13 +27,14 @@ class LoginContainer extends Container {
         }
       ).then(resp => {
         localStorage.userJWT = resp.jwt; 
-        let isAdmin = false;
-        if(data.email === 'admin@admin.com') {
-          localStorage.isAdmin = true
-          isAdmin = true
-        }
-        this.setState({loading: false, success: true, token: resp.token, isAdmin})
-          }).catch(err => {
+        //let isAdmin = false;
+        // if(data.email === 'admin@admin.com') {
+          localStorage.isAdmin = data.isAdmin
+           localStorage.id = data.id
+         // isAdmin = true
+        //}
+        this.setState({loading: false, success: true, token: resp.token, id: data.id, isAdmin: data.isAdmin})
+        }).catch(err => {
               this.setState({ loading: false, success: false, error: err.Message })
       });
     }
