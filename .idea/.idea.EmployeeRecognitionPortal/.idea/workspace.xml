@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f082e854-0c6a-4218-8fda-7f19235effa0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/EmployeeRecognitionPortal/Exceptions/InvalidLoginAttemptException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmployeeRecognitionPortal/Exceptions/WebResponseException.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EmployeeRecognitionPortal/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EmployeeRecognitionPortal/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EmployeeRecognitionPortal/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EmployeeRecognitionPortal/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortal/Exceptions/AwardNotFoundException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortal/Exceptions/AwardNotFoundException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortal/Extensions/ExceptionMiddlewareExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortal/Extensions/ExceptionMiddlewareExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortal/Services/AuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortal/Services/AuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortal/Controllers/AwardsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortal/Controllers/AwardsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortal/Models/AwardCountByMonthData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortal/Models/AwardDataByMonth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortal/Models/Response/AwardCountByMonthResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortal/Models/Response/AwardDataByMonthResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortal/Services/AwardsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortal/Services/AwardsService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortal/Services/IAwardsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortal/Services/IAwardsService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/EmployeeRecognitionPortal.dll" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/EmployeeRecognitionPortal.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/EmployeeRecognitionPortal.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/EmployeeRecognitionPortal.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/nunit_random_seed.tmp" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/nunit_random_seed.tmp" afterDir="false" />
@@ -35,85 +35,6 @@
     <select />
   </component>
   <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Models/AwardCountByMonthData.cs">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="84">
-                    <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Models/Response/AwardCountByMonthResponse.cs">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="126">
-                    <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-                    <folding>
-                      <marker date="1551415586103" expanded="false" signature="6:78" ph="..." />
-                      <marker date="1551415586103" expanded="true" signature="131:273" ph="{...}" />
-                      <marker date="1551415586103" expanded="true" signature="176:271" ph="{...}" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Models/Response/AwardsByTypeResponse.cs">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="140">
-                    <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Startup.cs">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="154">
-                    <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
-                    <folding>
-                      <marker date="1551598369456" expanded="false" signature="6:674" ph="..." />
-                      <marker date="1551598369456" expanded="true" signature="711:5427" ph="{...}" />
-                      <marker date="1551598369456" expanded="true" signature="738:5425" ph="{...}" />
-                      <marker date="1551598369456" expanded="true" signature="797:860" ph="{...}" />
-                      <marker date="1551598369456" expanded="true" signature="982:4465" ph="{...}" />
-                      <marker date="1551598369456" expanded="true" signature="1131:1298" ph="{...}" />
-                      <marker date="1551598369456" expanded="true" signature="1508:1733" ph="{...}" />
-                      <marker date="1551598369456" expanded="true" signature="1769:2650" ph="{...}" />
-                      <marker date="1551598369456" expanded="true" signature="1980:2627" ph="{...}" />
-                      <marker date="1551598369456" expanded="true" signature="2404:2537" ph="{...}" />
-                      <marker date="1551598369456" expanded="true" signature="2714:2869" ph="{...}" />
-                      <marker date="1551598369456" expanded="true" signature="2920:3069" ph="{...}" />
-                      <marker date="1551598369456" expanded="true" signature="3225:3361" ph="{...}" />
-                      <marker date="1551598369456" expanded="true" signature="3458:3638" ph="{...}" />
-                      <marker date="1551598369456" expanded="true" signature="3655:3819" ph="{...}" />
-                      <marker date="1551598369456" expanded="true" signature="4546:5419" ph="{...}" />
-                      <marker date="1551598369456" expanded="true" signature="4817:4943" ph="{...}" />
-                      <marker date="1551598369456" expanded="true" signature="4978:5144" ph="{...}" />
-                      <marker date="1551598369456" expanded="true" signature="5176:5407" ph="{...}" />
-                      <marker date="1551598369456" expanded="true" signature="5286:5393" ph="{...}" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
     <window id="1">
       <content type="file-editors">
         <state>
@@ -173,21 +94,29 @@
     <window id="1">
       <content type="file-editors">
         <state>
-          <leaf>
+          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
             <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Extensions/ExceptionMiddlewareExtensions.cs">
+              <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Models/AwardDataByMonth.cs">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="378">
-                    <caret line="33" column="91" selection-start-line="33" selection-start-column="91" selection-end-line="33" selection-end-column="91" />
+                  <state relative-caret-position="168">
+                    <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
                     <folding>
-                      <marker date="1551641555326" expanded="false" signature="6:224" ph="..." />
-                      <marker date="1551641555326" expanded="true" signature="272:1951" ph="{...}" />
-                      <marker date="1551641555326" expanded="true" signature="328:1949" ph="{...}" />
-                      <marker date="1551641555326" expanded="true" signature="417:1943" ph="{...}" />
-                      <marker date="1551641555326" expanded="true" signature="475:1931" ph="{...}" />
-                      <marker date="1551641555326" expanded="true" signature="535:1915" ph="{...}" />
-                      <marker date="1551641555326" expanded="true" signature="837:1897" ph="{...}" />
-                      <marker date="1551641555326" expanded="true" signature="1786:1862" ph="{...}" />
+                      <marker date="1552020017513" expanded="true" signature="57:246" ph="{...}" />
+                      <marker date="1552020017513" expanded="true" signature="93:244" ph="{...}" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Models/Response/AwardDataByMonthResponse.cs">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="84">
+                    <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+                    <folding>
+                      <marker date="1552020240494" expanded="false" signature="6:78" ph="..." />
+                      <marker date="1552020240494" expanded="true" signature="131:266" ph="{...}" />
+                      <marker date="1552020240494" expanded="true" signature="175:264" ph="{...}" />
                     </folding>
                   </state>
                 </provider>
@@ -202,75 +131,75 @@
     <session id="827391784">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.4" value="2" />
-          <entry key="project.open.time.5" value="2" />
+          <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.6" value="2" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cs" value="72" />
+          <entry key="cs" value="85" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="C#" value="72" />
+          <entry key="C#" value="85" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="1559" />
+          <entry key="cs" value="1877" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="1559" />
+          <entry key="C#" value="1877" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Services/AuthService.cs">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Services/AwardsService.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+            <state relative-caret-position="464">
+              <caret line="56" column="34" lean-forward="true" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="34" />
               <folding>
-                <marker date="1551639316044" expanded="false" signature="6:455" ph="..." />
-                <marker date="1551639316044" expanded="true" signature="501:3970" ph="{...}" />
-                <marker date="1551639316044" expanded="true" signature="546:3968" ph="{...}" />
-                <marker date="1551639316044" expanded="true" signature="640:692" ph="{...}" />
-                <marker date="1551639316044" expanded="true" signature="770:1567" ph="{...}" />
-                <marker date="1551639316044" expanded="true" signature="868:984" ph="{...}" />
-                <marker date="1551639316044" expanded="true" signature="1400:1555" ph="{...}" />
-                <marker date="1551639316044" expanded="true" signature="1627:1878" ph="{...}" />
-                <marker date="1551639316044" expanded="true" signature="1932:2172" ph="{...}" />
-                <marker date="1551639316044" expanded="true" signature="2053:2161" ph="{...}" />
-                <marker date="1551639316044" expanded="true" signature="2227:3365" ph="{...}" />
-                <marker date="1551639316044" expanded="true" signature="2781:3097" ph="{...}" />
-                <marker date="1551639316044" expanded="true" signature="3115:3248" ph="{...}" />
-                <marker date="1551639316044" expanded="true" signature="3281:3355" ph="{...}" />
-                <marker date="1551639316044" expanded="true" signature="3442:3962" ph="{...}" />
-                <marker date="1551639316044" expanded="true" signature="3570:3840" ph="{...}" />
-                <marker date="1551639316044" expanded="true" signature="3727:3796" ph="{...}" />
+                <marker date="1552023278512" expanded="false" signature="6:201" ph="..." />
+                <marker date="1552023278512" expanded="true" signature="247:2869" ph="{...}" />
+                <marker date="1552023278512" expanded="true" signature="297:2867" ph="{...}" />
+                <marker date="1552023278512" expanded="true" signature="409:461" ph="{...}" />
+                <marker date="1552023278512" expanded="true" signature="520:1032" ph="{...}" />
+                <marker date="1552023278512" expanded="true" signature="1157:1780" ph="{...}" />
+                <marker date="1552023278512" expanded="true" signature="1224:1769" ph="{...}" />
+                <marker date="1552023278512" expanded="true" signature="1293:1714" ph="{...}" />
+                <marker date="1552023278512" expanded="true" signature="1355:1495" ph="{...}" />
+                <marker date="1552023278512" expanded="true" signature="1558:1696" ph="{...}" />
+                <marker date="1552023278512" expanded="true" signature="1843:2722" ph="{...}" />
+                <marker date="1552023278512" expanded="true" signature="2058:2126" ph="{...}" />
+                <marker date="1552023278512" expanded="true" signature="2194:2479" ph="{...}" />
+                <marker date="1552023278512" expanded="true" signature="2643:2711" ph="{...}" />
+                <marker date="1552023278512" expanded="true" signature="2776:2861" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Exceptions/InvalidLoginAttemptException.cs">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Controllers/AwardsController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+            <state relative-caret-position="322">
+              <caret line="27" column="64" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="64" />
               <folding>
-                <marker date="1551641477996" expanded="true" signature="61:310" ph="{...}" />
-                <marker date="1551641477996" expanded="true" signature="121:308" ph="{...}" />
-                <marker date="1551641477996" expanded="true" signature="173:193" ph="{...}" />
-                <marker date="1551641477996" expanded="true" signature="282:302" ph="{...}" />
+                <marker date="1552020803196" expanded="false" signature="6:204" ph="..." />
+                <marker date="1552020803196" expanded="true" signature="254:1040" ph="{...}" />
+                <marker date="1552020803196" expanded="true" signature="373:1037" ph="{...}" />
+                <marker date="1552020803196" expanded="true" signature="501:568" ph="{...}" />
+                <marker date="1552020803196" expanded="true" signature="653:1030" ph="{...}" />
+                <marker date="1552020803196" expanded="true" signature="691:1019" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -297,7 +226,8 @@
     <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Services/EmpOfMonthService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Filters/ValidateModelAttribute.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Services/EmpOfYearService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Models/Response/AwardCountByMonthResponse.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Exceptions/InvalidLoginAttemptException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Models/Response/AwardDataByMonthResponse.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Services/IEmpOfYearService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Profiles/AdminResponseProfile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Profiles/EmpOfMonthProfile.cs" root0="FORCE_HIGHLIGHTING" />
@@ -314,7 +244,7 @@
     <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Services/UserService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Profiles/UserProfile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Profiles/UserResponseProfile.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Models/AwardCountByMonthData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Models/AwardDataByMonth.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Users/_ViewImports.cshtml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Controllers/EmpOfMonthController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Users/Error.cshtml" root0="FORCE_HIGHLIGHTING" />
@@ -346,8 +276,6 @@
     <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Services/AwardsService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Services/IAuthService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Services/AuthService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Exceptions/WebResponseException.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Exceptions/InvalidLoginAttemptException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7D3FB048-3F11-40EA-A4BA-723F4E98C030/e0/11450e82/ClaimTypes.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Migrations/ContextModelSnapshot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EmployeeRecognitionPortalTests/UserServiceTests.cs" root0="FORCE_HIGHLIGHTING" />
@@ -361,8 +289,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Entities/Users.cs" />
-        <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Entities/Manager.cs" />
         <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Entities/Admin.cs" />
         <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Services/IUserService.cs" />
         <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Profiles/AdminResponseProfile.cs" />
@@ -388,12 +314,10 @@
         <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Models/Response/AwardsByTypeResponse.cs" />
         <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Models/AwardData.cs" />
         <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Models/AwardByTypeData.cs" />
-        <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Models/AwardCountByMonthData.cs" />
         <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Models/Response/AwardsByMonthCountResponse.cs" />
         <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Models/Response/AwardCountByMonthResponse.cs" />
         <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Services/IAwardsService.cs" />
         <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Controllers/Awards.cs" />
-        <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Services/AwardsService.cs" />
         <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Services/EmpOfMonthService.cs" />
         <option value="$PROJECT_DIR$/EmployeeRecognitionPortalTests/EmpOfMonthServiceTests.cs" />
         <option value="$PROJECT_DIR$/EmployeeRecognitionPortalTests/EmpOfYearServiceTests.cs" />
@@ -402,7 +326,6 @@
         <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Controllers/AdminsController.cs" />
         <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Controllers/EmpOfMonthController.cs" />
         <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Controllers/EmpOfYearController.cs" />
-        <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Controllers/AwardsController.cs" />
         <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Services/UserService.cs" />
         <option value="$PROJECT_DIR$/EmployeeRecognitionPortalTests/UserServiceTests.cs" />
         <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Controllers/UsersController.cs" />
@@ -412,6 +335,11 @@
         <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Exceptions/AwardNotFoundException.cs" />
         <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Exceptions/InvalidLoginAttemptException.cs" />
         <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Extensions/ExceptionMiddlewareExtensions.cs" />
+        <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Models/AwardCountByMonthData.cs" />
+        <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Models/AwardDataByMonth.cs" />
+        <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Models/Response/AwardDataByMonthResponse.cs" />
+        <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Controllers/AwardsController.cs" />
+        <option value="$PROJECT_DIR$/EmployeeRecognitionPortal/Services/AwardsService.cs" />
       </list>
     </option>
   </component>
@@ -430,10 +358,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1920" />
     <option name="y" value="23" />
-    <option name="width" value="960" />
-    <option name="height" value="1005" />
+    <option name="width" value="1234" />
+    <option name="height" value="1006" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -455,6 +382,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -471,26 +399,24 @@
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="EmployeeRecognitionPortal" type="24d0babc:SolutionExplorerModelNode" />
               <item name="EmployeeRecognitionPortal" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Exceptions" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Profiles" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="EmployeeRecognitionPortal" type="24d0babc:SolutionExplorerModelNode" />
               <item name="EmployeeRecognitionPortal" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Extensions" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Services" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="EmployeeRecognitionPortal" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="EmployeeRecognitionPortal" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Helpers" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="EmployeeRecognitionPortalTests" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
           <select />
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
-      <pane id="FileSystemExplorer" />
       <pane id="AssemblyExplorer" />
     </panes>
   </component>
@@ -579,6 +505,7 @@
       <workItem from="1551607235049" duration="700000" />
       <workItem from="1551635869733" duration="131000" />
       <workItem from="1551636027511" duration="3891000" />
+      <workItem from="1552019552014" duration="3308000" />
     </task>
     <task id="LOCAL-00001" summary="arranges model dirs">
       <created>1548048090061</created>
@@ -633,7 +560,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175798000" />
+    <option name="totallyTimeSpent" value="179818000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -645,17 +572,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="23" width="960" height="1005" extended-state="0" />
+    <frame x="0" y="23" width="1234" height="1006" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
-      <window_info anchor="bottom" id="Statistic" weight="0.32953367" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32929516" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49751243" weight="0.18238342" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49751243" weight="0.18181819" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3107221" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -664,18 +590,19 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32932165" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Unit Tests" order="11" weight="0.4746114" />
+      <window_info anchor="bottom" id="Unit Tests" order="11" weight="0.4742607" />
       <window_info anchor="bottom" id="REST Client" order="12" />
       <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.49751243" weight="0.18341969" />
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.50248754" side_tool="true" weight="0.18380743" />
-      <window_info anchor="bottom" id="Build" order="15" sideWeight="0.49751243" weight="0.2569948" />
+      <window_info anchor="bottom" id="Build" order="15" sideWeight="0.49751243" weight="0.25629792" />
       <window_info anchor="bottom" id="Change Signature" order="16" sideWeight="0.50248754" side_tool="true" visible="true" weight="0.2569948" />
+      <window_info anchor="bottom" id="Statistic" order="17" weight="0.32953367" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Errors In Solution" order="3" weight="0.21491228" />
       <window_info anchor="right" id="Database" order="4" weight="0.3278867" />
-      <window_info anchor="right" content_ui="combo" id="Project" order="5" weight="0.39651415" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="5" weight="0.39597315" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
     </layout>
     <layout-to-restore>
@@ -742,6 +669,19 @@
           </properties>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/EmployeeRecognitionPortal/Services/AwardsService.cs</url>
+          <line>64</line>
+          <properties documentPath="$PROJECT_DIR$/EmployeeRecognitionPortal/Services/AwardsService.cs" initialLine="64">
+            <startOffsets>
+              <option value="2382" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2382" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/EmployeeRecognitionPortal/ClientApp/src/sagas/loginSaga.js</url>
           <line>22</line>
@@ -761,15 +701,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Models/Response/EmpOfMonthResponse.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3F9A6BF9-CC47-4E04-95B6-4187B8F17D2C/21/8a73a959/Thread.cs" />
-    <entry file="file://$USER_HOME$/Library/Logs/Rider2018.2/SolutionBuilder/JetBrainsLog.ReSharperBuild_2019_02_09_09_13_21_1412.log" />
     <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Services/IEmpOfYearService.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -790,9 +721,6 @@
           <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Program.cs">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Migrations/20190211005018_UpdateUserIdSqlServer.cs" />
     <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Migrations/ContextModelSnapshot.cs">
@@ -878,13 +806,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Services/AwardsService.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7D3FB048-3F11-40EA-A4BA-723F4E98C030/e0/11450e82/ClaimTypes.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -930,13 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Controllers/AwardsController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Entities/EmpOfMonth.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="98">
@@ -972,13 +886,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortalTests/UserServiceTests.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="912">
-          <caret line="203" column="23" selection-start-line="203" selection-start-column="23" selection-end-line="203" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Controllers/UsersController.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="826">
@@ -1000,80 +907,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Services/EmpOfMonthService.cs">
+    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Controllers/AuthController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="448">
+          <caret line="35" column="2" lean-forward="true" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Exceptions/AwardNotFoundException.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="4" column="62" lean-forward="true" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Exceptions/WebResponseException.cs" />
+    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Exceptions/InvalidLoginAttemptException.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Filters/ValidateModelAttribute.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
-            <marker date="1551504102358" expanded="false" signature="6:328" ph="..." />
-            <marker date="1551504102358" expanded="true" signature="375:3279" ph="{...}" />
-            <marker date="1551504102358" expanded="true" signature="433:3277" ph="{...}" />
-            <marker date="1551504102358" expanded="true" signature="591:673" ph="{...}" />
-            <marker date="1551504102358" expanded="true" signature="748:1069" ph="{...}" />
-            <marker date="1551504102358" expanded="true" signature="1152:2332" ph="{...}" />
-            <marker date="1551504102358" expanded="true" signature="1368:1497" ph="{...}" />
-            <marker date="1551504102358" expanded="true" signature="1811:1901" ph="{...}" />
-            <marker date="1551504102358" expanded="true" signature="2390:2546" ph="{...}" />
-            <marker date="1551504102358" expanded="true" signature="2603:2909" ph="{...}" />
-            <marker date="1551504102358" expanded="true" signature="2713:2831" ph="{...}" />
-            <marker date="1551504102358" expanded="true" signature="2955:3271" ph="{...}" />
-            <marker date="1551504102358" expanded="true" signature="3065:3183" ph="{...}" />
+            <marker date="1549006301248" expanded="false" signature="6:71" ph="..." />
+            <marker date="1549006301248" expanded="true" signature="116:449" ph="{...}" />
+            <marker date="1549006301248" expanded="true" signature="182:447" ph="{...}" />
+            <marker date="1549006301248" expanded="true" signature="267:441" ph="{...}" />
+            <marker date="1549006301248" expanded="true" signature="322:431" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Startup.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
+        <state relative-caret-position="-792">
           <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
-          <folding>
-            <marker date="1551598369456" expanded="false" signature="6:674" ph="..." />
-            <marker date="1551598369456" expanded="true" signature="711:5427" ph="{...}" />
-            <marker date="1551598369456" expanded="true" signature="738:5425" ph="{...}" />
-            <marker date="1551598369456" expanded="true" signature="797:860" ph="{...}" />
-            <marker date="1551598369456" expanded="true" signature="982:4465" ph="{...}" />
-            <marker date="1551598369456" expanded="true" signature="1131:1298" ph="{...}" />
-            <marker date="1551598369456" expanded="true" signature="1508:1733" ph="{...}" />
-            <marker date="1551598369456" expanded="true" signature="1769:2650" ph="{...}" />
-            <marker date="1551598369456" expanded="true" signature="1980:2627" ph="{...}" />
-            <marker date="1551598369456" expanded="true" signature="2404:2537" ph="{...}" />
-            <marker date="1551598369456" expanded="true" signature="2714:2869" ph="{...}" />
-            <marker date="1551598369456" expanded="true" signature="2920:3069" ph="{...}" />
-            <marker date="1551598369456" expanded="true" signature="3225:3361" ph="{...}" />
-            <marker date="1551598369456" expanded="true" signature="3458:3638" ph="{...}" />
-            <marker date="1551598369456" expanded="true" signature="3655:3819" ph="{...}" />
-            <marker date="1551598369456" expanded="true" signature="4546:5419" ph="{...}" />
-            <marker date="1551598369456" expanded="true" signature="4817:4943" ph="{...}" />
-            <marker date="1551598369456" expanded="true" signature="4978:5144" ph="{...}" />
-            <marker date="1551598369456" expanded="true" signature="5176:5407" ph="{...}" />
-            <marker date="1551598369456" expanded="true" signature="5286:5393" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Models/AwardCountByMonthData.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Models/Response/AwardsByTypeResponse.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Models/Response/AwardCountByMonthResponse.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding>
-            <marker date="1551415586103" expanded="false" signature="6:78" ph="..." />
-            <marker date="1551415586103" expanded="true" signature="131:273" ph="{...}" />
-            <marker date="1551415586103" expanded="true" signature="176:271" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1099,97 +971,216 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Controllers/AuthController.cs">
+    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Services/EmpOfMonthService.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="35" column="2" lean-forward="true" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
+        <state relative-caret-position="294">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
-            <marker date="1551415586097" expanded="false" signature="6:162" ph="..." />
-            <marker date="1551415586097" expanded="true" signature="213:1038" ph="{...}" />
-            <marker date="1551415586097" expanded="true" signature="294:1035" ph="{...}" />
-            <marker date="1551415586097" expanded="true" signature="412:475" ph="{...}" />
-            <marker date="1551415586097" expanded="true" signature="617:752" ph="{...}" />
-            <marker date="1551415586097" expanded="true" signature="904:1028" ph="{...}" />
+            <marker date="1551504102358" expanded="false" signature="6:328" ph="..." />
+            <marker date="1551504102358" expanded="true" signature="375:3279" ph="{...}" />
+            <marker date="1551504102358" expanded="true" signature="433:3277" ph="{...}" />
+            <marker date="1551504102358" expanded="true" signature="591:673" ph="{...}" />
+            <marker date="1551504102358" expanded="true" signature="748:1069" ph="{...}" />
+            <marker date="1551504102358" expanded="true" signature="1152:2332" ph="{...}" />
+            <marker date="1551504102358" expanded="true" signature="1368:1497" ph="{...}" />
+            <marker date="1551504102358" expanded="true" signature="1811:1901" ph="{...}" />
+            <marker date="1551504102358" expanded="true" signature="2390:2546" ph="{...}" />
+            <marker date="1551504102358" expanded="true" signature="2603:2909" ph="{...}" />
+            <marker date="1551504102358" expanded="true" signature="2713:2831" ph="{...}" />
+            <marker date="1551504102358" expanded="true" signature="2955:3271" ph="{...}" />
+            <marker date="1551504102358" expanded="true" signature="3065:3183" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Services/AuthService.cs">
+    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortalTests/UserServiceTests.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+        <state relative-caret-position="560">
+          <caret line="51" column="34" lean-forward="true" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
           <folding>
-            <marker date="1551639316044" expanded="false" signature="6:455" ph="..." />
-            <marker date="1551639316044" expanded="true" signature="501:3970" ph="{...}" />
-            <marker date="1551639316044" expanded="true" signature="546:3968" ph="{...}" />
-            <marker date="1551639316044" expanded="true" signature="640:692" ph="{...}" />
-            <marker date="1551639316044" expanded="true" signature="770:1567" ph="{...}" />
-            <marker date="1551639316044" expanded="true" signature="868:984" ph="{...}" />
-            <marker date="1551639316044" expanded="true" signature="1400:1555" ph="{...}" />
-            <marker date="1551639316044" expanded="true" signature="1627:1878" ph="{...}" />
-            <marker date="1551639316044" expanded="true" signature="1932:2172" ph="{...}" />
-            <marker date="1551639316044" expanded="true" signature="2053:2161" ph="{...}" />
-            <marker date="1551639316044" expanded="true" signature="2227:3365" ph="{...}" />
-            <marker date="1551639316044" expanded="true" signature="2781:3097" ph="{...}" />
-            <marker date="1551639316044" expanded="true" signature="3115:3248" ph="{...}" />
-            <marker date="1551639316044" expanded="true" signature="3281:3355" ph="{...}" />
-            <marker date="1551639316044" expanded="true" signature="3442:3962" ph="{...}" />
-            <marker date="1551639316044" expanded="true" signature="3570:3840" ph="{...}" />
-            <marker date="1551639316044" expanded="true" signature="3727:3796" ph="{...}" />
+            <marker date="1551606354620" expanded="false" signature="6:371" ph="..." />
+            <marker date="1551606354620" expanded="true" signature="413:7794" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="449:7792" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="579:3581" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="641:2201" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="684:1114" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="953:1096" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="1158:1589" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="1427:1571" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="1633:1888" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="1932:2187" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="3276:3449" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="3653:3790" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="3877:3990" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="4073:4200" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="4289:4436" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="4531:4688" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="4788:5150" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="4879:5036" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="5238:5440" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="5374:5427" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="5512:5652" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="5740:5854" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="5945:6253" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="6038:6131" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="6338:6468" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="6549:6767" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="6642:6688" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="6871:7102" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="6937:6983" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="7194:7432" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="7290:7347" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="7544:7783" ph="{...}" />
+            <marker date="1551606354620" expanded="true" signature="7611:7668" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Exceptions/AwardNotFoundException.cs">
+    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Program.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="4" column="62" lean-forward="true" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
+        <state>
           <folding>
-            <marker date="1551641440109" expanded="true" signature="61:303" ph="{...}" />
-            <marker date="1551641440109" expanded="true" signature="126:301" ph="{...}" />
-            <marker date="1551641440109" expanded="true" signature="172:192" ph="{...}" />
-            <marker date="1551641440109" expanded="true" signature="275:295" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Exceptions/WebResponseException.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="2" column="37" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="37" />
-          <folding>
-            <marker date="1551639533175" expanded="true" signature="46:109" ph="{...}" />
-            <marker date="1551639533175" expanded="true" signature="86:107" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Exceptions/InvalidLoginAttemptException.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-          <folding>
-            <marker date="1551641477996" expanded="true" signature="61:310" ph="{...}" />
-            <marker date="1551641477996" expanded="true" signature="121:308" ph="{...}" />
-            <marker date="1551641477996" expanded="true" signature="173:193" ph="{...}" />
-            <marker date="1551641477996" expanded="true" signature="282:302" ph="{...}" />
+            <marker date="1547096024443" expanded="false" signature="6:255" ph="..." />
+            <marker date="1547096024443" expanded="true" signature="319:617" ph="{...}" />
+            <marker date="1547096024443" expanded="true" signature="372:446" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Extensions/ExceptionMiddlewareExtensions.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="33" column="91" selection-start-line="33" selection-start-column="91" selection-end-line="33" selection-end-column="91" />
+        <state relative-caret-position="406">
+          <caret line="35" column="74" selection-start-line="35" selection-start-column="74" selection-end-line="35" selection-end-column="74" />
           <folding>
-            <marker date="1551641555326" expanded="false" signature="6:224" ph="..." />
-            <marker date="1551641555326" expanded="true" signature="272:1951" ph="{...}" />
-            <marker date="1551641555326" expanded="true" signature="328:1949" ph="{...}" />
-            <marker date="1551641555326" expanded="true" signature="417:1943" ph="{...}" />
-            <marker date="1551641555326" expanded="true" signature="475:1931" ph="{...}" />
-            <marker date="1551641555326" expanded="true" signature="535:1915" ph="{...}" />
-            <marker date="1551641555326" expanded="true" signature="837:1897" ph="{...}" />
-            <marker date="1551641555326" expanded="true" signature="1786:1862" ph="{...}" />
+            <marker date="1551641751100" expanded="false" signature="6:224" ph="..." />
+            <marker date="1551641751100" expanded="true" signature="328:1949" ph="{...}" />
+            <marker date="1551641751100" expanded="true" signature="417:1943" ph="{...}" />
+            <marker date="1551641751100" expanded="true" signature="475:1931" ph="{...}" />
+            <marker date="1551641751100" expanded="true" signature="535:1915" ph="{...}" />
+            <marker date="1551641751100" expanded="true" signature="837:1897" ph="{...}" />
+            <marker date="1551641751100" expanded="true" signature="1786:1862" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Models/ErrorModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="27" />
+          <folding>
+            <marker date="1548067612266" expanded="true" signature="96:272" ph="{...}" />
+            <marker date="1548067612266" expanded="true" signature="192:266" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Helpers/PasswordHelper.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <marker date="1548611149865" expanded="true" signature="98:399" ph="{...}" />
+            <marker date="1548611149865" expanded="true" signature="163:233" ph="{...}" />
+            <marker date="1548611149865" expanded="true" signature="307:391" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Services/AuthService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="26" column="57" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
+          <folding>
+            <marker date="1551641751100" expanded="false" signature="6:455" ph="..." />
+            <marker date="1551641751100" expanded="true" signature="501:3970" ph="{...}" />
+            <marker date="1551641751100" expanded="true" signature="546:3968" ph="{...}" />
+            <marker date="1551641751100" expanded="true" signature="640:692" ph="{...}" />
+            <marker date="1551641751100" expanded="true" signature="770:1567" ph="{...}" />
+            <marker date="1551641751100" expanded="true" signature="868:984" ph="{...}" />
+            <marker date="1551641751100" expanded="true" signature="1400:1555" ph="{...}" />
+            <marker date="1551641751100" expanded="true" signature="1627:1878" ph="{...}" />
+            <marker date="1551641751100" expanded="true" signature="1932:2172" ph="{...}" />
+            <marker date="1551641751100" expanded="true" signature="2053:2161" ph="{...}" />
+            <marker date="1551641751100" expanded="true" signature="2227:3365" ph="{...}" />
+            <marker date="1551641751100" expanded="true" signature="2781:3097" ph="{...}" />
+            <marker date="1551641751100" expanded="true" signature="3115:3248" ph="{...}" />
+            <marker date="1551641751100" expanded="true" signature="3281:3355" ph="{...}" />
+            <marker date="1551641751100" expanded="true" signature="3442:3962" ph="{...}" />
+            <marker date="1551641751100" expanded="true" signature="3570:3840" ph="{...}" />
+            <marker date="1551641751100" expanded="true" signature="3727:3796" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Models/Response/AwardsByTypeResponse.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <folding>
+            <marker date="1551415586104" expanded="false" signature="6:78" ph="..." />
+            <marker date="1551415586104" expanded="true" signature="131:296" ph="{...}" />
+            <marker date="1551415586104" expanded="true" signature="171:294" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Models/Response/AwardDataByMonthResponse.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+          <folding>
+            <marker date="1552020240494" expanded="false" signature="6:78" ph="..." />
+            <marker date="1552020240494" expanded="true" signature="131:266" ph="{...}" />
+            <marker date="1552020240494" expanded="true" signature="175:264" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Models/AwardDataByMonth.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <folding>
+            <marker date="1552020017513" expanded="true" signature="57:246" ph="{...}" />
+            <marker date="1552020017513" expanded="true" signature="93:244" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Controllers/AwardsController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="27" column="64" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="64" />
+          <folding>
+            <marker date="1552020803196" expanded="false" signature="6:204" ph="..." />
+            <marker date="1552020803196" expanded="true" signature="254:1040" ph="{...}" />
+            <marker date="1552020803196" expanded="true" signature="373:1037" ph="{...}" />
+            <marker date="1552020803196" expanded="true" signature="501:568" ph="{...}" />
+            <marker date="1552020803196" expanded="true" signature="653:1030" ph="{...}" />
+            <marker date="1552020803196" expanded="true" signature="691:1019" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Services/AwardsService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="56" column="34" lean-forward="true" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="34" />
+          <folding>
+            <marker date="1552023278512" expanded="false" signature="6:201" ph="..." />
+            <marker date="1552023278512" expanded="true" signature="247:2869" ph="{...}" />
+            <marker date="1552023278512" expanded="true" signature="297:2867" ph="{...}" />
+            <marker date="1552023278512" expanded="true" signature="409:461" ph="{...}" />
+            <marker date="1552023278512" expanded="true" signature="520:1032" ph="{...}" />
+            <marker date="1552023278512" expanded="true" signature="1157:1780" ph="{...}" />
+            <marker date="1552023278512" expanded="true" signature="1224:1769" ph="{...}" />
+            <marker date="1552023278512" expanded="true" signature="1293:1714" ph="{...}" />
+            <marker date="1552023278512" expanded="true" signature="1355:1495" ph="{...}" />
+            <marker date="1552023278512" expanded="true" signature="1558:1696" ph="{...}" />
+            <marker date="1552023278512" expanded="true" signature="1843:2722" ph="{...}" />
+            <marker date="1552023278512" expanded="true" signature="2058:2126" ph="{...}" />
+            <marker date="1552023278512" expanded="true" signature="2194:2479" ph="{...}" />
+            <marker date="1552023278512" expanded="true" signature="2643:2711" ph="{...}" />
+            <marker date="1552023278512" expanded="true" signature="2776:2861" ph="{...}" />
           </folding>
         </state>
       </provider>

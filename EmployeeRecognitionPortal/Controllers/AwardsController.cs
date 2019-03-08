@@ -24,8 +24,8 @@ using Microsoft.AspNetCore.Mvc;
              {
                 case "countbytype":
                     return Ok(_awardsService.GetAwardsByTypeData());
-                 case "countbymonth":
-                    return Ok(_awardsService.GetAwardCountByMonth());
+                 case "awarddatabymonth":
+                    return Ok(_awardsService.GetAwardDataByMonth());
                  default:
                     return BadRequest("Invalid query");
              }

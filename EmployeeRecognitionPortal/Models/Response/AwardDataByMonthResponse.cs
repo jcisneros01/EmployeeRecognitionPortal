@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EmployeeRecognitionPortal.Models.Response
 {
-    public class AwardCountByMonthResponse
+    public class AwardDataByMonthResponse
     {
-        public List<AwardCountByMonthData> AwardCountByMonth{ get; set; }
+        public List<AwardDataByMonth> AwardDataByMonth{ get; set; }
         
     }
 }
