@@ -17,7 +17,7 @@ using Microsoft.AspNetCore.Mvc;
              _userService = userService;
          }
          
-         [Authorize(Policy = "Admin")]
+         //[Authorize(Policy = "Admin")]
          [HttpGet]
          public IActionResult Get()
          {
@@ -26,7 +26,7 @@ using Microsoft.AspNetCore.Mvc;
              return Ok(response);
          }
          
-         [Authorize(Policy = "Admin")]
+         //[Authorize(Policy = "Admin")]
          [HttpGet("{id}")]
          public IActionResult GetUser(int id)
          {
@@ -35,7 +35,7 @@ using Microsoft.AspNetCore.Mvc;
              return Ok(response);
          }
          
-         [Authorize(Policy = "Admin")]
+         //[Authorize(Policy = "Admin")]
          [HttpDelete("{id}")]
          public IActionResult DeleteUser(int id)
          {
@@ -44,7 +44,7 @@ using Microsoft.AspNetCore.Mvc;
              return Ok();
          }
          
-         [Authorize(Policy = "Admin")]
+         //[Authorize(Policy = "Admin")]
          [HttpPost]
          [ValidateModel]
          public IActionResult CreateUser([FromBody]UserRequest user)
