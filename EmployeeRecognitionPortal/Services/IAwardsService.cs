@@ -5,6 +5,6 @@ namespace EmployeeRecognitionPortal.Services
     public interface IAwardsService
     {
         AwardsByTypeResponse GetAwardsByTypeData();
-        AwardCountByMonthResponse GetAwardCountByMonth();
+        AwardDataByMonthResponse GetAwardDataByMonth();
     }
 }

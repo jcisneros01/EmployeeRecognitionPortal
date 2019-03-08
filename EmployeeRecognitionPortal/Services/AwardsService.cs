@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using AutoMapper;
 using EmployeeRecognitionPortal.Models;
@@ -49,25 +50,28 @@ namespace EmployeeRecognitionPortal.Services
             };
         }
 
-        public AwardCountByMonthResponse GetAwardCountByMonth()
+        public AwardDataByMonthResponse GetAwardDataByMonth()
         {
             var awardCountByMonth = _context.EmpOfMonths
                 .Where(x => x.DateAwarded >= GetDate(1, 1) && x.DateAwarded <= GetDate(12, 31))
                 .GroupBy(x => new 
                 {
-                    Month = x.DateAwarded.Month    
+                    Month = x.DateAwarded.Month,
                 })
-                .Select(x => new AwardCountByMonthData
+                .Select(x => new AwardDataByMonth
                 {
-                    Month =  x.Key.Month,
-                    AwardCount = x.Count()
+                    Month = CultureInfo.CurrentCulture.DateTimeFormat.GetAbbreviatedMonthName(x.Key.Month),
+                    AwardCount = x.Count(),
+                    UserCount = x.Select( y => y.AwardCreatorId).Distinct().Count()
+                    
                 })
                 .OrderByDescending(x => x.Month)
                 .ToList();
             
-            return new AwardCountByMonthResponse
+            
+            return new AwardDataByMonthResponse
             {
-                AwardCountByMonth = awardCountByMonth
+                AwardDataByMonth = awardCountByMonth
             };
         }
 
