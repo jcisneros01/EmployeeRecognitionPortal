@@ -92,13 +92,13 @@ class Awards extends React.Component {
                 }
                 <Table celled>
                     <Table.Header>
-                        <Table.Row>
+                        {/* <Table.Row>
                             <Table.HeaderCell colSpan='6'>
                                 <Button icon labelPosition='left' primary size='small' onClick={() => this.showFormModal()}>
                                     <Icon name='user' /> Add Award
                                 </Button>
                             </Table.HeaderCell>
-                        </Table.Row>
+                        </Table.Row> */}
                         <Table.Row>
                             <Table.HeaderCell>ID</Table.HeaderCell>
                             <Table.HeaderCell>Employee Name</Table.HeaderCell>

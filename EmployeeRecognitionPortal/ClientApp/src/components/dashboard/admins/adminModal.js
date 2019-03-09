@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Header, Modal } from 'semantic-ui-react';
+import { Button,  Modal } from 'semantic-ui-react';
 
 const AdminModal = ({show, hideModal, admin}) => (
   <Modal open={show} dimmer="blurring">

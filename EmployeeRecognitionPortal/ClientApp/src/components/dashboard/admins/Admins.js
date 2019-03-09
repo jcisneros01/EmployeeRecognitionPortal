@@ -1,5 +1,4 @@
 import React from 'react'
-import { Icon,  Button} from 'semantic-ui-react'
 import PropTypes from 'prop-types';
 import { withStyles, Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 
@@ -90,9 +89,9 @@ class Admins extends React.Component {
                 }
                 <Table className={classes.table}>
                     <TableHead>
-                        <Button icon labelPosition='left' primary size='small' onClick={() => this.showFormModal()}>
+                        {/* <Button icon labelPosition='left' primary size='small' onClick={() => this.showFormModal()}>
                             <Icon name='user' /> Add Admin
-                        </Button>
+                        </Button> */}
                         <TableRow>
                             <TableCell>ID</TableCell>
                             <TableCell align="right">Email</TableCell>

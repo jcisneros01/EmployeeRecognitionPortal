@@ -177,9 +177,10 @@ class Layout extends React.Component {
                             <Divider />
                             <List>
                                 <MainListItems
-                                    isAdmin={false}
+                                    isAdmin={true}
                                     logout={login.logout}
                                     location={location}
+                                    path={path}
                                 />
                             </List>
 

@@ -89,11 +89,11 @@ const styles = {
                 }
                 <Table className={classes.table}>
                     <TableHead>
-                        <TableRow>
+                        {/* <TableRow>
                             <Button icon labelPosition='left' primary size='small' onClick={() => this.showFormModal()}>
                                 <Icon name='user' /> Add User
                             </Button>
-                        </TableRow>
+                        </TableRow> */}
                         <TableRow>
                             <TableCell>ID</TableCell>
                             <TableCell>Image</TableCell>

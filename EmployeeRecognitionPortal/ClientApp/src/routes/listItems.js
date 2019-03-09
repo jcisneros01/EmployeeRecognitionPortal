@@ -13,24 +13,20 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 import * as routes from '../constants/routes';
 
 class MainListItems extends React.Component {
-    state = { activeItem: 'dashboard' }
-    handleItemClick = (name) => {
-        this.setState({ activeItem: name });
-    }
+    
     render() {
-        const { activeItem } = this.state
-        const {isAdmin, logout} = this.props
+        
+        const {isAdmin, logout, path} = this.props
     
         return(
             <div>
                 {isAdmin && <>
                         <ListItem 
                             button 
-                            selected={activeItem === 'dashboard'}
+                            selected={path.toLowerCase() === 'dashboard'}
                             name="dashboard"
                             component={Link}
-                            to={routes.DASHBOARD}
-                            onClick={() => this.handleItemClick('dashboard')} 
+                            to={routes.DASHBOARD} 
                         >
                             <ListItemIcon>
                             <DashboardIcon />
@@ -40,11 +36,10 @@ class MainListItems extends React.Component {
                    
                         <ListItem
                             button 
-                            selected={activeItem === 'admins'}
+                            selected={path.toLowerCase() === 'admins'}
                             name="admins"
                             component={Link}
-                            to={`${routes.DASHBOARD}/${routes.ADMINS}`}
-                            onClick={() => this.handleItemClick('admins')} 
+                            to={`${routes.DASHBOARD}/${routes.ADMINS}`} 
                         >
                             <ListItemIcon>
                                 <PeopleIcon />
@@ -54,11 +49,10 @@ class MainListItems extends React.Component {
                   
                         <ListItem
                             button 
-                            selected={activeItem === 'users'}
+                            selected={path.toLowerCase() === 'users'}
                             name="users"
                             component={Link}
-                            to={`${routes.DASHBOARD}/${routes.USERS}`}
-                            onClick={() => this.handleItemClick('users')} 
+                            to={`${routes.DASHBOARD}/${routes.USERS}`} 
                         >
                             <ListItemIcon>
                                 <PeopleIcon />
@@ -69,11 +63,10 @@ class MainListItems extends React.Component {
                 {!isAdmin && <>
                         <ListItem 
                             button 
-                            selected={activeItem === 'awardsEOM'}
+                            selected={path.toLowerCase() === 'awardseom'}
                             name="awardsEOM"
                             component={Link}
                             to={`${routes.DASHBOARD}/${routes.AWARDSEOM}`}
-                            onClick={() => this.handleItemClick('awardsEOM')} 
                         >
                             <ListItemIcon>
                                 <ShoppingCartIcon />
@@ -82,11 +75,10 @@ class MainListItems extends React.Component {
                         </ListItem>
                         <ListItem 
                             button 
-                            selected={activeItem === 'awardsEOY'}
+                            selected={path.toLowerCase() === 'awardseoy'}
                             name="awardsEOY"
                             component={Link}
-                            to={`${routes.DASHBOARD}/${routes.AWARDSEOY}`}
-                            onClick={() => this.handleItemClick('awardsEOY')} 
+                            to={`${routes.DASHBOARD}/${routes.AWARDSEOY}`} 
                         >
                             <ListItemIcon>
                                 <ShoppingCartIcon />

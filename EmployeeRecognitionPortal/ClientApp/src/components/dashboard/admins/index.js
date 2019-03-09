@@ -1,7 +1,7 @@
 import React from 'react';
-import { Header, Message } from 'semantic-ui-react'
 import { Subscribe } from 'unstated';
-import { withStyles, Paper } from '@material-ui/core';
+import { withStyles, Paper, Fab, Typography } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
 
 import Layout from '../../../routes/layout'
 import  Admins from './Admins';
@@ -12,23 +12,40 @@ const styles = theme => ({
       width: '100%',
       overflowX: 'auto',
       padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
+    },
+    margin: {
+        margin: theme.spacing.unit,
+    },
+    extendedIcon: {
+        marginRight: theme.spacing.unit,
     }
   }); 
 
-function DashboardAdminsPage({classes, location}) { 
+function DashboardAdminsPage({classes}) { 
    
         return (
             <Subscribe to={[AdminContainer]}>
                 {admins => {
-                    return <Layout path={location.pathname}>
-                            <Paper className={classes.root}>
+                    return <Layout path="Admins">
+                        <Paper className={classes.root}>
                     
-                        <Header as='h1'>Admin List</Header>
+                            <Typography component="h2" variant="h4">
+                                Admin List
+                            </Typography>
+                        <Fab
+                            variant="extended"
+                            size="small"
+                            color="primary"
+                            aria-label="Add"
+                            className={classes.margin}
+                        >
+                            <AddIcon  />
+                            Add Admin
+                        </Fab>
                         {!admins.state.success && admins.state.error ? (
-                            <Message negative>
-                                <Message.Header>Somthing went wrong</Message.Header>
-                                <p>{admins.state.error}</p>
-                            </Message>) : 
+                            <Typography color="error" component="h4">
+                                {admins.state.error}
+                            </Typography>) : 
                             <Admins admins={admins}/>
                         }
                         
