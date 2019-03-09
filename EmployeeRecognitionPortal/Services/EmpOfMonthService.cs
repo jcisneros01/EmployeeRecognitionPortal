@@ -57,7 +57,7 @@ namespace EmployeeRecognitionPortal.Services
                });
 
            //Send post request to latex compile server
-           string latexURL = "http://52.175.221.124:8080";
+           string latexURL = "http://52.247.199.88:8080";
            IRestClient client = new RestClient(latexURL);
            var request = new RestRequest("/Latex/", Method.POST);
            request.AddParameter("application/json", jsonAward, ParameterType.RequestBody);
