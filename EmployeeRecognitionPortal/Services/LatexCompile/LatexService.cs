@@ -12,7 +12,7 @@ using System.Net.Mime;
 using System.Text;
 
 
-// This content lives on another server:  52.175.221.124
+// This content lives on another server:  52.247.199.88
 //    It was easier to perform the linux specific tasks separately
 //    than on the Windows server we have our application deployed.
 
