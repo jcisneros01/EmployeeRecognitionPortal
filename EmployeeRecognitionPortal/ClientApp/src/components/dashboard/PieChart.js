@@ -1,10 +1,5 @@
-import React from 'react';
-    
+import React from 'react'; 
 import { Pie} from 'react-chartjs-2';
-
-import {
-    ResponsiveContainer, Legend
-} from 'recharts';
 
 class PieChart extends React.Component {
 	componentDidMount(){

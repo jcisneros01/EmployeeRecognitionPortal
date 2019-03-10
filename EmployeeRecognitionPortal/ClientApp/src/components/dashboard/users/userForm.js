@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import { Button, FormControl, InputLabel, Input, Typography} from '@material-ui/core';
+import { Button, FormControl, InputLabel, Input, Typography, withStyles} from '@material-ui/core';
 import classNames from 'classnames'
 import Dropzone from 'react-dropzone'
 

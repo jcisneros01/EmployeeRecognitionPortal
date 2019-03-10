@@ -20,13 +20,21 @@ class AwardContainer extends Container {
 
 
     getEOY = () => {
-      Api.get(`/EmpOfYear`, true).then(awards => {
+      Api.get(`/EmpOfYear`, true).then(resp => {
+        let json = resp.json();
+        if(resp.ok) {
+          return json
+        }
+        return json.then(err => {throw(err)})
+      }).then(awards => {
         this.setState({awardsEOY: awards, success: true})
+      }).catch(err => {
+        this.setState({error: err.Message, success: false})
       });   
     }
 
     createEOY = (award) => {
-      const { employeeName, employeeEmail, dateAwarded, awardCreatorId } = award;
+      const { employeeName, employeeEmail, dateAwarded } = award;
       this.setState({
         loading: true
       });
@@ -35,36 +43,60 @@ class AwardContainer extends Container {
         employeeName,
         employeeEmail,
         dateAwarded,
-        awardCreatorId
-      }, true).then(award => {
+        awardCreatorId: localStorage.id
+      }, true).then(resp => {
+        let json = resp.json();
+        if(resp.ok) {
+          return json;
+        }
+        return json.then(err => {throw(err)});
+      }).then(award => {
         this.state.awardsEOY.push(award)
         this.setState({
           loading: false,
           updateSuccess: true
         });
+      }).catch(err => {
+        this.setState({
+          loading: false,
+          updateSuccess: false,
+          error: err.Message
+        });
       })
     }
 
     deleteEOY = (id) => {
-     Api.delete(`/EmpOfYear/${id}`, true);
-      let awardsEOY = this.state.awardsEOY.filter(award => {
-        return award.id !== id
-      })
-       this.setState({
-         updateSuccess: true,
-         awardsEOY
-       })
+     Api.delete(`/EmpOfYear/${id}`, true).then(resp => {
+       if(resp.ok) {
+        let awardsEOY = this.state.awardsEOY.filter(award => {
+          return award.id !== id
+        })
+         this.setState({
+           updateSuccess: true,
+           awardsEOY
+         })
+       }
+     });
+     
     
     }
 
     getEOM = () => {
-      Api.get(`/EmpOfMonth`, true).then(awards => {
+      Api.get(`/EmpOfMonth`, true).then(resp => {
+        let json = resp.json();
+        if(resp.ok) {
+          return json;
+        }
+        return json.then(err => {throw(err)});
+      }).then(awards => {
         this.setState({awardsEOM: awards, success: true})
+      }).catch(err => {
+        this.setState({error: err.Message, success: false})
       });   
     }
 
     createEOM = (award) => {
-      const { employeeName, employeeEmail, dateAwarded, awardCreatorId } = award;
+      const { employeeName, employeeEmail, dateAwarded } = award;
       this.setState({
         loading: true
       });
@@ -73,25 +105,41 @@ class AwardContainer extends Container {
         employeeName,
         employeeEmail,
         dateAwarded,
-        awardCreatorId
-      }, true).then(award => {
+        awardCreatorId: localStorage.id
+      }, true).then(resp => {
+        let json = resp.json();
+        if(resp.ok) {
+          return json;
+        }
+        return json.then(err => {throw(err)})
+      }).then(award => {
         this.state.awardsEOM.push(award)
         this.setState({
           loading: false,
           updateSuccess: true
         });
+      }).catch(err => {
+        this.setState({
+          loading: false,
+          updateSuccess: false,
+          error: err.Message
+        });
       })
     }
 
     deleteEOM = (id) => {
-     Api.delete(`/EmpOfMonth/${id}`, true);
-      let awardsEOM = this.state.awardsEOM.filter(award => {
-        return award.id !== id
-      });
-      this.setState({
-         updateSuccess: true,
-         awardsEOM
-      });     
+     Api.delete(`/EmpOfMonth/${id}`, true).then(resp => {
+       if(resp.ok) {
+        let awardsEOM = this.state.awardsEOM.filter(award => {
+          return award.id !== id
+        });
+        this.setState({
+           updateSuccess: true,
+           awardsEOM
+        });
+       }
+     });
+           
     }
 
   }

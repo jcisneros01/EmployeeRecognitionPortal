@@ -53,7 +53,7 @@ class RecoverPasswordForm extends React.Component {
 
     render() {
         const { errors, data} = this.state;
-        const { loading, apiError, classes } = this.props
+        const {  apiError, classes } = this.props
         return (
             <form onSubmit={this.onSubmit} className={classes.form} autoComplete="off">
                 

@@ -37,6 +37,8 @@ class ReportContainer extends Container {
                counts
             }, success: true})
           }
+        }).catch(err => {
+            this.setState({success: false, error: err.Message})
         });        
     }
 

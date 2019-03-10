@@ -1,7 +1,6 @@
 import React from 'react';
-import { withStyles, Paper, Fab } from '@material-ui/core';
+import { withStyles, Paper, Fab, Typography } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
-import {  Header, Message } from 'semantic-ui-react'
 import { Subscribe } from 'unstated';
 
 import Layout from '../../../../routes/layout'
@@ -19,30 +18,37 @@ const styles = theme => ({
     }
   });
 
-function AwardsEOMPage({location, classes}) { 
-
+class AwardsEOMPage extends React.Component{ 
+    handleClick = () => {
+        this.props.history.push('/dashboard/awards/new/eom')
+    }
+    render() {
+        const {classes, history} = this.props
         return (
             <Subscribe to={[AwardContainer]}>
                 {awards => {
-                    return <Layout path={location.pathname}>
+                    return <Layout path="Employee of Month">
                         <Paper className={classes.root}>
-                        <Header as='h1'>Awards EOM List</Header>
-                        <Fab
-                            variant="extended"
-                            size="small"
-                            color="primary"
-                            aria-label="Add"
-                            className={classes.margin}
-                        >
-                            <AddIcon  />
-                            Add Awards
-                        </Fab>
+                            <Typography component="h2" variant="h4">
+                                Awards EOM List
+                            </Typography>
+                            <Fab
+                                variant="extended"
+                                size="small"
+                                color="primary"
+                                aria-label="Add"
+                                className={classes.margin}
+                                onClick={this.handleClick}
+                            >
+                                <AddIcon  />
+                                Add Awards
+                            </Fab>
                         {!awards.state.success && awards.state.error ? (
-                            <Message negative>
-                                <Message.Header>Somthing went wrong</Message.Header>
-                                <p>{awards.state.error}</p>
-                            </Message>) : 
-                            <Awards awards={awards} title="EOM"/>
+                            <Typography color="error" component="h4">
+                               {awards.state.error}
+                            </Typography>
+                            ) : 
+                            <Awards awards={awards} title="EOM" history={history}/>
                         }
                         </Paper>
                     </Layout>
@@ -50,7 +56,7 @@ function AwardsEOMPage({location, classes}) {
                 
             </Subscribe>
         );
-    
+    }    
 }
 
 export default withStyles(styles)(AwardsEOMPage);

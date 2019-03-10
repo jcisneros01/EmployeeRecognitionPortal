@@ -1,41 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Icon, Menu, Table, Image } from 'semantic-ui-react';
+import { TableCell, TableRow, withStyles } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Visibility from '@material-ui/icons/Visibility';
 
-const AwardList = ({awards, showModal, showFormModal,showConfirmModal}) => (
-    awards.map((award, index) => {
-        return <Table.Row key={award.id}>
-            <Table.Cell>{award.id}</Table.Cell>
-            <Table.Cell>
+const styles = theme => ({
+  
+    icon: {
+      margin: theme.spacing.unit,
+      fontSize: 32,
+    },
+  }); 
+
+const AwardList = ({awards, showModal,showConfirmModal, classes}) => (
+    awards.map((award) => {
+        return <TableRow key={award.id}>
+            <TableCell>{award.id}</TableCell>
+            <TableCell>
                 {award.employeeName}
-            </Table.Cell>
-            <Table.Cell>
+            </TableCell>
+            <TableCell>
                 {award.employeeEmail}
-            </Table.Cell>
-            <Table.Cell>
+            </TableCell>
+            <TableCell>
                 {award.dateAwarded}
-            </Table.Cell>
-            <Table.Cell>
+            </TableCell>
+            <TableCell>
                 {award.awardCreatorId}
-            </Table.Cell>
+            </TableCell>
            
-            <Table.Cell className="actions">
-                <Menu.Item as='a' icon>
-                    <Icon name='eye' onClick={() => showModal(award)}/>
-                </Menu.Item>
-                <Menu.Item as='a' icon>
-                    <Icon name='trash alternate' onClick={() => showConfirmModal(award)}/>
-                </Menu.Item>
-            </Table.Cell>
-        </Table.Row>
+            <TableCell className="actions">
+                <Visibility className={classes.icon} onClick={() => showModal(award)}/>
+                <DeleteIcon className={classes.icon} onClick={() => showConfirmModal(award)}/>
+            </TableCell>
+        </TableRow>
     })
 ) 
 
 AwardList.propTypes = {
     awards: PropTypes.array.isRequired,
     showModal: PropTypes.func.isRequired,
-    showFormModal: PropTypes.func.isRequired,
     showConfirmModal: PropTypes.func.isRequired
 }
 
-export default AwardList;
+export default withStyles(styles)(AwardList);

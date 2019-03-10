@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Subscribe } from 'unstated';
 import { withStyles, Paper, Typography } from '@material-ui/core';
 import Layout from '../../../routes/layout';
-import UserForm from './userForm'
-import UserContainer from '../../../containers/UserContainer';
+import SettingsForm from './settingsForm'
+import AdminContainer from '../../../containers/AdminContainer';
 
 const styles = theme => ({
     root: {
@@ -14,24 +14,24 @@ const styles = theme => ({
     }
   }); 
 
-class NewUser extends React.Component {  
+class Settings extends React.Component {  
    
     render() {    
         const {classes, history } = this.props
        
         return (
-            <Subscribe to={[UserContainer]}>
-                {userContainer => {
-                    if (userContainer.state.updateSuccess) {
+            <Subscribe to={[AdminContainer]}>
+                {adminContainer => {
+                    if (adminContainer.state.updateSuccess) {
                         this.props.history.push('/dashboard/admins')
                     }
-                    return (<Layout path="Users">
+                    return (<Layout path="Settings">
                         <Paper className={classes.root}>
                             <Typography component="h2" variant="h4">
-                                Add New User
+                                Manage your Account
                             </Typography>
-                            <UserForm 
-                                userContainer={userContainer} 
+                            <SettingsForm 
+                                adminContainer={adminContainer} 
                                 buttonTitle="Save"
                                 history={history}
                             />
@@ -44,7 +44,7 @@ class NewUser extends React.Component {
 }
 
 
-NewUser.propTypes = {
+Settings.propTypes = {
     classes: PropTypes.object.isRequired
 }
-export default withStyles(styles)(NewUser);
+export default withStyles(styles)(Settings);
