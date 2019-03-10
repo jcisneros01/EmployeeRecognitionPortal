@@ -17,7 +17,6 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import MenuIcon from '@material-ui/icons/Menu';
 import MainListItems from './listItems';
 import LoginContainer from '../containers/LoginContainer';
-import { thumbInner } from '../components/dashboard/admins/styles';
 
 
 const drawerWidth = 240;
@@ -120,9 +119,8 @@ class Layout extends React.Component {
 
     render() {
 
-        const { classes, location, isAuthenticated, path } = this.props;
+        const { classes, location,  path } = this.props;
        
-        const { title } = this.state
         return (<Subscribe to={[LoginContainer]}>
             {login => {
                 return <div className={classes.root}>

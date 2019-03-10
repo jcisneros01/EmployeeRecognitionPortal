@@ -17,7 +17,7 @@ const styles = theme => ({
     },
   });
 
-class AdminForm extends React.Component {
+class SettingsForm extends React.Component {
     state = {
         data: {
             email: "",
@@ -25,27 +25,6 @@ class AdminForm extends React.Component {
         },
         errors: {}
     }
-
-    componentWillMount() {
-        if(this.props.buttonTitle === "Update") {
-            this.props.adminContainer.getAdmin(this.props.match.params.id)
-        }
-    }
-
-    componentWillUnmount() {
-        this.props.adminContainer.initializeForm();
-    }
-    componentWillReceiveProps(newProps) {
-         console.log(newProps)
-        if(!!newProps.admin) {
-            this.setState({
-                data: {
-                    ...this.state.data,
-                    email: newProps.admin.email
-                }
-            })
-        }
-     }
 
     validate = (data) => {
         const errors = {};
@@ -65,29 +44,17 @@ class AdminForm extends React.Component {
         const errors = this.validate(this.state.data);
         this.setState({errors});
         if (Object.keys(errors).length === 0) {
-            if(this.props.buttonTitle === "Update") {
-                this.props.adminContainer.updateAdmin(this.props.match.params.id, this.state.data);
-            } else{
-                this.props.adminContainer.createAdmin(this.state.data);
-            }
+            this.props.adminContainer.updateAdmin(this.props.match.params.id, this.state.data);
             
         }
     }    
     
-    goBack = () => {
-        this.props.history.goBack()
-    }
    
     render() {
         
         const { data, errors } = this.state;
         const {buttonTitle, adminContainer, classes} = this.props
-<<<<<<< HEAD
-        const { error, admin } = adminContainer.state
-        console.log(admin)
-=======
         const { error } = adminContainer.state
->>>>>>> d897fdbcbccd7f651925ca3472990ebf167badbd
 
         return(<>
             <form onSubmit={this.onSubmit} className={classes.form} autoComplete="off">
@@ -128,14 +95,7 @@ class AdminForm extends React.Component {
                     variant="contained"
                     color="primary"
                     className={classes.submit}
-                >{buttonTitle}</Button>    
-                <Button
-                    width="50%"
-                    variant="contained"
-                    color="secondary"
-                    className={classes.submit}
-                    onClick={this.goBack}
-                >Go Back</Button>  
+                >{buttonTitle}</Button>     
             </form>
            
                 
@@ -144,7 +104,7 @@ class AdminForm extends React.Component {
 }
 
 
-AdminForm.propTypes = {
+SettingsForm.propTypes = {
   adminContainer: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired
 }
@@ -154,4 +114,4 @@ AdminForm.propTypes = {
 
 
 
-export default withStyles(styles)(AdminForm);
+export default withStyles(styles)(SettingsForm);

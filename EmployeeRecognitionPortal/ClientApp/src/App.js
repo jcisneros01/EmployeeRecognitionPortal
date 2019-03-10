@@ -19,6 +19,8 @@ import NewAdmin from './components/dashboard/admins/new'
 import EditAdmin from './components/dashboard/admins/edit';
 import NewUser from './components/dashboard/users/new';
 import EditUser from './components/dashboard/users/edit';
+import NewAward from './components/dashboard/awards/new';
+import Settings from './components/dashboard/users/settings';
 
 const styles = () => ({
   root: {
@@ -38,6 +40,7 @@ const App = ({ location, classes}) => (
 
         <GuestRoute
           isAuthenticated={login.state.success}
+          isAdmin={localStorage.isAdmin === "true"}
           location={location}
           exact path={routes.ROOT}
           component={LoginPage}
@@ -45,6 +48,7 @@ const App = ({ location, classes}) => (
 
          <GuestRoute
           isAuthenticated={login.state.success}
+          isAdmin={localStorage.isAdmin === "true"}
           location={location}
           exact path={routes.SIGN_IN}
           component={LoginPage}
@@ -52,6 +56,7 @@ const App = ({ location, classes}) => (
     
         <GuestRoute
           isAuthenticated={login.state.success}
+          isAdmin={localStorage.isAdmin === "true"}
           location={location}
           exact path={routes.RECOVER_PASSWORD}
           component={RecoverPasswordPage}
@@ -111,6 +116,18 @@ const App = ({ location, classes}) => (
             location={location}
             exact path={`${routes.DASHBOARD}/${routes.USERS}/:id/edit`}
             component={EditUser}
+          />
+          <AdminRoute
+            isAuthenticated={login.state.success}
+            location={location}
+            exact path={`${routes.DASHBOARD}/awards/new/:name`}
+            component={NewAward}
+          />
+          <AdminRoute
+            isAuthenticated={login.state.success}
+            location={location}
+            exact path={`${routes.DASHBOARD}/${routes.USERS}/settings`}
+            component={Settings}
           />
         {/*</Layout>*/}
        

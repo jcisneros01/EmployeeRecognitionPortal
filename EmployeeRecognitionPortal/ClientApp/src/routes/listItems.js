@@ -7,9 +7,8 @@ import {
 } from '@material-ui/core';
 
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PeopleIcon from '@material-ui/icons/People';
-import BarChartIcon from '@material-ui/icons/BarChart';
+import BuildIcon from '@material-ui/icons/Build';
 import * as routes from '../constants/routes';
 
 class MainListItems extends React.Component {
@@ -86,6 +85,18 @@ class MainListItems extends React.Component {
                             <PeopleIcon />
                         </ListItemIcon>
                         <ListItemText primary="awardsEOY" />
+                    </ListItem>
+                    <ListItem
+                        button
+                        selected={path.toLowerCase() === 'settings'}
+                        name="settings"
+                        component={Link}
+                        to={`${routes.DASHBOARD}/${routes.USERS}/settings`}
+                    >
+                        <ListItemIcon>
+                            <BuildIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Settings" />
                     </ListItem>
 
                 </>}

@@ -1,16 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import { Icon, Table, Button} from 'semantic-ui-react'
+import { withStyles, Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 
 import  AwardList from './awardList';
 import AwardModal from './awardModal';
-import AwardForm from './awardForm';
 import AwardConfirmModal from '../common/awardConfirmModal';
 
+const styles = {
+    table: {
+      minWidth: 700,
+    },
+  };
 class Awards extends React.Component {
     state = {
         showAwardModal: false,
-        formModalShow: false,
         confirmModal: false,
         award: {}
     }
@@ -32,17 +35,7 @@ class Awards extends React.Component {
         this.setState({ showAwardModal: false, award: {}})
     }
 
-    showFormModal = (award = {}) => {
-       
-        this.setState({ formModalShow: true, award})
-    }
-
-    hideFormModal = () => {
-        this.setState({ formModalShow: false, award: {}, title: ''})
-    }
-
     showConfirmModal = (award) => {
-        
         this.setState({ confirmModal: true, award})
     }
 
@@ -58,29 +51,19 @@ class Awards extends React.Component {
         }
         
     }
-
-   
+    handleEdit = (id) => {
+        this.props.history.push(`/dashboard/awards/${id}/edit`)
+    }
 
     render() {
-        const {awardsEOY, awardsEOM, loading, error, updateSuccess} = this.props.awards.state;
-        const { award, showAwardModal,formModalShow, confirmModal } = this.state;
-        const { createEOY, createEOM, deleteEOM, deleteEOY } = this.props.awards;
+        const {awardsEOY, awardsEOM, updateSuccess} = this.props.awards.state;
+        const { award, showAwardModal, confirmModal } = this.state;
+        const { deleteEOM, deleteEOY } = this.props.awards;
+        const {classes} = this.props
         const awards = this.props.title === "EOY" ? awardsEOY : awardsEOM;
         return (
             <>
                 <AwardModal show={showAwardModal} hideModal={this.hideModal} award={award}/>
-               {formModalShow && 
-                    <AwardForm 
-                        show={formModalShow} 
-                        hideFormModal={this.hideFormModal} 
-                        initializeForm={this.props.awards.initializeForm}
-                        loading={loading}
-                        error={error}
-                        title={this.props.title}
-                        updateSuccess={updateSuccess}
-                        createAward={this.props.title === "EOY" ? createEOY : createEOM}
-                    />
-                }
                  {confirmModal && 
                     <AwardConfirmModal 
                         hideConfirmFormModal={this.hideConfirmFormModal} 
@@ -90,39 +73,32 @@ class Awards extends React.Component {
                         updateSuccess={updateSuccess}
                     />
                 }
-                <Table celled>
-                    <Table.Header>
-                        {/* <Table.Row>
-                            <Table.HeaderCell colSpan='6'>
-                                <Button icon labelPosition='left' primary size='small' onClick={() => this.showFormModal()}>
-                                    <Icon name='user' /> Add Award
-                                </Button>
-                            </Table.HeaderCell>
-                        </Table.Row> */}
-                        <Table.Row>
-                            <Table.HeaderCell>ID</Table.HeaderCell>
-                            <Table.HeaderCell>Employee Name</Table.HeaderCell>
-                            <Table.HeaderCell>Employee Email</Table.HeaderCell>
-                            <Table.HeaderCell>Date Awarded</Table.HeaderCell>
-                            <Table.HeaderCell>Creator</Table.HeaderCell>
-                            <Table.HeaderCell>Actions</Table.HeaderCell>
-                        </Table.Row>
-                    </Table.Header>
+                <Table className={classes.table}>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>ID</TableCell>
+                            <TableCell>Employee Name</TableCell>
+                            <TableCell>Employee Email</TableCell>
+                            <TableCell>Date Awarded</TableCell>
+                            <TableCell>Creator</TableCell>
+                            <TableCell>Actions</TableCell>
+                        </TableRow>
+                    </TableHead>
 
-                    <Table.Body>
+                    <TableBody>
                         {awards.length > 0 ?
                             <AwardList 
                             awards={awards} 
                             showModal={this.showModal} 
-                            showFormModal={this.showFormModal}
+                            handleEdit={this.handleEdit}
                             showConfirmModal={this.showConfirmModal}
                             /> :
-                            <Table.Row >
-                                <Table.Cell>No record found</Table.Cell>
-                            </Table.Row>
+                            <TableRow >
+                                <TableCell>No record found</TableCell>
+                            </TableRow>
                         }
                         
-                    </Table.Body>
+                    </TableBody>
 
                 </Table>
             </>
@@ -134,5 +110,5 @@ Awards.propTypes = {
     title: PropTypes.string.isRequired
 }
 
-export default Awards;
+export default withStyles(styles)(Awards);
   

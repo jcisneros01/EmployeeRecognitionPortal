@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Subscribe } from 'unstated';
 import { withStyles, Paper, Typography } from '@material-ui/core';
 import Layout from '../../../routes/layout';
-import UserForm from './userForm'
-import UserContainer from '../../../containers/UserContainer';
+import AwardForm from './awardForm'
+import AwardContainer from '../../../containers/AwardContainer';
 
 const styles = theme => ({
     root: {
@@ -14,26 +14,27 @@ const styles = theme => ({
     }
   }); 
 
-class NewUser extends React.Component {  
+class NewAward extends React.Component {  
    
     render() {    
-        const {classes, history } = this.props
+        const {classes, history, match } = this.props
        
         return (
-            <Subscribe to={[UserContainer]}>
-                {userContainer => {
-                    if (userContainer.state.updateSuccess) {
-                        this.props.history.push('/dashboard/users')
+            <Subscribe to={[AwardContainer]}>
+                {awardContainer => {
+                    if (awardContainer.state.updateSuccess) {
+                        this.props.history.push(`/dashboard/awards/${match.params.name}`)
                     }
-                    return (<Layout path="Users">
+                    return (<Layout path="Awards">
                         <Paper className={classes.root}>
                             <Typography component="h2" variant="h4">
-                                Add New User
+                                Add New Award
                             </Typography>
-                            <UserForm 
-                                userContainer={userContainer} 
+                            <AwardForm 
+                                awardContainer={awardContainer} 
                                 buttonTitle="Save"
                                 history={history}
+                                match={match}
                             />
                         </Paper>
                     
@@ -44,7 +45,7 @@ class NewUser extends React.Component {
 }
 
 
-NewUser.propTypes = {
+NewAward.propTypes = {
     classes: PropTypes.object.isRequired
 }
-export default withStyles(styles)(NewUser);
+export default withStyles(styles)(NewAward);
