@@ -35,6 +35,7 @@ function LoginPage (props) {
     return (
         <Subscribe to={[LoginContainer]}>
             {login => {
+                console.log(login.state)
                 if(login.state.success) {
                     this.props.history.push('/dashboard')
                 }

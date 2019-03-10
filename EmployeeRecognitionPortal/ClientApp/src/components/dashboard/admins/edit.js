@@ -17,12 +17,12 @@ const styles = theme => ({
 class EditAdmin extends React.Component {  
    
     render() {    
-        const {classes, history } = this.props
+        const {classes, history, match } = this.props
        
         return (
             <Subscribe to={[AdminContainer]}>
                 {adminContainer => {
-                     if(adminContainer.state.success) {
+                    if (adminContainer.state.updateSuccess) {
                         this.props.history.push('/dashboard/admins')
                     }
                     return (<Layout path="Admins">
@@ -31,10 +31,11 @@ class EditAdmin extends React.Component {
                                 Edit Admin 
                             </Typography>
                             <AdminForm 
-                                adminContainer={adminContainer} 
+                                adminContainer={adminContainer}
                                 buttonTitle="Update"
-                                goBack={history.goBack}
+                                history={history}
                                 admin={adminContainer.state.admin}
+                                match={match}
                             />
                         </Paper>
                     

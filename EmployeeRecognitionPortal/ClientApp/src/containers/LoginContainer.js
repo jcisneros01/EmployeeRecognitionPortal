@@ -28,7 +28,7 @@ class LoginContainer extends Container {
         ).then(resp => {
             let json = resp.json();
             if(resp.ok) {
-                return json();
+                return json;
             }
             return json.then(err => {throw err})
         }).then(user => {

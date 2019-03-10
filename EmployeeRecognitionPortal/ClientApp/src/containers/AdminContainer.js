@@ -8,10 +8,7 @@ class AdminContainer extends Container {
         error: null,
         success: false,
         updateSuccess: false,
-        admins: [{
-          id: 1,
-          email: "a@a.com"
-        }]
+        admins: []
     };
 
     initializeForm = () => {
@@ -60,11 +57,11 @@ class AdminContainer extends Container {
       });
     }
 
-    updateAdmin = (admin) => {
+    updateAdmin = (id, admin) => {
       this.setState({
         loading: true
       });
-      Api.put(`/admins/${admin.id}`, {
+      Api.put(`/admins/${id}`, {
         email: admin.email,
         password: admin.password
       }, true).then(resp => {
@@ -95,7 +92,7 @@ class AdminContainer extends Container {
     }
 
     deleteAdmin = (id) => {
-     Api.delete(`/admins/${id}`, true).then(resp => {
+        Api.delete(`/admins/${id}`, {}, true).then(resp => {
        if(resp.ok) {
         let admins = this.state.admins.filter(admin => {
           return admin.id !== id

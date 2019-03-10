@@ -50,11 +50,12 @@ class AdminForm extends React.Component {
 
     onSubmit = (e) => {
         e.preventDefault()
+       
         const errors = this.validate(this.state.data);
         this.setState({errors});
         if (Object.keys(errors).length === 0) {
-            if(this.props.buttonTitle === "update") {
-                this.props.adminContainer.updateAdmin(this.state.data);
+            if(this.props.buttonTitle === "Update") {
+                this.props.adminContainer.updateAdmin(this.props.match.params.id, this.state.data);
             } else{
                 this.props.adminContainer.createAdmin(this.state.data);
             }
@@ -63,7 +64,7 @@ class AdminForm extends React.Component {
     }    
     
     goBack = () => {
-        this.props.goBack()
+        this.props.history.goBack()
     }
    
     render() {
@@ -107,19 +108,20 @@ class AdminForm extends React.Component {
                     { errors.password && <InlineError text={errors.password}/>}
                 </FormControl>
                 <Button type="submit"
-                    fullWidth
+                    width="50%"
                     variant="contained"
                     color="primary"
                     className={classes.submit}
-                >{buttonTitle}</Button>              
+                >{buttonTitle}</Button>    
+                <Button
+                    width="50%"
+                    variant="contained"
+                    color="secondary"
+                    className={classes.submit}
+                    onClick={this.goBack}
+                >Go Back</Button>  
             </form>
-            <Button
-                fullWidth
-                variant="contained"
-                color="secondary"
-                className={classes.submit}
-                onClick={this.goBack}
-            >Go Back</Button>  
+           
                 
         </>);
     }

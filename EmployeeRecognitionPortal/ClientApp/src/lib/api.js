@@ -36,6 +36,7 @@ class Api {
         if(authorize) {
             Object.assign(options.headers, { 'Authorization': `Bearer ${localStorage.userJWT}` })
         }
+       
         return fetch(url, options)//.then(resp => {
            
             

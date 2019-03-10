@@ -22,7 +22,7 @@ class NewAdmin extends React.Component {
         return (
             <Subscribe to={[AdminContainer]}>
                 {adminContainer => {
-                     if(adminContainer.state.success) {
+                    if (adminContainer.state.updateSuccess) {
                         this.props.history.push('/dashboard/admins')
                     }
                     return (<Layout path="Admins">
@@ -33,7 +33,7 @@ class NewAdmin extends React.Component {
                             <AdminForm 
                                 adminContainer={adminContainer} 
                                 buttonTitle="Save"
-                                goBack={history.goBack}
+                                history={history}
                             />
                         </Paper>
                     
