@@ -1,10 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import { Icon,  Button} from 'semantic-ui-react'
 import { withStyles, Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 import  UserList from './userList';
 import UserModal from './userModal';
-import UserForm from './userForm';
 import ConfirmModal from '../common/confirmModal';
 
 const styles = {
@@ -15,9 +13,7 @@ const styles = {
  class Users extends React.Component {
     state = {
         showUserModal: false,
-        formModalShow: false,
         confirmModal: false,
-        formType: '',
         user: {}
     }
 
@@ -33,14 +29,6 @@ const styles = {
         this.setState({ showUserModal: false, user: {}})
     }
 
-    showFormModal = (user = {}, formType = "new") => {
-       
-        this.setState({ formModalShow: true, formType, user})
-    }
-
-    hideFormModal = () => {
-        this.setState({ formModalShow: false, user: {}, title: ''})
-    }
 
     showConfirmModal = (user) => {
         
@@ -55,29 +43,17 @@ const styles = {
         this.props.deleteUser(id)
     }
 
-   
+    handleEdit = (id) => {
+        this.props.history.push(`/dashboard/users/${id}/edit`)
+    }
 
     render() {
-        const {users, loading, error, updateSuccess} = this.props.users.state;
-        const { user, showUserModal,formModalShow, formType, confirmModal } = this.state;
+        const {users, updateSuccess} = this.props.users.state;
+        const { user, showUserModal, confirmModal } = this.state;
        const {classes} = this.props
         return (
             <>
                 <UserModal show={showUserModal} hideModal={this.hideModal} user={user}/>
-                {formModalShow && 
-                    <UserForm 
-                        show={formModalShow} 
-                        hideFormModal={this.hideFormModal} 
-                        user={user} 
-                        formType={formType} 
-                        initializeForm={this.props.users.initializeForm}
-                        updateUser={this.props.users.updateUser}
-                        loading={loading}
-                        error={error}
-                        updateSuccess={updateSuccess}
-                        createUser={this.props.users.createUser}
-                    />
-                }
                 {confirmModal && 
                     <ConfirmModal 
                         hideConfirmFormModal={this.hideConfirmFormModal} 
@@ -89,11 +65,6 @@ const styles = {
                 }
                 <Table className={classes.table}>
                     <TableHead>
-                        {/* <TableRow>
-                            <Button icon labelPosition='left' primary size='small' onClick={() => this.showFormModal()}>
-                                <Icon name='user' /> Add User
-                            </Button>
-                        </TableRow> */}
                         <TableRow>
                             <TableCell>ID</TableCell>
                             <TableCell>Image</TableCell>
@@ -107,7 +78,7 @@ const styles = {
                             <UserList 
                             users={users} 
                             showModal={this.showModal} 
-                            showFormModal={this.showFormModal}
+                            handleEdit={this.handleEdit}
                             showConfirmModal={this.showConfirmModal}
                             /> :
                             <TableRow >

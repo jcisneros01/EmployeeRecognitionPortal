@@ -12,9 +12,9 @@ const styles = theme => ({
       margin: theme.spacing.unit,
       fontSize: 32,
     },
-  });
+  }); 
 
-const UserList = ({users, showModal, showFormModal,showConfirmModal, classes}) => (
+const UserList = ({users, showModal, handleEdit,showConfirmModal, classes}) => (
     users.map((user) => {
         return <TableRow key={user.id}>
             <TableCell>{user.id}</TableCell>
@@ -26,7 +26,7 @@ const UserList = ({users, showModal, showFormModal,showConfirmModal, classes}) =
             </TableCell>
             <TableCell align="right">
                 <Visibility className={classes.icon} onClick={() => showModal(user)}/>
-                <Create className={classes.icon} onClick={() => showFormModal(user, 'edit')}/>
+                <Create className={classes.icon} onClick={() => handleEdit(user.id)}/>
                 <DeleteIcon className={classes.icon} onClick={() => showConfirmModal(user)}/>
             </TableCell>
         </TableRow>
@@ -36,7 +36,7 @@ const UserList = ({users, showModal, showFormModal,showConfirmModal, classes}) =
 UserList.propTypes = {
     users: PropTypes.array.isRequired,
     showModal: PropTypes.func.isRequired,
-    showFormModal: PropTypes.func.isRequired,
+    handleEdit: PropTypes.func.isRequired,
     showConfirmModal: PropTypes.func.isRequired,
     classes: PropTypes.object.isRequired
 }

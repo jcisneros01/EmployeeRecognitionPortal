@@ -1,12 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button,  Form, Message, Modal, Grid } from 'semantic-ui-react';
-import validator from 'validator';
+import { withStyles } from '@material-ui/core/styles';
+import { Button, FormControl, InputLabel, Input, Typography} from '@material-ui/core';
 import classNames from 'classnames'
 import Dropzone from 'react-dropzone'
 
+import validator from 'validator';
 import InlineError from '../../shared/InlineError';
 import { thumb, thumbInner, img, baseStyle, activeStyle, rejectStyle} from './styles'
+
+const styles = theme => ({ 
+   
+    form: {
+      width: '100%', // Fix IE 11 issue.
+      marginTop: theme.spacing.unit,
+    },
+    submit: {
+      marginTop: theme.spacing.unit * 3,
+    },
+  });
 
 class UserForm extends React.Component {
     state = {
@@ -21,23 +33,31 @@ class UserForm extends React.Component {
         errors: {}
     }
 
-    componentWillReceiveProps(newProps) {
-        
-        if(newProps.updateSuccess) {
-            this.props.hideFormModal()
-        } 
-       
+    componentWillMount() {
+        if(this.props.buttonTitle === "Update") {
+            this.props.userContainer.getUser(this.props.match.params.id)
+        }
     }
 
-    componentDidMount() {
-        this.props.initializeForm();
-        if(Object.keys(this.props.user).length > 0) {
+    componentWillUnmount() {
+        this.props.userContainer.initializeForm();
+    }
+    componentWillReceiveProps(newProps) {
+        if(!!newProps.user) {
             this.setState({
-                data: {...this.props.user, preview: this.props.user.signature, isBlob: true}
+                data: {
+                    ...this.state.data,
+                    email: newProps.user.email,
+                    password: newProps.user.password,
+                    name: newProps.user.name,
+                    signature: newProps.user.signature,
+                    preview: newProps.user.signature,
+                    isBlob: true
+
+                }
             })
         }
-           
-    }
+     }
 
     validate = (data) => {
         const errors = {};
@@ -53,19 +73,21 @@ class UserForm extends React.Component {
              data: { ...this.state.data, [e.target.name]: e.target.value }
             })
 
-    onSubmit = () => {
+    onSubmit = (e) => {
+        e.preventDefault()
+       
         const errors = this.validate(this.state.data);
         this.setState({errors});
         if (Object.keys(errors).length === 0) {
-            if(this.props.formType === "edit") {
-                this.props.updateUser(this.state.data);
+            if(this.props.buttonTitle === "Update") {
+                this.props.userContainer.updateUser(this.props.match.params.id, this.state.data);
             } else{
-                this.props.createUser(this.state.data);
+                this.props.userContainer.createUser(this.state.data);
             }
             
         }
-    }     
-
+    }  
+    
     onDrop = (acceptedFiles, rejectedFiles) => {
         let uploadedFile = acceptedFiles[0]
         const reader = new FileReader();
@@ -80,15 +102,18 @@ class UserForm extends React.Component {
                }
            })
         };
-
-       
-      }
+    }
+    
+    goBack = () => {
+        this.props.history.goBack()
+    }
    
     render() {
         
         const { data, errors } = this.state;
-    
-        const { show, hideFormModal, formType, loading, error } = this.props
+        const {buttonTitle, userContainer, classes} = this.props
+        const { error } = userContainer.state
+
         const thumbs = data.preview && 
             <div style={thumb}>
               <div style={thumbInner}>
@@ -100,117 +125,102 @@ class UserForm extends React.Component {
                 />
               </div>
             </div>
-        
 
-        return(
-            <Modal open={show}>
-                <Modal.Header>{formType === "edit" ? "Edit User" : "Create User" }</Modal.Header>
-                    <Modal.Content>
-                        <Form onSubmit={this.onSubmit} loading={loading}>
-                            { error && <Message negative> 
-                                <p>{error}</p>
-                                </Message>
-                            }
-                            <Form.Field error={!!errors.email}>
-                                <label htmlFor="email">Email</label>
-                                <input 
-                                    type="email" 
-                                    id="email" 
-                                    name="email" 
-                                    placeholder="example@example.com"
-                                    value={data.email}
-                                    onChange={this.onChange}
-                                    /> 
-                                    { errors.email && <InlineError text={errors.email}/>}
-                            </Form.Field>
-                            <Form.Field error={!!errors.name}>
-                                <label htmlFor="name">Name</label>
-                                <input 
-                                    type="text" 
-                                    id="name" 
-                                    name="name" 
-                                    placeholder="John Doe"
-                                    value={data.name}
-                                    onChange={this.onChange}
-                                    /> 
-                                    { errors.name && <InlineError text={errors.name}/>}
-                            </Form.Field>
-                            <Form.Field error={!!errors.password}>
-                                <label htmlFor="password">Password</label>
-                                <input 
-                                    type="password" 
-                                    id="password" 
-                                    name="password" 
-                                    placeholder="password"
-                                    value={data.password}
-                                    onChange={this.onChange}
-                                    /> 
-                                    { errors.password && <InlineError text={errors.password}/>}
-                            </Form.Field>
+        return(<>
+            <form onSubmit={this.onSubmit} className={classes.form} autoComplete="off">
+                { error && <Typography color="error" component="h4">
+                    {error}
+                </Typography>}
+                <FormControl margin="normal" required fullWidth error={!!errors.email}>
+                    <InputLabel htmlFor="email">Email Address</InputLabel>
+                    <Input 
+                        id="email" 
+                        name="email" 
+                        type="email"
+                        autoComplete="email" 
+                        autoFocus
+                        value={data.email} 
+                        placeholder="example@example.com"
+                        onChange={this.onChange}
+                    />
+                               
+                    { errors.email && <InlineError text={errors.email}/>}
+                </FormControl>
                             
-                            <Grid>
-                                <Grid.Column floated='left' width={5}>
-                                    <Form.Field error={!!errors.signature}>
-                                        <label htmlFor="signature">Signature</label>
-                                        <Dropzone onDrop={this.onDrop} accept="image/jpeg, image/png" multiple={false}>
+                <FormControl margin="normal" required fullWidth error={!!errors.name}>
+                    <InputLabel htmlFor="name">Name</InputLabel>
+                    <Input 
+                        id="name" 
+                        name="name" 
+                        type="name"
+                        autoComplete="name" 
+                        value={data.name} 
+                        placeholder="Name"
+                        onChange={this.onChange}
+                    />     
+                    { errors.name && <InlineError text={errors.name}/>}
+                </FormControl>
+                <FormControl margin="normal" required fullWidth error={!!errors.password}>
+                    <InputLabel htmlFor="password">Password</InputLabel>
+                    <Input 
+                        id="password" 
+                        name="password" 
+                        type="password"
+                        autoComplete="password" 
+                        value={data.password} 
+                        placeholder="password"
+                        onChange={this.onChange}
+                    />     
+                    { errors.signature && <InlineError text={errors.signature}/>}
+                </FormControl>
+                <FormControl margin="normal" required fullWidth error={!!errors.signature}>
+                    <InputLabel htmlFor="signature">Signature</InputLabel>
+                    <Dropzone onDrop={this.onDrop} accept="image/jpeg, image/png" multiple={false}>
                                         
-                                            {({getRootProps, getInputProps, isDragActive, isDragAccept, isDragReject,}) => {
-                                                let styles = {...baseStyle}
-                                                styles = isDragActive ? {...styles, ...activeStyle} : styles
-                                                styles = isDragReject ? {...styles, ...rejectStyle} : styles
-                                            return (
-                                                <div
-                                                style={styles}
-                                                {...getRootProps()}
-                                                className={classNames('dropzone', {'dropzone--isActive': isDragActive})}
-                                                >
-                                                <input {...getInputProps()} name="signature"/>
-                                                <div>
-                                            {isDragAccept ? 'Drop' : 'Drag'} file here...
-                                            </div>
-                                            {isDragReject && <div>Unsupported file type...</div>}
-                                                </div>
-                                            )
-                                            }}
-                                        </Dropzone>
-                                    </Form.Field>
-                                </Grid.Column>
-                                { thumbs && 
-                                    <Grid.Column floated='right' width={5}>
-                                        <p style={{marginBottom: 0}}>Preview</p>
-                                        {thumbs}
-                                    </Grid.Column>
-                                }
-                                
-                            </Grid>
-                          
-                            <Button primary style={{marginTop: 5}}>
-                                {formType === "edit" ? "Update" : "Create User"}
-                            </Button>               
-                        </Form>
-                    </Modal.Content>
-                <Modal.Actions>
-                    <Button color='green' onClick={() => hideFormModal()}>
-                        Close
-                    </Button>
-                </Modal.Actions>
-            </Modal>
-        );
+                        {({getRootProps, getInputProps, isDragActive, isDragAccept, isDragReject,}) => {
+                            let styles = {...baseStyle}
+                            styles = isDragActive ? {...styles, ...activeStyle} : styles
+                            styles = isDragReject ? {...styles, ...rejectStyle} : styles
+                        return (
+                            <div
+                            style={styles}
+                            {...getRootProps()}
+                            className={classNames('dropzone', {'dropzone--isActive': isDragActive})}
+                            >
+                            <input {...getInputProps()} name="signature"/>
+                            <div>
+                        {isDragAccept ? 'Drop' : 'Drag'} file here...
+                        </div>
+                        {isDragReject && <div>Unsupported file type...</div>}
+                            </div>
+                        )
+                        }}
+                    </Dropzone>
+                    {thumbs}
+                </FormControl>
+                <Button type="submit"
+                    width="50%"
+                    variant="contained"
+                    color="primary"
+                    className={classes.submit}
+                >{buttonTitle}</Button>    
+                <Button
+                    width="50%"
+                    variant="contained"
+                    color="secondary"
+                    className={classes.submit}
+                    onClick={this.goBack}
+                >Go Back</Button>  
+            </form>
+           
+                
+        </>);
     }
 }
 
 
 UserForm.propTypes = {
-  hideFormModal: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired,
-  formType: PropTypes.string.isRequired,
-  initializeForm: PropTypes.func.isRequired,
-  updateUser: PropTypes.func
+  userContainer: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 }
-
-
-
-
-
-
-export default UserForm;
+export default withStyles(styles)(UserForm);

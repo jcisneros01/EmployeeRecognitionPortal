@@ -18,15 +18,21 @@ const styles = theme => ({
     }
   }); 
 
- function DashboardUsersPage({location, classes}) { 
+ class DashboardUsersPage extends React.Component { 
 
-        return (
+    handleClick = () => {
+        this.props.history.push('/dashboard/users/new')
+    }
+
+     render(){
+         const {classes,  history} = this.props
+         return (
             <Subscribe to={[UserContainer]}>
                 {users => {
-                    return <Layout path={location.pathname}>
+                    return <Layout path="Users">
                      <Paper className={classes.root}>
                         <Typography component="h2" variant="h4">
-                                User List
+                            User List
                         </Typography>
                         <Fab
                             variant="extended"
@@ -34,6 +40,7 @@ const styles = theme => ({
                             color="primary"
                             aria-label="Add"
                             className={classes.margin}
+                            onClick={this.handleClick}
                         >
                             <AddIcon  />
                             Add User
@@ -42,7 +49,7 @@ const styles = theme => ({
                             <Typography color="error" component="h4">
                                 {users.state.error}
                             </Typography>) : 
-                            <Users users={users}/>
+                            <Users users={users} history={history}/>
                         }
                     </Paper>
                     </Layout>
@@ -50,6 +57,9 @@ const styles = theme => ({
                 
             </Subscribe>
         );
+     }
+
+       
     
 }
 

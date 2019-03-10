@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { Button, FormControl, InputLabel, Input} from '@material-ui/core';
+import { Button, FormControl, InputLabel, Input, Typography} from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import validator from 'validator';
 import InlineError from '../shared/InlineError';
@@ -60,10 +60,10 @@ class LoginForm extends React.Component {
         return(
         
                     <form onSubmit={this.onSubmit} className={classes.form} autoComplete="off">
-                        { this.props.apiError && <div > 
-                            <p>{this.props.apiError}</p>
-                            </div>
-                        }
+                        { this.props.apiError && <Typography color="error" component="h4">
+                            {this.props.apiError}
+                        </Typography>}
+                        
                         <FormControl margin="normal" required fullWidth>
                             <InputLabel htmlFor="email">Email Address</InputLabel>
                             <Input 

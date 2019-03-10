@@ -8,17 +8,18 @@ class AdminContainer extends Container {
         error: null,
         success: false,
         updateSuccess: false,
-        admins: []
+        admins: [],
+        admin: ""
     };
 
     initializeForm = () => {
       this.setState({
-        updateSuccess: false
+        updateSuccess: false,
+        admin: ""
       })
     }
 
     getAdmins = () => {
-     // this.setState({admins: [{id: 1, email: 'abc'}], success: true})
       Api.get(`/admins`, true).then(resp => {
         let json = resp.json();
         if(resp.ok) {
@@ -30,6 +31,20 @@ class AdminContainer extends Container {
       }).catch(err => {
         this.setState({success: false, error: err.Message})
       });        
+    }
+
+    getAdmin = (id) => {
+      Api.get(`/admins/${id}`, true).then(resp => {
+        let json = resp.json()
+        if(resp.ok) {
+          return json;
+        }
+        return json.then(err => {throw(err)});
+      }).then(admin => {
+        this.createAdmin.setState({admin})
+      }).catch(err => {
+        this.setState({admin: "", error: err.Message})
+      })
     }
 
     createAdmin = (admin) => {

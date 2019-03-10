@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Subscribe } from 'unstated';
 import { withStyles, Paper, Typography } from '@material-ui/core';
 import Layout from '../../../routes/layout';
-import AdminForm from './adminForm'
-import AdminContainer from '../../../containers/AdminContainer';
+import UserForm from './userForm'
+import UserContainer from '../../../containers/UserContainer';
 
 const styles = theme => ({
     root: {
@@ -14,29 +14,29 @@ const styles = theme => ({
     }
   }); 
 
-class EditAdmin extends React.Component {  
+class EditUser extends React.Component {  
    
     render() {    
         const {classes, history, match } = this.props
        
         return (
-            <Subscribe to={[AdminContainer]}>
-                {adminContainer => {
-                    if (adminContainer.state.updateSuccess) {
-                        this.props.history.push('/dashboard/admins')
+            <Subscribe to={[UserContainer]}>
+                {userContainer => {
+                    if (userContainer.state.updateSuccess) {
+                        this.props.history.push('/dashboard/users')
                     }
                     
-                    return (<Layout path="Admins">
+                    return (<Layout path="Users">
                         <Paper className={classes.root}>
                             <Typography component="h2" variant="h4">
-                                Edit Admin 
+                                Edit User 
                             </Typography>
                             
-                                <AdminForm 
-                                    adminContainer={adminContainer}
+                                <UserForm 
+                                    userContainer={userContainer}
                                     buttonTitle="Update"
                                     history={history}
-                                    admin={adminContainer.state.admin}
+                                    user={userContainer.state.user}
                                     match={match}
                                 />
                             
@@ -49,7 +49,7 @@ class EditAdmin extends React.Component {
 }
 
 
-EditAdmin.propTypes = {
+EditUser.propTypes = {
     classes: PropTypes.object.isRequired
 }
-export default withStyles(styles)(EditAdmin);
+export default withStyles(styles)(EditUser);

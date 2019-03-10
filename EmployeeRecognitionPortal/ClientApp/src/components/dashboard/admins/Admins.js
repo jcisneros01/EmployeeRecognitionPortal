@@ -4,7 +4,6 @@ import { withStyles, Table, TableBody, TableCell, TableHead, TableRow } from '@m
 
 import  AdminList from './adminList';
 import AdminModal from './adminModal';
-import AdminForm from './adminForm';
 import ConfirmModal from '../common/confirmModal';
 
 const styles = {
@@ -18,7 +17,6 @@ class Admins extends React.Component {
         showAdminModal: false,
         formModalShow: false,
         confirmModal: false,
-        formType: '',
         admin: {}
     }
 
@@ -41,10 +39,6 @@ class Admins extends React.Component {
 
     hideConfirmFormModal = () => {
         this.setState({ confirmModal: false, admin: {}})
-    }
-
-    deleteAdmin = (id) => {
-        this.props.deleteAdmin(id)
     }
 
     handleEdit = (id) => {

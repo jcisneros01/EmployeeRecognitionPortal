@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 import { Button, FormControl, InputLabel, Input, Typography} from '@material-ui/core';
 
 import validator from 'validator';
-
 import InlineError from '../../shared/InlineError';
 
 const styles = theme => ({
@@ -28,13 +27,24 @@ class AdminForm extends React.Component {
     }
 
     componentWillMount() {
-        this.props.adminContainer.initializeForm();
-        // if(Object.keys(this.props.adminContainer.admin).length > 0) {
-        //     this.setState({
-        //         data: {...this.props.admin}
-        //     })
-        // } 
+        if(this.props.buttonTitle === "Update") {
+            this.props.adminContainer.getAdmin(this.props.match.params.id)
+        }
     }
+
+    componentWillUnmount() {
+        this.props.adminContainer.initializeForm();
+    }
+     componentWillReceiveProps(newProps) {
+        if(!!newProps.admin) {
+            this.setState({
+                data: {
+                    ...this.state.data,
+                    email: newProps.admin.email
+                }
+            })
+        }
+     }
 
     validate = (data) => {
         const errors = {};
@@ -71,7 +81,7 @@ class AdminForm extends React.Component {
         
         const { data, errors } = this.state;
         const {buttonTitle, adminContainer, classes} = this.props
-        const { error } = adminContainer.state
+        const { error, admin } = adminContainer.state
 
         return(<>
             <form onSubmit={this.onSubmit} className={classes.form} autoComplete="off">

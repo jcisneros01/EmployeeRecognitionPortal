@@ -121,7 +121,7 @@ class Layout extends React.Component {
     render() {
 
         const { classes, location, isAuthenticated, path } = this.props;
-        console.log("demo", localStorage.isAdmin);
+       
         const { title } = this.state
         return (<Subscribe to={[LoginContainer]}>
             {login => {
