@@ -35,7 +35,8 @@ class AdminForm extends React.Component {
     componentWillUnmount() {
         this.props.adminContainer.initializeForm();
     }
-     componentWillReceiveProps(newProps) {
+    componentWillReceiveProps(newProps) {
+         console.log(newProps)
         if(!!newProps.admin) {
             this.setState({
                 data: {
@@ -82,6 +83,7 @@ class AdminForm extends React.Component {
         const { data, errors } = this.state;
         const {buttonTitle, adminContainer, classes} = this.props
         const { error, admin } = adminContainer.state
+        console.log(admin)
 
         return(<>
             <form onSubmit={this.onSubmit} className={classes.form} autoComplete="off">

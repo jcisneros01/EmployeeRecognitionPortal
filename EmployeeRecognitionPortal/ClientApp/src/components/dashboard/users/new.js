@@ -23,7 +23,7 @@ class NewUser extends React.Component {
             <Subscribe to={[UserContainer]}>
                 {userContainer => {
                     if (userContainer.state.updateSuccess) {
-                        this.props.history.push('/dashboard/admins')
+                        this.props.history.push('/dashboard/users')
                     }
                     return (<Layout path="Admins">
                         <Paper className={classes.root}>

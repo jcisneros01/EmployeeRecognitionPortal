@@ -41,7 +41,8 @@ class AdminContainer extends Container {
         }
         return json.then(err => {throw(err)});
       }).then(admin => {
-        this.createAdmin.setState({admin})
+        
+        this.setState({admin})
       }).catch(err => {
         this.setState({admin: "", error: err.Message})
       })
