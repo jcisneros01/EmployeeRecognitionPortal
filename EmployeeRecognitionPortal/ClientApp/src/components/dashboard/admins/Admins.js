@@ -34,13 +34,6 @@ class Admins extends React.Component {
         this.setState({ showAdminModal: false, admin: {}})
     }
 
-    showFormModal = (admin = {}, formType = "new") => {
-        this.setState({ formModalShow: true, formType, admin})
-    }
-
-    hideFormModal = () => {
-        this.setState({ formModalShow: false, admin: {}, title: ''})
-    }
 
     showConfirmModal = (admin) => {
         this.setState({ confirmModal: true, admin})
@@ -54,30 +47,20 @@ class Admins extends React.Component {
         this.props.deleteAdmin(id)
     }
 
+    handleEdit = (id) => {
+        this.props.history.push(`/dashboard/admins/${id}/edit`)
+    }
+
    
 
     render() {
-        const { admins, loading, error, updateSuccess } = this.props.admins.state;
-        const { admin, showAdminModal,formModalShow, formType, confirmModal } = this.state;
+        const { admins, updateSuccess } = this.props.admins.state;
+        const { admin, showAdminModal, confirmModal } = this.state;
         const {classes} = this.props
        
         return (
             <>
                 <AdminModal show={showAdminModal} hideModal={this.hideModal} admin={admin}/>
-                {formModalShow && 
-                    <AdminForm 
-                        show={formModalShow} 
-                        hideFormModal={this.hideFormModal} 
-                        admin={admin} 
-                        formType={formType} 
-                        initializeForm={this.props.admins.initializeForm}
-                        updateAdmin={this.props.admins.updateAdmin}
-                        loading={loading}
-                        error={error}
-                        updateSuccess={updateSuccess}
-                        createAdmin={this.props.admins.createAdmin}
-                    /> 
-                }
                 {confirmModal && 
                     <ConfirmModal 
                         hideConfirmFormModal={this.hideConfirmFormModal} 
@@ -89,9 +72,6 @@ class Admins extends React.Component {
                 }
                 <Table className={classes.table}>
                     <TableHead>
-                        {/* <Button icon labelPosition='left' primary size='small' onClick={() => this.showFormModal()}>
-                            <Icon name='user' /> Add Admin
-                        </Button> */}
                         <TableRow>
                             <TableCell>ID</TableCell>
                             <TableCell align="right">Email</TableCell>
@@ -103,7 +83,7 @@ class Admins extends React.Component {
                             <AdminList 
                                 admins={admins} 
                                 showModal={this.showModal} 
-                                showFormModal={this.showFormModal}
+                                handleEdit={this.handleEdit}
                                 showConfirmModal={this.showConfirmModal}
                             /> :
                             <TableRow>
@@ -121,6 +101,7 @@ class Admins extends React.Component {
 
 Admins.propTypes = {
     classes: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
   };
   
   export default withStyles(styles)(Admins);

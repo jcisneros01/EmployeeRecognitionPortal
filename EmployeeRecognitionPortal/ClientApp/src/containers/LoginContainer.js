@@ -15,7 +15,7 @@ class LoginContainer extends Container {
         if (localStorage.isAdmin) {
             this.setState({ isAdmin: localStorage.isAdmin })
         }
-        this.setState({ token, success: true });
+        this.setState({ token, success: true, id: localStorage.id });
     }
     requestLogin = (data) => {
         this.setState({ loading: true });
@@ -26,11 +26,24 @@ class LoginContainer extends Container {
                 password: data.password
             }
         ).then(resp => {
-            localStorage.userJWT = resp.jwt;
-            localStorage.isAdmin = resp.isAdmin
-            localStorage.id = resp.id
-            this.setState({ loading: false, success: true, token: resp.token, id: resp.id, isAdmin: resp.isAdmin })
-        }).catch(err => {
+            let json = resp.json();
+            if(resp.ok) {
+                return json();
+            }
+            return json.then(err => {throw err})
+        }).then(user => {
+            localStorage.userJWT = user.jwt;
+            localStorage.isAdmin = user.isAdmin
+            localStorage.id = user.id
+            this.setState({ 
+                loading: false, 
+                success: true, 
+                token: user.token, 
+                id: user.id, 
+                isAdmin: user.isAdmin 
+            })
+        })
+        .catch(err => {
             this.setState({ loading: false, success: false, error: err.Message })
         });
     }

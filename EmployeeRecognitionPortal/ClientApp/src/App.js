@@ -15,7 +15,8 @@ import DashboardAdminsPage from './components/dashboard/admins';
 import AwardsEOYPage from './components/dashboard/awards/eoy';
 import AwardsEOMPage from './components/dashboard/awards/eom';
 import LoginContainer from './containers/LoginContainer';
-import Layout from './routes/layout'
+import NewAdmin from './components/dashboard/admins/new'
+import EditAdmin from './components/dashboard/admins/edit';
 const styles = () => ({
   root: {
     flexGrow: 1,
@@ -83,6 +84,18 @@ const App = ({ location, classes}) => (
             location={location}
             exact path={`${routes.DASHBOARD}/${routes.AWARDSEOY}`}
             component={AwardsEOYPage}
+          />
+          <AdminRoute
+            isAuthenticated={login.state.success}
+            location={location}
+            exact path={`${routes.DASHBOARD}/${routes.ADMINS}/new`}
+            component={NewAdmin}
+          />
+          <AdminRoute
+            isAuthenticated={login.state.success}
+            location={location}
+            exact path={`${routes.DASHBOARD}/${routes.ADMINS}/:id/edit`}
+            component={EditAdmin}
           />
         {/*</Layout>*/}
        

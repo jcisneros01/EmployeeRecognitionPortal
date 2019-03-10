@@ -21,14 +21,19 @@ const styles = theme => ({
     }
   }); 
 
-function DashboardAdminsPage({classes}) { 
-   
+
+class DashboardAdminsPage extends React.Component { 
+    handleClick = () => {
+        this.props.history.push('/dashboard/admins/new')
+    }
+
+    render() {   
+        const {classes, history} = this.props
         return (
             <Subscribe to={[AdminContainer]}>
                 {admins => {
                     return <Layout path="Admins">
                         <Paper className={classes.root}>
-                    
                             <Typography component="h2" variant="h4">
                                 Admin List
                             </Typography>
@@ -38,6 +43,7 @@ function DashboardAdminsPage({classes}) {
                             color="primary"
                             aria-label="Add"
                             className={classes.margin}
+                            onClick={this.handleClick}
                         >
                             <AddIcon  />
                             Add Admin
@@ -46,7 +52,7 @@ function DashboardAdminsPage({classes}) {
                             <Typography color="error" component="h4">
                                 {admins.state.error}
                             </Typography>) : 
-                            <Admins admins={admins}/>
+                            <Admins admins={admins} history={history}/>
                         }
                         
                         </Paper>
@@ -55,6 +61,7 @@ function DashboardAdminsPage({classes}) {
                 
             </Subscribe>
         );
+    }
     
 }
 export default withStyles(styles)(DashboardAdminsPage);

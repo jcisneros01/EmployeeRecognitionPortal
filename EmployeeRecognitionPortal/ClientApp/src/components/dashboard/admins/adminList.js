@@ -14,7 +14,7 @@ const styles = theme => ({
   });
 
  
-const AdminList = ({admins, showModal, showFormModal,showConfirmModal, classes}) => (
+const AdminList = ({admins, showModal, handleEdit,showConfirmModal, classes}) => (
     admins.map((admin) => {
         return <TableRow key={admin.id}>
             <TableCell component="th" scope="row">
@@ -23,7 +23,7 @@ const AdminList = ({admins, showModal, showFormModal,showConfirmModal, classes})
             <TableCell align="right">{admin.email}</TableCell>
             <TableCell align="right">
                 <Visibility className={classes.icon} onClick={() => showModal(admin)}/>
-                <Create className={classes.icon} onClick={() => showFormModal(admin, 'edit')}/>
+                <Create className={classes.icon} onClick={() => handleEdit(admin.id)}/>
                 <DeleteIcon className={classes.icon} onClick={() => showConfirmModal(admin)}/>
             </TableCell>
         </TableRow>
@@ -33,7 +33,6 @@ const AdminList = ({admins, showModal, showFormModal,showConfirmModal, classes})
 AdminList.propTypes = {
     admins: PropTypes.array.isRequired,
     showModal: PropTypes.func.isRequired,
-    showFormModal: PropTypes.func.isRequired,
     showConfirmModal: PropTypes.func.isRequired,
     classes: PropTypes.object.isRequired
 }

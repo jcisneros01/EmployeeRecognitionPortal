@@ -2,9 +2,9 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const GuestRoute = ({ isAuthenticated, component: Component, ...rest }) => (
+const GuestRoute = ({ isAuthenticated, location, component: Component, ...rest }) => (
     <Route {...rest} render={props => 
-        !isAuthenticated ? <Component {...props}/> : <Redirect to="/dashboard" /> }/>
+        !isAuthenticated ? <Component {...props}/> : <Redirect to={location.state.from} /> }/>
 );
 
 GuestRoute.propTypes = {

@@ -8,20 +8,56 @@ class AdminContainer extends Container {
         error: null,
         success: false,
         updateSuccess: false,
-        admins: []
+        admins: [{
+          id: 1,
+          email: "a@a.com"
+        }]
     };
-
-    getAdmins = () => {
-     // this.setState({admins: [{id: 1, email: 'abc'}], success: true})
-      Api.get(`/admins`, true).then(admins => {
-        this.setState({admins: admins, success: true})
-      });        
-    }
 
     initializeForm = () => {
       this.setState({
         updateSuccess: false
       })
+    }
+
+    getAdmins = () => {
+     // this.setState({admins: [{id: 1, email: 'abc'}], success: true})
+      Api.get(`/admins`, true).then(resp => {
+        let json = resp.json();
+        if(resp.ok) {
+          return json;
+        }
+        return json.then(err => {throw(err)})
+      }).then(admins => {
+        this.setState({admins: admins, success: true})
+      }).catch(err => {
+        this.setState({success: false, error: err.Message})
+      });        
+    }
+
+    createAdmin = (admin) => {
+      const { email, password } = admin;
+      this.setState({
+        loading: true
+      });
+      Api.post(`/admins`, {
+        email,
+        password,
+      }, true).then(resp => {
+        let json = resp.json();
+        if(resp.ok) {
+          return json;
+        }
+        return json.then(err => {throw(err)})
+      }).then(admin => {
+        this.state.admins.push(admin)
+        this.setState({
+          loading: false,
+          updateSuccess: true
+        });
+      }).catch(err => {
+        this.setState({ loading: false, updateSuccess: false, error: err.Message })
+      });
     }
 
     updateAdmin = (admin) => {
@@ -32,6 +68,12 @@ class AdminContainer extends Container {
         email: admin.email,
         password: admin.password
       }, true).then(resp => {
+        let json = resp.json();
+        if(resp.ok) {
+          return json;
+        }
+        return json.then(err => {throw(err)});      
+      }).then(resp => {
         let admins = this.state.admins.map(admin => {  
           if(admin.id === resp.id) { 
               admin = resp;
@@ -43,36 +85,28 @@ class AdminContainer extends Container {
           updateSuccess: true,
           admins
         });
-        
-      });
-    }
-
-    createAdmin = (admin) => {
-      const { email, password } = admin;
-      this.setState({
-        loading: true
-      });
-      Api.post(`/admins`, {
-        email,
-        password,
-      }, true).then(admin => {
-        this.state.admins.push(admin)
+      }).catch(err => {
         this.setState({
           loading: false,
-          updateSuccess: true
+          updateSuccess: false,
+          error: err.Message
         });
       });
     }
 
     deleteAdmin = (id) => {
-     Api.delete(`/admins/${id}`, true);
-     let admins = this.state.admins.filter(admin => {
-      return admin.id !== id
-    })
-     this.setState({
-       updateSuccess: true,
-       admins
-     })
+     Api.delete(`/admins/${id}`, true).then(resp => {
+       if(resp.ok) {
+        let admins = this.state.admins.filter(admin => {
+          return admin.id !== id
+        })
+         this.setState({
+           updateSuccess: true,
+           admins
+         })
+       }
+     });
+     
     }
 
   }
