@@ -1,7 +1,10 @@
 import React from 'react';
-import {Pie} from 'react-chartjs-2';
+    
+import { Pie} from 'react-chartjs-2';
 
-
+import {
+    ResponsiveContainer, Legend
+} from 'recharts';
 
 class PieChart extends React.Component {
 	componentDidMount(){
@@ -29,11 +32,11 @@ class PieChart extends React.Component {
 				position: 'bottom'
 			}
 		}
-		return (
+        return (
 			<div>
-				<h2>Emplyee Awards</h2>
-				<Pie data={data} options={optionsPie}/>
-			</div>
+				<h2>Employee Awards</h2>
+                    <Pie data={data} options={optionsPie}/>
+                </div>
 		)
 	}
 }

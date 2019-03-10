@@ -15,22 +15,29 @@ class ReportContainer extends Container {
 
     getAwardReports = (type) => {
         Api.get(`/awards/reports?type=${type}`, true).then(resp => {
-            
-          if(type === 'countbytype') {
-              const labels = resp.awards && resp.awards.map(award => {
-                  
+            const json = resp.json()
+            if (resp.ok) {
+                return json
+            }
+            return json.then(err => { throw err });
+          
+        
+        }).then(json => {
+           
+           if(type === 'countbytype') {
+               const labels = json.awards && json.awards.map(award => {
+                
                   return award.awardName
               })
-              const counts = resp.awards && resp.awards.map(award => {
+              const counts = json.awards && json.awards.map(award => {
                 return award.awardCount
             })
             this.setState({awards: {
                 labels,
-                counts
+               counts
             }, success: true})
           }
-        
-      });        
+        });        
     }
 
   }

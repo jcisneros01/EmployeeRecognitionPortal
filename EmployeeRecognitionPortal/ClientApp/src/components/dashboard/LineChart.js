@@ -22,14 +22,13 @@ const data = [
 
 function SimpleLineChart() {
   return (
-    // 99% per https://github.com/recharts/recharts/issues/172
     <ResponsiveContainer width="99%" height={320}>
       <LineChart data={data}>
         <XAxis dataKey="name" />
         <YAxis />
         <CartesianGrid vertical={false} strokeDasharray="3 3" />
         <Tooltip />
-        <Legend />
+        <Legend  />
         <Line type="monotone" dataKey="Users" stroke="#82ca9d" />
         <Line type="monotone" dataKey="Awards" stroke="#8884d8" activeDot={{ r: 8 }} />
       </LineChart>

@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
  namespace EmployeeRecognitionPortal.Controllers
- {    
-     //[Authorize(Policy = "Admin")]
-     [Route("[controller]")]
+ {
+    [Authorize(Policy = "Admin")]
+    [Route("[controller]")]
      public class AwardsController : Controller
      {
          private readonly IAwardsService _awardsService;

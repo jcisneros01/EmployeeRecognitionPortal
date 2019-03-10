@@ -17,6 +17,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import MenuIcon from '@material-ui/icons/Menu';
 import MainListItems from './listItems';
 import LoginContainer from '../containers/LoginContainer';
+import { thumbInner } from '../components/dashboard/admins/styles';
 
 
 const drawerWidth = 240;
@@ -120,6 +121,7 @@ class Layout extends React.Component {
     render() {
 
         const { classes, location, isAuthenticated, path } = this.props;
+        console.log("demo", localStorage.isAdmin);
         const { title } = this.state
         return (<Subscribe to={[LoginContainer]}>
             {login => {
@@ -176,8 +178,8 @@ class Layout extends React.Component {
                             </div>
                             <Divider />
                             <List>
-                                <MainListItems
-                                    isAdmin={true}
+                            <MainListItems
+                                isAdmin={localStorage.isAdmin}
                                     logout={login.logout}
                                     location={location}
                                     path={path}

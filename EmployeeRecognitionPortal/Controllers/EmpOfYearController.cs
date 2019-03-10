@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 
  namespace EmployeeRecognitionPortal.Controllers
 {
-   //[Authorize(Policy = "User")]
-   [Route("[controller]")]
+    [Authorize(Policy = "User")]
+    [Route("[controller]")]
    public class EmpOfYearController : Controller
    {
        private readonly IEmpOfYearService _eoyService;

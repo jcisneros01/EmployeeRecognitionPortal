@@ -13,9 +13,16 @@ class UserContainer extends Container {
 
     getUsers = () => {
      // this.setState({users: [{id: 1, name: 'abc'}], success: true})
-      Api.get(`/users`, true).then(users => {
-        this.setState({users: users, success: true})
-      });        
+        Api.get(`/users`, true).then(resp => {
+            let json = resp.json();
+            if(resp.ok) {
+                return json;
+            }
+            return json.then(err => { throw err });
+        
+        }).then(users => {
+            this.setState({ users: users, success: true })
+        });        
     }
 
     initializeForm = () => {
@@ -34,19 +41,26 @@ class UserContainer extends Container {
         name: user.name,
         signature: user.signature
       }, true).then(resp => {
-        let users = this.state.users.map(user => {  
-          if(user.id === resp.id) { 
-              user = resp;
+          let json = resp.json();
+          if (resp.ok) {
+              return json;
           }
-          return user;
-        })
-        this.setState({
-          loading: false,
-          updateSuccess: true,
-          users
-        });
+       
         
-          }).catch(err => {
+          }).then(resp => {
+              let users = this.state.users.map(user => {
+                  if (user.id === resp.id) {
+                      user = resp;
+                  }
+                  return user;
+              })
+              this.setState({
+                  loading: false,
+                  updateSuccess: true,
+                  users
+              });
+          })
+          .catch(err => {
               this.setState({ loading: false, updateSuccess: false, error: err.Message })
           });
     }
@@ -73,14 +87,19 @@ class UserContainer extends Container {
     }
 
     deleteUser = (id) => {
-     Api.delete(`/users/${id}`, true);
-     let users = this.state.users.filter(user => {
-      return user.id !== id
-    })
-     this.setState({
-       updateSuccess: true,
-       users
-     })
+        Api.delete(`/users/${id}`, true).then(resp => {
+            if (resp.ok) {
+                let users = this.state.users.filter(user => {
+                    return user.id !== id
+                })
+                this.setState({
+                    updateSuccess: true,
+                    users
+                })
+            } 
+        });
+        
+     
     }
 
   }

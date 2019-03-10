@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 
  namespace EmployeeRecognitionPortal.Controllers
  {
-     //[Authorize(Policy = "Admin")]
-     [Route("[controller]")]
+    [Authorize(Policy = "Admin")]
+    [Route("[controller]")]
      public class AdminsController : Controller
      {
          private readonly IUserService _userService;
