@@ -11,14 +11,14 @@ class RecoverPasswordContainer extends Container {
 
     doRecoverPassword = (email) => {
       this.setState({loading: true});
-      Api.post('/users/recover-password', {
+        Api.post('/auth/recoverpassword', {
         email
       }).then(resp => {
-        let json = resp.json();
+        //let json = resp.json();
         if(resp.ok) {
-          return json;
+         // return json;
         }
-        return json.then(err => {throw(err)});
+       // return json.then(err => {throw(err)});
       }).then(resp => {
         if(resp.status === 'success') {
           this.setState({loading: false, success: true, error: null});

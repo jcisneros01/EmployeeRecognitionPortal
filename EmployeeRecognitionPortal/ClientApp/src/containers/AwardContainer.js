@@ -53,7 +53,7 @@ class AwardContainer extends Container {
       }).then(award => {
         this.state.awardsEOY.push(award)
           this.setState({
-              loading: true,
+              loading: false,
           updateSuccess: true
         });
       }).catch(err => {
