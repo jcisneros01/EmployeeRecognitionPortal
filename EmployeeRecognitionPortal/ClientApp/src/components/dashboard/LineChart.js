@@ -17,7 +17,12 @@ const data = [
   { name: 'Thu', Users: 4780, Awards: 2908 },
   { name: 'Fri', Users: 5890, Awards: 4800 },
   { name: 'Sat', Users: 4390, Awards: 3800 },
-  { name: 'Sun', Users: 4490, Awards: 4300 },
+    { name: 'Sun', Users: 4490, Awards: 4300 },
+    { name: 'Wed', Users: 5000, Awards: 4300 },
+    { name: 'Thu', Users: 4780, Awards: 2908 },
+    { name: 'Fri', Users: 5890, Awards: 4800 },
+    { name: 'Sat', Users: 4390, Awards: 3800 },
+    { name: 'Sun', Users: 4490, Awards: 4300 },
 ];
 
 
