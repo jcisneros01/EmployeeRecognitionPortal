@@ -104,6 +104,12 @@ namespace EmployeeRecognitionPortal.Services
 
         public AdminResponse CreateAdmin(AdminRequest user)
         {
+            var existingUser = _context.Users.FirstOrDefault(x => x.Email == user.Email);
+            if (existingUser != null)
+            {
+                throw new EmailAlreadyExistsException($"User with username {user.Email} already exists");
+            }
+            
             var newUser = _mapper.Map<AdminRequest, User>(user);
             
             _context.Users.Add(newUser);
