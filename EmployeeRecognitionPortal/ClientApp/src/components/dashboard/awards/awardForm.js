@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, FormControl, InputLabel, Input, Typography, withStyles} from '@material-ui/core';
+import { Button, FormControl, InputLabel, Input, Typography, withStyles, CircularProgress } from '@material-ui/core';
 import validator from 'validator';
 import InlineError from '../../shared/InlineError';
 
@@ -68,7 +68,7 @@ class AwardForm extends React.Component {
         
         const { data, errors } = this.state;
         const { awardContainer, classes } = this.props
-        const { error } = awardContainer.state
+        const { error, loading } = awardContainer.state
 
         return (
             <form onSubmit={this.onSubmit}  className={classes.form} autoComplete="off">
@@ -125,7 +125,7 @@ class AwardForm extends React.Component {
                     variant="contained"
                     color="primary"
                     className={classes.submit}
-                >Create</Button>   
+                >{loading ? "Processing..." : "Create"}</Button>   
                 <Button
                     width="50%"
                     variant="contained"

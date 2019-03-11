@@ -10,7 +10,8 @@ class ReportContainer extends Container {
         awards: {
             labels: ['Employee of the Month', 'Employee of the Year'],
             counts: [10,10]
-        }
+        },
+        lineData: []
     };
 
     getAwardReports = (type) => {
@@ -23,20 +24,26 @@ class ReportContainer extends Container {
           
         
         }).then(json => {
-           
-           if(type === 'countbytype') {
-               const labels = json.awards && json.awards.map(award => {
-                
-                  return award.awardName
-              })
-              const counts = json.awards && json.awards.map(award => {
-                return award.awardCount
-            })
-            this.setState({awards: {
-                labels,
-               counts
-            }, success: true})
-          }
+           console.log(json)
+            if (type === 'countbytype') {
+                const labels = json.awards && json.awards.map(award => {
+
+                    return award.awardName
+                })
+                const counts = json.awards && json.awards.map(award => {
+                    return award.awardCount
+                })
+                this.setState({
+                    awards: {
+                        labels,
+                        counts
+                    }, success: true
+                })
+            } else if (type === 'awarddatabymonth') {
+                this.setState({
+                    lineData: json.awardDataByMonth, success: true
+                })
+            }
         }).catch(err => {
             this.setState({success: false, error: err.Message})
             });   

@@ -66,7 +66,7 @@ class AwardContainer extends Container {
     }
 
     deleteEOY = (id) => {
-     Api.delete(`/EmpOfYear/${id}`, true).then(resp => {
+        Api.delete(`/EmpOfYear/${id}`, {}, true).then(resp => {
        if(resp.ok) {
         let awardsEOY = this.state.awardsEOY.filter(award => {
           return award.id !== id
@@ -129,7 +129,7 @@ class AwardContainer extends Container {
     }
 
     deleteEOM = (id) => {
-     Api.delete(`/EmpOfMonth/${id}`, true).then(resp => {
+        Api.delete(`/EmpOfMonth/${id}`, {}, true).then(resp => {
        if(resp.ok) {
         let awardsEOM = this.state.awardsEOM.filter(award => {
           return award.id !== id

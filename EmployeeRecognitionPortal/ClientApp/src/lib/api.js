@@ -27,7 +27,7 @@ class Api {
     static xhr(route, params, verb, authorize) {
         var host = 'https://awardapp.azurewebsites.net';
         if (process.env.NODE_ENV !== 'production') {
-            host = 'http://localhost:5000';
+            host = 'https://localhost:44359';
         }
       
         const url = `${host}${route}`;

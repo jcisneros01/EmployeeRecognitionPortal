@@ -23,7 +23,7 @@ class NewAward extends React.Component {
             <Subscribe to={[AwardContainer]}>
                 {awardContainer => {
                     if (awardContainer.state.updateSuccess) {
-                        this.props.history.push(`/dashboard/awards/${match.params.name}`)
+                        this.props.history.push(`/dashboard/awards${match.params.name}`)
                     }
                     return (<Layout path="Awards">
                         <Paper className={classes.root} >

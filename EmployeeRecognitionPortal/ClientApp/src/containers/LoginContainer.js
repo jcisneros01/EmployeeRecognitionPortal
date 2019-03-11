@@ -18,6 +18,7 @@ class LoginContainer extends Container {
         this.setState({ token, success: true, id: localStorage.id });
     }
     requestLogin = (data) => {
+        console.log(data);
         this.setState({ loading: true });
         Api.post(
             `/auth/token`,

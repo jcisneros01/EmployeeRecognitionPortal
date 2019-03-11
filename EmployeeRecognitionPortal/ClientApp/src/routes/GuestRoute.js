@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const GuestRoute = ({ isAuthenticated, isAdmin, location, component: Component, ...rest }) => (
     <Route {...rest} render={props => 
-        !isAuthenticated ? <Component {...props} /> : <Redirect to={location.state ? location.state.from : isAdmin ? '/dashboard' : '/dashboard/awardseom' } /> }/>
+        !isAuthenticated ? <Component {...props} /> : <Redirect to={ isAdmin ? '/dashboard' : '/dashboard/awardseom' } /> }/>
 );
 
 GuestRoute.propTypes = {
