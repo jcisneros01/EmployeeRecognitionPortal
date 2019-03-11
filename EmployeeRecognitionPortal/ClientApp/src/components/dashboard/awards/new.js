@@ -8,7 +8,7 @@ import AwardContainer from '../../../containers/AwardContainer';
 
 const styles = theme => ({
     root: {
-      width: '100%',
+      width: '60%',
       overflowX: 'auto',
       padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
     }
@@ -17,8 +17,8 @@ const styles = theme => ({
 class NewAward extends React.Component {  
    
     render() {    
-        const {classes, history, match } = this.props
-       
+        const { classes, history, match } = this.props
+        console.log("css", classes);
         return (
             <Subscribe to={[AwardContainer]}>
                 {awardContainer => {
@@ -26,9 +26,9 @@ class NewAward extends React.Component {
                         this.props.history.push(`/dashboard/awards/${match.params.name}`)
                     }
                     return (<Layout path="Awards">
-                        <Paper className={classes.root}>
+                        <Paper className={classes.root} >
                             <Typography component="h2" variant="h4">
-                                Add New Award
+                                Add Award
                             </Typography>
                             <AwardForm 
                                 awardContainer={awardContainer} 

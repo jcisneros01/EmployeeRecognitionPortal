@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TableCell, TableRow, withStyles } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
+import DeleteIcon from '@material-ui/icons/DeleteSharp';
 import Visibility from '@material-ui/icons/Visibility';
+import moment from 'moment'
 
 const styles = theme => ({
   
@@ -23,7 +24,7 @@ const AwardList = ({awards, showModal,showConfirmModal, classes}) => (
                 {award.employeeEmail}
             </TableCell>
             <TableCell>
-                {award.dateAwarded}
+                {moment(Date(award.dateAwarded)).format("MMM-DD-YYYY")}
             </TableCell>
             <TableCell>
                 {award.awardCreatorId}

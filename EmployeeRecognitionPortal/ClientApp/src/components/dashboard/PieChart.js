@@ -6,7 +6,7 @@ class PieChart extends React.Component {
 		this.props.reports.getAwardReports('countbytype');
 	}
     render() {
-		const { awards } = this.props.reports.state
+        const { awards } = this.props.reports.state
 		const data = {
 			labels: awards.labels,
 			datasets: [{
@@ -29,7 +29,7 @@ class PieChart extends React.Component {
 		}
         return (
 			<div>
-				<h2>Employee Awards</h2>
+				
                     <Pie data={data} options={optionsPie}/>
                 </div>
 		)

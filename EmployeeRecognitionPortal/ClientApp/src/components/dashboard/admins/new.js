@@ -8,7 +8,7 @@ import AdminContainer from '../../../containers/AdminContainer';
 
 const styles = theme => ({
     root: {
-      width: '100%',
+      width: '60%',
       overflowX: 'auto',
       padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
     }
@@ -28,7 +28,7 @@ class NewAdmin extends React.Component {
                     return (<Layout path="Admins">
                         <Paper className={classes.root}>
                             <Typography component="h2" variant="h4">
-                                Add New Admin 
+                                Add Admin 
                             </Typography>
                             <AdminForm 
                                 adminContainer={adminContainer} 

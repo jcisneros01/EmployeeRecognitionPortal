@@ -20,9 +20,10 @@ const data = [
   { name: 'Sun', Users: 4490, Awards: 4300 },
 ];
 
+
 function SimpleLineChart() {
   return (
-    <ResponsiveContainer width="99%" height={320}>
+    <ResponsiveContainer width="100%" height={320}>
       <LineChart data={data}>
         <XAxis dataKey="name" />
         <YAxis />

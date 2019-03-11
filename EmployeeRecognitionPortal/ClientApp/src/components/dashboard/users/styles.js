@@ -3,7 +3,8 @@
     display: 'inline-flex',
     borderRadius: 2,
     border: '1px solid #eaeaea',
-    marginRight: 8,
+      marginRight: 8,
+    marginTop:10,
     width: 100,
     height: 50,
     padding: 4,
@@ -24,7 +25,8 @@
 
   export const baseStyle = {
     width: 200,
-    height: 50,
+      height: 100,
+    marginTop:40,
     borderWidth: 2,
     borderColor: '#666',
     borderStyle: 'dashed',

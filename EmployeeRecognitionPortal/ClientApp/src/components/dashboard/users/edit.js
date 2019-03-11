@@ -8,7 +8,7 @@ import UserContainer from '../../../containers/UserContainer';
 
 const styles = theme => ({
     root: {
-      width: '100%',
+      width: '60%',
       overflowX: 'auto',
       padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
     }

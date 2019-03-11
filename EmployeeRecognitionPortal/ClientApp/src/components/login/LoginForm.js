@@ -97,7 +97,8 @@ class LoginForm extends React.Component {
                             variant="contained"
                             color="primary"
                             className={classes.submit}
-                        >Login</Button>
+                >Login</Button>
+                <br/> <br/>
                         <Link to="/forgot-password">Forgot password?</Link>
                     </form>
                    

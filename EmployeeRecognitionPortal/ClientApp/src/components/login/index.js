@@ -48,9 +48,7 @@ function LoginPage (props) {
                     <Typography component="h1" variant="h5">
                         Sign in
                     </Typography>
-                    <Typography component="h1" variant="h3">
-                        Customer Portal
-                    </Typography>                  
+                                     
                         <LoginForm  
                             requestLogin={login.requestLogin} 
                             loading={login.state.loading}

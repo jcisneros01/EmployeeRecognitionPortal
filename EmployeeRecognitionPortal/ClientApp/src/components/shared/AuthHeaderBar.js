@@ -5,8 +5,8 @@ function AuthHeaderBar() {
   return (
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" color="inherit">
-            Employee Portal
+          <Typography variant="h5" color="inherit" >
+            Employee Recoginition Portal
           </Typography>
         </Toolbar>
       </AppBar>

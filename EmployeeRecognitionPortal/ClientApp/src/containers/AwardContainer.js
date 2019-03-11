@@ -52,8 +52,8 @@ class AwardContainer extends Container {
         return json.then(err => {throw(err)});
       }).then(award => {
         this.state.awardsEOY.push(award)
-        this.setState({
-          loading: false,
+          this.setState({
+              loading: true,
           updateSuccess: true
         });
       }).catch(err => {
@@ -71,7 +71,8 @@ class AwardContainer extends Container {
         let awardsEOY = this.state.awardsEOY.filter(award => {
           return award.id !== id
         })
-         this.setState({
+           this.setState({
+               loading:true,
            updateSuccess: true,
            awardsEOY
          })

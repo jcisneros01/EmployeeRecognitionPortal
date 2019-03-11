@@ -8,10 +8,13 @@ const styles = theme => ({
    
     form: {
       width: '100%', // Fix IE 11 issue.
-      marginTop: theme.spacing.unit,
+        marginTop: theme.spacing.unit,
+      
     },
     submit: {
-      marginTop: theme.spacing.unit * 3,
+        marginTop: theme.spacing.unit * 3,
+        marginRight: "20px",
+        width:"30%"
     },
   });
 
@@ -67,8 +70,8 @@ class AwardForm extends React.Component {
         const { awardContainer, classes } = this.props
         const { error } = awardContainer.state
 
-        return(
-            <form onSubmit={this.onSubmit} className={classes.form} autoComplete="off">
+        return (
+            <form onSubmit={this.onSubmit}  className={classes.form} autoComplete="off">
                 { error && <Typography color="error" component="h4">
                     {error}
                 </Typography>}
@@ -103,7 +106,6 @@ class AwardForm extends React.Component {
                     { errors.employeeName && <InlineError text={errors.employeeName}/>}
                 </FormControl>
                 <FormControl margin="normal" required fullWidth error={!!errors.dateAwarded}>
-                    <InputLabel htmlFor="dateAwarded">Date Awarded</InputLabel>
                     <Input 
                         id="dateAwarded" 
                         name="dateAwarded" 
@@ -113,24 +115,24 @@ class AwardForm extends React.Component {
                         value={data.dateAwarded} 
                         placeholder="Date Awarded"
                         onChange={this.onChange}
-                    />
+                    /> 
                                
                     { errors.dateAwarded && <InlineError text={errors.dateAwarded}/>}
                 </FormControl>
                             
                 <Button type="submit"
-                    width="50%"
+                    width="150px"
                     variant="contained"
                     color="primary"
                     className={classes.submit}
-                >Create Award</Button>    
+                >Create</Button>   
                 <Button
                     width="50%"
                     variant="contained"
                     color="secondary"
                     className={classes.submit}
                     onClick={this.goBack}
-                >Go Back</Button>               
+                >Cancel</Button>               
         </form>
         );
     }

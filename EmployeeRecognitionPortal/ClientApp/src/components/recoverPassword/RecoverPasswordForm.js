@@ -60,6 +60,7 @@ class RecoverPasswordForm extends React.Component {
                 <Typography component="h1" variant="h4">
                     Forgot your password?
                 </Typography> 
+                <br/>
                 <Typography component="h1">
                     We'll sent you a email with instructions.
                 </Typography> 
@@ -85,6 +86,7 @@ class RecoverPasswordForm extends React.Component {
                     color="primary"
                     className={classes.submit}
                 >Reset</Button>
+                <br/> <br/>
                 <Link to="/login">Back to login</Link>
             </form>
            

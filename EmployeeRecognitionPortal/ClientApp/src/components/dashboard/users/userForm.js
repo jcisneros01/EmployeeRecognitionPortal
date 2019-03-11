@@ -15,7 +15,9 @@ const styles = theme => ({
       marginTop: theme.spacing.unit,
     },
     submit: {
-      marginTop: theme.spacing.unit * 3,
+        marginTop: theme.spacing.unit * 3,
+        marginRight: "20px",
+        width: "30%"
     },
   });
 
@@ -173,7 +175,7 @@ class UserForm extends React.Component {
                     { errors.signature && <InlineError text={errors.signature}/>}
                 </FormControl>
                 <FormControl margin="normal" required fullWidth error={!!errors.signature}>
-                    <InputLabel htmlFor="signature">Signature</InputLabel>
+                    <InputLabel htmlFor="signature" >Signature</InputLabel>
                     <Dropzone onDrop={this.onDrop} accept="image/jpeg, image/png" multiple={false}>
                                         
                         {({getRootProps, getInputProps, isDragActive, isDragAccept, isDragReject,}) => {
@@ -198,18 +200,16 @@ class UserForm extends React.Component {
                     {thumbs}
                 </FormControl>
                 <Button type="submit"
-                    width="50%"
                     variant="contained"
                     color="primary"
                     className={classes.submit}
                 >{buttonTitle}</Button>    
                 <Button
-                    width="50%"
                     variant="contained"
                     color="secondary"
                     className={classes.submit}
                     onClick={this.goBack}
-                >Go Back</Button>  
+                >Cancel</Button>  
             </form>
            
                 

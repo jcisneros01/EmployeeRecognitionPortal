@@ -13,7 +13,9 @@ const styles = theme => ({
       marginTop: theme.spacing.unit,
     },
     submit: {
-      marginTop: theme.spacing.unit * 3,
+        marginTop: theme.spacing.unit * 3,
+        marginRight: "20px",
+        width: "30%"
     },
   });
 

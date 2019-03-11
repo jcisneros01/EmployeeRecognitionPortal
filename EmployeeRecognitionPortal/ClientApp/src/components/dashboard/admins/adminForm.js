@@ -13,7 +13,9 @@ const styles = theme => ({
       marginTop: theme.spacing.unit,
     },
     submit: {
-      marginTop: theme.spacing.unit * 3,
+        marginTop: theme.spacing.unit * 3,
+        marginRight: "20px",
+        width: "30%"
     },
   });
 
@@ -81,13 +83,10 @@ class AdminForm extends React.Component {
     render() {
         
         const { data, errors } = this.state;
+        console.log(data);
         const {buttonTitle, adminContainer, classes} = this.props
-<<<<<<< HEAD
         const { error, admin } = adminContainer.state
         console.log(admin)
-=======
-        const { error } = adminContainer.state
->>>>>>> d897fdbcbccd7f651925ca3472990ebf167badbd
 
         return(<>
             <form onSubmit={this.onSubmit} className={classes.form} autoComplete="off">
@@ -100,7 +99,6 @@ class AdminForm extends React.Component {
                         id="email" 
                         name="email" 
                         type="email"
-                        autoComplete="email" 
                         autoFocus
                         value={data.email} 
                         placeholder="example@example.com"
@@ -116,7 +114,6 @@ class AdminForm extends React.Component {
                         id="password" 
                         name="password" 
                         type="password"
-                        autoComplete="password" 
                         value={data.password} 
                         placeholder="secret"
                         onChange={this.onChange}
@@ -135,7 +132,7 @@ class AdminForm extends React.Component {
                     color="secondary"
                     className={classes.submit}
                     onClick={this.goBack}
-                >Go Back</Button>  
+                >Cancel</Button>  
             </form>
            
                 

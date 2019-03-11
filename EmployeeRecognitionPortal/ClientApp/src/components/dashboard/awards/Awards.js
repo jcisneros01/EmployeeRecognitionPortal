@@ -93,9 +93,7 @@ class Awards extends React.Component {
                             handleEdit={this.handleEdit}
                             showConfirmModal={this.showConfirmModal}
                             /> :
-                            <TableRow >
-                                <TableCell>No record found</TableCell>
-                            </TableRow>
+                             <p >No record found</p>
                         }
                         
                     </TableBody>
