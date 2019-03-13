@@ -14,12 +14,7 @@ namespace EmployeeRecognitionPortal.Controllers
   [Route("[controller]")]
   public class LatexController : Controller
   {
-    [HttpGet]
-    public IActionResult GetLatex()
-    {
 
-      return Ok();
-    }
 
     [HttpPost]
     public IActionResult CreateLatex([FromBody] Award award)
