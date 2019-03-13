@@ -2,7 +2,7 @@ using EmployeeRecognitionPortal.Services;
 using Microsoft.AspNetCore.Mvc;
 using EmployeeRecognitionPortal.Models;
 
-
+/*
 // This content lives on another server:  52.247.199.88
 //    It was easier to perform the linux specific tasks separately
 //    than on the Windows server we have our application deployed.
@@ -31,3 +31,4 @@ namespace EmployeeRecognitionPortal.Controllers
 
   }
 }
+*/
