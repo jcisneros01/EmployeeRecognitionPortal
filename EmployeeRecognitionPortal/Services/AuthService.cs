@@ -71,11 +71,13 @@ namespace EmployeeRecognitionPortal.Services
             if (user == null)
                 return;
 
+            string _pw = PasswordHelper.PasswordEncryptDecrypt(user.Password);
+
             var msg = new MailMessage(
                 "employeerecognitionapp@gmail.com",
                 user.Email,
                 "Your password for Employee Recognition Portal",
-                "Hi, \n\nYour password for Employee Recognition Portal is:\n\n" + user.Password + 
+                "Hi, \n\nYour password for Employee Recognition Portal is:\n\n" + _pw + 
                 "\n\nBest,\nEmployee Recognition Portal"
             );
 

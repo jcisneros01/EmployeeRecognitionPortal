@@ -83,7 +83,7 @@ namespace EmployeeRecognitionPortal.Services
             {
                 existingUser.Email = string.IsNullOrWhiteSpace(user.Email) ? existingUser.Email: user.Email;
                 existingUser.Password = string.IsNullOrWhiteSpace(user.Password) ? 
-                    existingUser.Password: PasswordHelper.HashPassword(user.Password);
+                    existingUser.Password: PasswordHelper.PasswordEncryptDecrypt(user.Password);
                 existingUser.AwardCreator.Signature = user.Signature ?? existingUser.AwardCreator.Signature;               
             }
             _context.SaveChanges();
@@ -127,7 +127,7 @@ namespace EmployeeRecognitionPortal.Services
             
             existingAdmin.Email = string.IsNullOrWhiteSpace(user.Email) ? existingAdmin.Email: user.Email;
             existingAdmin.Password = string.IsNullOrWhiteSpace(user.Password) ? 
-                existingAdmin.Password: PasswordHelper.HashPassword(user.Password);
+                existingAdmin.Password: PasswordHelper.PasswordEncryptDecrypt(user.Password);
             _context.SaveChanges();
             
             return _mapper.Map<User, AdminResponse>(existingAdmin);
