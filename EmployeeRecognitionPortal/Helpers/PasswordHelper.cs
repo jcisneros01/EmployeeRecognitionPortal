@@ -1,9 +1,6 @@
 using System;
 using System.Text;
-using CryptoHelper;
-using Org.BouncyCastle.Crypto;
-using Org.BouncyCastle.Crypto.Paddings;
-using Org.BouncyCastle.Crypto.Parameters;
+
 
 namespace EmployeeRecognitionPortal.Helpers
 {
