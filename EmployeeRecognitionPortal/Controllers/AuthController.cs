@@ -28,7 +28,7 @@ using Microsoft.AspNetCore.Mvc;
          [ValidateModel]
          public IActionResult RecoverPassword([FromBody] PasswordResetRequest request)
          {
-             _authService.SendUserPassword(request.UserName);
+             _authService.SendUserPassword(request.Email);
              
              return Ok();
          }
