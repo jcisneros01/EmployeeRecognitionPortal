@@ -1,18 +1,38 @@
-using CryptoHelper;
+using System;
+using System.Text;
+
 
 namespace EmployeeRecognitionPortal.Helpers
 {
+    
     public class PasswordHelper
     {
-        public static string HashPassword(string password)
-        {
-            return Crypto.HashPassword(password);
-        }
+  
+        private static int _key = 98080354;
+        
+        public static string PasswordEncryptDecrypt(string password)  
+        {  
+            StringBuilder _input = new StringBuilder(password); 
+            StringBuilder _output = new StringBuilder(password.Length);  
+            char _ch;
+
+
+            for (int i = 0; i < _input.Length; i++)
+            {
+                _ch = _input[i];
+                _ch = (char)(_ch ^ _key);
+                _output.Append(_ch);
+            }
+    
+            return _output.ToString();  
+        }  
  
-        public static bool VerifyPassword(string hash, string password)
+        public static bool VerifyPassword(string encryptedPassword, string attempt)
         {
-            return Crypto.VerifyHashedPassword(hash, password);
+            return attempt == PasswordEncryptDecrypt(encryptedPassword);
         }
+        
+        
  
     }
 }
