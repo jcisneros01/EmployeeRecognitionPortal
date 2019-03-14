@@ -43,11 +43,11 @@ using Microsoft.AspNetCore.Mvc;
 
              return Ok();
          }
-         
-         [Authorize(Policy = "Admin")]
-         [HttpPost]
-         [ValidateModel]
-         public IActionResult CreateUser([FromBody]UserRequest user)
+
+        [Authorize(Policy = "Admin")]
+        [HttpPost]
+        [ValidateModel]
+        public IActionResult CreateUser([FromBody]UserRequest user)
          {
              var response = _userService.CreateUser(user);
 

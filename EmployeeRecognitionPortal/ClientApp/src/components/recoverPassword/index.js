@@ -38,14 +38,15 @@ function RecoverPasswordPage(props) {
                         <main className={classes.main}>
                             <CssBaseline />
                             <Paper className={classes.paper}>
-                                { recoverPassword.state.success ? (
-                                    <Typography component="h1" variant="h3">
-                                        Email has been sent.
-                                    </Typography>  
+                                
                                     
-                                ) : (
+                             
                                     <RecoverPasswordForm submit={ recoverPassword.doRecoverPassword } loading={recoverPassword.state.loading} apiError={recoverPassword.state.error}/>
-                                )}
+                                {recoverPassword.state.success && (
+                                    <Typography component="p">
+                                        Email has been sent.
+                                    </Typography> )
+                                }
                             </Paper>
                         </main>
                     ) 
