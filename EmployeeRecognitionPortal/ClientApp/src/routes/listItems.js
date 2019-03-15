@@ -102,6 +102,7 @@ class MainListItems extends React.Component {
                 </>}
              
                 <ListItem button onClick={() => logout()}>
+
                     <ListItemText primary="Logout" />
                 </ListItem>
 

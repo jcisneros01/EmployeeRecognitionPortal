@@ -86,7 +86,6 @@ class AdminForm extends React.Component {
         console.log(data);
         const {buttonTitle, adminContainer, classes} = this.props
         const { error, admin } = adminContainer.state
-        console.log(admin)
 
         return(<>
             <form onSubmit={this.onSubmit} className={classes.form} autoComplete="off">

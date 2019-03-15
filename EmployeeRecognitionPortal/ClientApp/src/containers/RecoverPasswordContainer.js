@@ -14,7 +14,6 @@ class RecoverPasswordContainer extends Container {
         Api.post('/auth/recoverpassword', {
             email
         }).then(resp => {
-
             if (resp.ok) {
                 this.setState({ loading: false, success: true, error: null });
             }

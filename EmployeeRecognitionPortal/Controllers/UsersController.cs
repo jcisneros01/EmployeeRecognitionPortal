@@ -26,7 +26,7 @@ using Microsoft.AspNetCore.Mvc;
              return Ok(response);
          }
          
-         [Authorize(Policy = "Admin")]
+         [Authorize]
          [HttpGet("{id}")]
          public IActionResult GetUser(int id)
          {

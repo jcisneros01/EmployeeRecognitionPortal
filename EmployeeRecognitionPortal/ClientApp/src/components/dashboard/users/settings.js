@@ -4,7 +4,7 @@ import { Subscribe } from 'unstated';
 import { withStyles, Paper, Typography } from '@material-ui/core';
 import Layout from '../../../routes/layout';
 import SettingsForm from './settingsForm'
-import AdminContainer from '../../../containers/AdminContainer';
+import UserContainer from '../../../containers/UserContainer';
 
 const styles = theme => ({
     root: {
@@ -17,26 +17,24 @@ const styles = theme => ({
 class Settings extends React.Component {  
    
     render() {    
-        const {classes, history } = this.props
-       
+        const { classes, history } = this.props
         return (
-            <Subscribe to={[AdminContainer]}>
-                {adminContainer => {
-                    if (adminContainer.state.updateSuccess) {
-                        this.props.history.push('/dashboard/admins')
+            <Subscribe to={[UserContainer]}>
+                {userContainer => {
+                    if (userContainer.state.updateSuccess) {
+                        this.props.history.push('/dashboard/setting')
                     }
                     return (<Layout path="Settings">
                         <Paper className={classes.root}>
                             <Typography component="h2" variant="h4">
                                 Manage your Account
                             </Typography>
-                            <SettingsForm 
-                                adminContainer={adminContainer} 
-                                buttonTitle="Save"
+                            <SettingsForm
+                                userContainer={userContainer} 
+                                buttonTitle="Update"
                                 history={history}
                             />
                         </Paper>
-                    
                     </Layout>)}}
             </Subscribe>
         )

@@ -52,8 +52,9 @@ class RecoverPasswordForm extends React.Component {
     }    
 
     render() {
-        const { errors, data} = this.state;
-        const {  apiError, classes } = this.props
+        const { errors, data } = this.state;
+        const { apiError, classes, loading } = this.props
+
         return (
             <form onSubmit={this.onSubmit} className={classes.form} autoComplete="off">
                 
@@ -85,7 +86,7 @@ class RecoverPasswordForm extends React.Component {
                     variant="contained"
                     color="primary"
                     className={classes.submit}
-                >Reset</Button>
+                >{loading ? "Processing..." : "Reset"}</Button>
                 <br/> <br/>
                 <Link to="/login">Back to login</Link>
             </form>

@@ -1,114 +1,110 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { Button, FormControl, InputLabel, Input, Typography} from '@material-ui/core';
+import { Image } from 'semantic-ui-react';
 
-import validator from 'validator';
+import { Button, FormControl, InputLabel, Input, Typography } from '@material-ui/core';
+
 import InlineError from '../../shared/InlineError';
 
 const styles = theme => ({
-   
+
     form: {
-      width: '100%', // Fix IE 11 issue.
-      marginTop: theme.spacing.unit,
+        width: '100%', // Fix IE 11 issue.
+        marginTop: theme.spacing.unit,
     },
     submit: {
         marginTop: theme.spacing.unit * 3,
         marginRight: "20px",
         width: "30%"
     },
-  });
+});
 
 class SettingsForm extends React.Component {
     state = {
         data: {
-            email: "",
-            password: ""
+            name: "",
         },
         errors: {}
     }
 
     validate = (data) => {
         const errors = {};
-        if (!validator.isEmail(data.email)) errors.email = "Invalid email";
-        if (!data.password) errors.password = "Password can't be blank";
         return errors;
     }
 
-    onChange = e => 
-        this.setState({
-             data: { ...this.state.data, [e.target.name]: e.target.value }
+    componentWillMount() {
+        this.props.userContainer.getUser(localStorage.id);
+    }
+
+    componentWillUnmount() {
+        this.props.userContainer.initializeForm();
+    }
+    componentWillReceiveProps(newProps) {
+        console.log(newProps,"newprops")
+        if (!!newProps.userContainer) {
+            this.setState({
+                data: {
+                    ...this.state.data,
+                    name: newProps.userContainer.state.user.name
+                }
             })
+        }
+    }
+
+    onChange = e =>
+        this.setState({
+        })
 
     onSubmit = (e) => {
         e.preventDefault()
-       
-        const errors = this.validate(this.state.data);
-        this.setState({errors});
-        if (Object.keys(errors).length === 0) {
-            this.props.adminContainer.updateAdmin(this.props.match.params.id, this.state.data);
-            
-        }
-    }    
-    
-   
-    render() {
-        
-        const { data, errors } = this.state;
-        const {buttonTitle, adminContainer, classes} = this.props
-        const { error } = adminContainer.state
 
-        return(<>
-            <form onSubmit={this.onSubmit} className={classes.form} autoComplete="off">
-                { error && <Typography color="error" component="h4">
-                    {error}
-                </Typography>}
-                <FormControl margin="normal" required fullWidth error={!!errors.email}>
-                    <InputLabel htmlFor="email">Email Address</InputLabel>
-                    <Input 
-                        id="email" 
-                        name="email" 
-                        type="email"
-                        autoComplete="email" 
-                        autoFocus
-                        value={data.email} 
-                        placeholder="example@example.com"
-                        onChange={this.onChange}
-                    />
-                               
-                    { errors.email && <InlineError text={errors.email}/>}
-                </FormControl>
-                            
-                <FormControl margin="normal" required fullWidth error={!!errors.password}>
-                    <InputLabel htmlFor="password">Password</InputLabel>
-                    <Input 
-                        id="password" 
-                        name="password" 
-                        type="password"
-                        autoComplete="password" 
-                        value={data.password} 
-                        placeholder="secret"
-                        onChange={this.onChange}
-                    />     
-                    { errors.password && <InlineError text={errors.password}/>}
-                </FormControl>
-                <Button type="submit"
-                    width="50%"
-                    variant="contained"
-                    color="primary"
-                    className={classes.submit}
-                >{buttonTitle}</Button>     
-            </form>
-           
-                
-        </>);
+        const errors = this.validate(this.state.data);
+        this.setState({ errors });
+        if (Object.keys(errors).length === 0) {
+            this.props.userContainer.updateUser(localStorage.id, this.props.userContainer.state.user)
+        }
+    }
+
+
+    render() {
+
+        const { data, errors } = this.state;
+        const { buttonTitle, classes, userContainer } = this.props
+        const { user } = userContainer.state
+        console.log(userContainer);
+        return (
+
+            <>
+                <form onSubmit={this.onSubmit} className={classes.form} autoComplete="off">
+                    <FormControl margin="normal" required fullWidth >
+                        <p><b>Name</b></p>
+                        <Input
+                            id="name"
+                            name="name"
+                            type="name"
+                            autoFocus
+                            value={data.name}
+                            onChange={this.onChange}
+                        />
+                    </FormControl>
+                    <p> <b>Email:</b> {user.email}</p>
+                    <b>Signature:</b>  <Image src={`data:image/png;base64, ${user.signature}`} rounded size="tiny" />
+
+                    <Button type="submit"
+                        width="50%"
+                        variant="contained"
+                        color="primary"
+                    >{buttonTitle}</Button>
+                </form>
+            </>);
     }
 }
 
 
 SettingsForm.propTypes = {
-  adminContainer: PropTypes.object.isRequired,
-  classes: PropTypes.object.isRequired
+    userContainer: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired
 }
 
 
