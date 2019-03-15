@@ -22,7 +22,7 @@ class Settings extends React.Component {
             <Subscribe to={[UserContainer]}>
                 {userContainer => {
                     if (userContainer.state.updateSuccess) {
-                        this.props.history.push('/dashboard/setting')
+                        this.props.history.push('/dashboard/users/settings')
                     }
                     return (<Layout path="Settings">
                         <Paper className={classes.root}>

@@ -15,6 +15,7 @@ const styles = theme => ({
     },
     margin: {
         margin: theme.spacing.unit,
+        padding: '0 !important'
     }
   }); 
 

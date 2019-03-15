@@ -52,9 +52,16 @@ class SettingsForm extends React.Component {
         }
     }
 
-    onChange = e =>
+    onChange = e => {
+        console.log(e.target.name)
         this.setState({
+            data: {
+                ...this.state.data,
+                [e.target.name]: e.target.value
+            }
         })
+    }
+        
 
     onSubmit = (e) => {
         e.preventDefault()
@@ -62,7 +69,7 @@ class SettingsForm extends React.Component {
         const errors = this.validate(this.state.data);
         this.setState({ errors });
         if (Object.keys(errors).length === 0) {
-            this.props.userContainer.updateUser(localStorage.id, this.props.userContainer.state.user)
+            this.props.userContainer.updateUser(localStorage.id, this.state.data)
         }
     }
 
@@ -72,7 +79,7 @@ class SettingsForm extends React.Component {
         const { data, errors } = this.state;
         const { buttonTitle, classes, userContainer } = this.props
         const { user } = userContainer.state
-        console.log(userContainer);
+       
         return (
 
             <>

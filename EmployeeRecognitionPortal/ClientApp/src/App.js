@@ -22,6 +22,8 @@ import EditUser from './components/dashboard/users/edit';
 import NewAward from './components/dashboard/awards/new';
 import Settings from './components/dashboard/users/settings';
 
+import './App.css'
+
 const styles = () => ({
   root: {
     flexGrow: 1,
