@@ -22,7 +22,7 @@
             <e p="favicon.ico" t="Include" />
             <e p="index.html" t="Include" />
             <e p="manifest.json" t="Include" />
-            <e p="precache-manifest.8e90a6b28f4229238d13350309739fb6.js" t="Include" />
+            <e p="precache-manifest.570e9e57ad3aeeb96287913eb178d5dc.js" t="Include" />
             <e p="service-worker.js" t="Include" />
             <e p="static" t="Include">
               <e p="css" t="Include">
