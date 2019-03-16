@@ -5,29 +5,13 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EmployeeRecognitionPortal/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EmployeeRecognitionPortal/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EmployeeRecognitionPortal/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EmployeeRecognitionPortal/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortal/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortal/ClientApp/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortal/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortal/ClientApp/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortal/EmployeeRecognition.db" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortal/EmployeeRecognition.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/EmployeeRecognitionPortal.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/EmployeeRecognitionPortal.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/EmployeeRecognitionPortal.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/EmployeeRecognitionPortal.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortal/EmployeeRecognitionPortal.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortal/EmployeeRecognitionPortal.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/EmployeeRecognitionPortal.dll" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/EmployeeRecognitionPortal.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/EmployeeRecognitionPortal.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/EmployeeRecognitionPortal.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.runtimeconfig.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.runtimeconfig.dev.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/nunit_random_seed.tmp" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/bin/Debug/netcoreapp2.2/nunit_random_seed.tmp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/Debug/netcoreapp2.2/EmployeeRecognitionPortalTests.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/EmployeeRecognitionPortalTests.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/EmployeeRecognitionPortalTests.csproj.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/EmployeeRecognitionPortalTests.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/EmployeeRecognitionPortalTests.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/EmployeeRecognitionPortalTests.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/EmployeeRecognitionPortalTests.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/EmployeeRecognitionPortalTests/obj/project.packagespec.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,11 +35,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Startup.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="36" column="23" lean-forward="true" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+            <state relative-caret-position="-56">
+              <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
               <folding>
                 <marker date="1552278289069" expanded="false" signature="6:674" ph="..." />
                 <marker date="1552278289069" expanded="true" signature="711:5427" ph="{...}" />
@@ -77,35 +61,6 @@
                 <marker date="1552278289069" expanded="true" signature="4978:5144" ph="{...}" />
                 <marker date="1552278289069" expanded="true" signature="5176:5407" ph="{...}" />
                 <marker date="1552278289069" expanded="true" signature="5286:5393" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/ClientApp/src/lib/api.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="23" column="59" lean-forward="true" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Controllers/AdminsController.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="16" column="40" lean-forward="true" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-              <folding>
-                <marker date="1552622626733" expanded="false" signature="6:204" ph="..." />
-                <marker date="1552622626733" expanded="true" signature="254:1580" ph="{...}" />
-                <marker date="1552622626733" expanded="true" signature="369:1577" ph="{...}" />
-                <marker date="1552622626733" expanded="true" signature="489:552" ph="{...}" />
-                <marker date="1552622626733" expanded="true" signature="608:719" ph="{...}" />
-                <marker date="1552622626733" expanded="true" signature="795:907" ph="{...}" />
-                <marker date="1552622626733" expanded="true" signature="988:1079" ph="{...}" />
-                <marker date="1552622626733" expanded="true" signature="1196:1313" ph="{...}" />
-                <marker date="1552622626733" expanded="true" signature="1449:1570" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -255,11 +210,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="2444" />
-    <option name="y" value="-1051" />
-    <option name="width" value="714" />
-    <option name="height" value="320" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-12" />
+    <option name="y" value="-12" />
+    <option name="width" value="2906" />
+    <option name="height" value="1746" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -281,7 +236,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -289,37 +243,12 @@
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="EmployeeRecognitionPortal" type="24d0babc:SolutionExplorerModelNode" />
             </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="EmployeeRecognitionPortal" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="EmployeeRecognitionPortal" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="EmployeeRecognitionPortal" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="EmployeeRecognitionPortal" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="ClientApp" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="EmployeeRecognitionPortal" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="EmployeeRecognitionPortal" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="ClientApp" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="src" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="EmployeeRecognitionPortal" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="EmployeeRecognitionPortal" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="ClientApp" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="src" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="lib" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
           </expand>
           <select />
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
+      <pane id="FileSystemExplorer" />
       <pane id="AssemblyExplorer" />
     </panes>
   </component>
@@ -414,6 +343,9 @@
       <workItem from="1552506644547" duration="378000" />
       <workItem from="1552607183228" duration="2112000" />
       <workItem from="1552622785748" duration="994000" />
+      <workItem from="1552673120589" duration="9000" />
+      <workItem from="1552756005939" duration="539000" />
+      <workItem from="1552756548626" duration="409000" />
     </task>
     <task id="LOCAL-00001" summary="arranges model dirs">
       <created>1548048090061</created>
@@ -468,7 +400,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="188536000" />
+    <option name="totallyTimeSpent" value="189493000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -480,17 +412,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="2444" y="-1051" width="714" height="320" extended-state="0" />
-    <editor active="true" />
+    <frame x="-6" y="-6" width="1453" height="873" extended-state="6" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
-      <window_info anchor="bottom" id="Performance Profiler" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32929516" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49751243" weight="0.8395722" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49751243" weight="0.8384926" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.30984455" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -503,17 +433,18 @@
       <window_info anchor="bottom" id="REST Client" order="12" />
       <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.49751243" weight="0.18291347" />
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.50248754" side_tool="true" weight="0.18380743" />
-      <window_info anchor="bottom" id="Build" order="15" sideWeight="0.49751243" weight="0.2535211" />
+      <window_info anchor="bottom" id="Build" order="15" sideWeight="0.49751243" weight="0.25302827" />
       <window_info anchor="bottom" id="Change Signature" order="16" sideWeight="0.50248754" side_tool="true" visible="true" weight="0.2569948" />
       <window_info anchor="bottom" id="Statistic" order="17" weight="0.32953367" />
-      <window_info anchor="right" id="Unit Tests Coverage" />
+      <window_info anchor="bottom" id="Performance Profiler" order="18" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Errors In Solution" order="3" weight="0.21491228" />
       <window_info anchor="right" id="Database" order="4" weight="0.3278867" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.29051986" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.10752688" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Unit Tests Coverage" order="7" />
     </layout>
     <layout-to-restore>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
@@ -1022,10 +953,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Controllers/AdminsController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+          <folding>
+            <marker date="1552622626733" expanded="true" signature="254:1580" ph="{...}" />
+            <marker date="1552622626733" expanded="true" signature="369:1577" ph="{...}" />
+            <marker date="1552622626733" expanded="true" signature="489:552" ph="{...}" />
+            <marker date="1552622626733" expanded="true" signature="608:719" ph="{...}" />
+            <marker date="1552622626733" expanded="true" signature="795:907" ph="{...}" />
+            <marker date="1552622626733" expanded="true" signature="988:1079" ph="{...}" />
+            <marker date="1552622626733" expanded="true" signature="1196:1313" ph="{...}" />
+            <marker date="1552622626733" expanded="true" signature="1449:1570" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/ClientApp/src/lib/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="23" column="59" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Startup.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="36" column="23" lean-forward="true" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+        <state relative-caret-position="-56">
+          <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
           <folding>
             <marker date="1552278289069" expanded="false" signature="6:674" ph="..." />
             <marker date="1552278289069" expanded="true" signature="711:5427" ph="{...}" />
@@ -1047,31 +1002,6 @@
             <marker date="1552278289069" expanded="true" signature="4978:5144" ph="{...}" />
             <marker date="1552278289069" expanded="true" signature="5176:5407" ph="{...}" />
             <marker date="1552278289069" expanded="true" signature="5286:5393" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/ClientApp/src/lib/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="23" column="59" lean-forward="true" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EmployeeRecognitionPortal/Controllers/AdminsController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="16" column="40" lean-forward="true" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-          <folding>
-            <marker date="1552622626733" expanded="false" signature="6:204" ph="..." />
-            <marker date="1552622626733" expanded="true" signature="254:1580" ph="{...}" />
-            <marker date="1552622626733" expanded="true" signature="369:1577" ph="{...}" />
-            <marker date="1552622626733" expanded="true" signature="489:552" ph="{...}" />
-            <marker date="1552622626733" expanded="true" signature="608:719" ph="{...}" />
-            <marker date="1552622626733" expanded="true" signature="795:907" ph="{...}" />
-            <marker date="1552622626733" expanded="true" signature="988:1079" ph="{...}" />
-            <marker date="1552622626733" expanded="true" signature="1196:1313" ph="{...}" />
-            <marker date="1552622626733" expanded="true" signature="1449:1570" ph="{...}" />
           </folding>
         </state>
       </provider>
