@@ -24,7 +24,7 @@ const AwardList = ({awards, showModal,showConfirmModal, classes}) => (
                 {award.employeeEmail}
             </TableCell>
             <TableCell>
-                {moment(Date(award.dateAwarded)).format("MMM-DD-YYYY")}
+                {moment(award.dateAwarded).format("MMM-DD-YYYY")}
             </TableCell>
             <TableCell>
                 {award.awardCreatorId}
