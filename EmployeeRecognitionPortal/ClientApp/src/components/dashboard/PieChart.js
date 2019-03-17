@@ -30,7 +30,7 @@ class PieChart extends React.Component {
 		}
         return (
 			<div>
-				<h2>Employee Awards</h2>
+				<h2>Awards by Type</h2>
                     <Pie data={data} options={optionsPie}/>
                 </div>
 		)
