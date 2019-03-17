@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Security.Claims;
 using EmployeeRecognitionPortal.Models;
 using EmployeeRecognitionPortal.Models.Request;
 using EmployeeRecognitionPortal.Models.Response;
@@ -17,5 +18,6 @@ namespace EmployeeRecognitionPortal.Services
         AdminResponse GetAdmin(int id);
         AdminResponse CreateAdmin(AdminRequest user);
         AdminResponse UpdateAdmin(int id, AdminPostRequest user);
+        int GetUserId(ClaimsIdentity identity);
     }
 }

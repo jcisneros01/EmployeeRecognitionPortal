@@ -8,7 +8,7 @@ namespace EmployeeRecognitionPortal.Services
     public interface IEmpOfYearService
     {
       EmpOfYearResponse CreateEmpOfYear(EmpOfYearRequest eom);
-      List <EmpOfYearResponse> GetEmpOfYears();
+      List <EmpOfYearResponse> GetEmpOfYears(int userId);
       EmpOfYearResponse GetEmpOfYear(int id);
       void DeleteEmpOfYear(int id);
     }

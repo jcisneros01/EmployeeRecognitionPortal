@@ -71,9 +71,9 @@ namespace EmployeeRecognitionPortal.Services
 
         }
 
-        public List<EmpOfYearResponse> GetEmpOfYears()
+        public List<EmpOfYearResponse> GetEmpOfYears(int userId)
         {
-            var eoys = _context.EmpOfYears.ToList();
+            var eoys = _context.EmpOfYears.Where(x => x.AwardCreator.UserId == userId).ToList();
             return _mapper.Map<List<EmpOfYear>, List<EmpOfYearResponse>>(eoys);
         }
 

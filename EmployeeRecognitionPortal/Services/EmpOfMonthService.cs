@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using AutoMapper;
 using EmployeeRecognitionPortal.Exceptions;
 using EmployeeRecognitionPortal.Models;
@@ -66,9 +67,9 @@ namespace EmployeeRecognitionPortal.Services
 
         }
 
-        public List<EmpOfMonthResponse> GetEmpOfMonths()
+        public List<EmpOfMonthResponse> GetEmpOfMonths(int userId)
         {
-            var eoms = _context.EmpOfMonths.ToList();
+            var eoms = _context.EmpOfMonths.Where(x => x.AwardCreator.UserId == userId).ToList();
             return _mapper.Map<List<EmpOfMonth>, List<EmpOfMonthResponse>>(eoms);
         }
 

@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using AutoMapper;
 using EmployeeRecognitionPortal.Exceptions;
 using EmployeeRecognitionPortal.Helpers;
@@ -142,6 +144,13 @@ namespace EmployeeRecognitionPortal.Services
             }
 
             return _mapper.Map<User, UserResponse>(user);
+        }
+        
+        public int GetUserId( ClaimsIdentity identity)
+        {
+            var userIdValue = identity.Claims.Where(x => x.Type == "UserId").Select(x => x.Value).SingleOrDefault();
+            Int32.TryParse(userIdValue, out int userId);
+            return userId;
         }
     }
 }

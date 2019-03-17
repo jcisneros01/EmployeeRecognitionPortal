@@ -1,8 +1,13 @@
+using System;
+using System.Linq;
+using System.Security.Claims;
 using EmployeeRecognitionPortal.Filters;
 using EmployeeRecognitionPortal.Models.Request;
 using EmployeeRecognitionPortal.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp;
+
 namespace EmployeeRecognitionPortal.Controllers
 {
     [Authorize(Policy = "User")]
@@ -10,10 +15,12 @@ namespace EmployeeRecognitionPortal.Controllers
    public class EmpOfMonthController : Controller
    {
        private IEmpOfMonthService _eomService;
+       private IUserService _userService;
 
-       public EmpOfMonthController(IEmpOfMonthService eomService)
+       public EmpOfMonthController(IEmpOfMonthService eomService, IUserService userService)
        {
-              _eomService = eomService;
+         _eomService = eomService;
+         _userService = userService;
        }
 
        [HttpPost]
@@ -27,7 +34,8 @@ namespace EmployeeRecognitionPortal.Controllers
        [HttpGet]
        public IActionResult Get()
        {
-         var res = _eomService.GetEmpOfMonths();
+         var userId = _userService.GetUserId(User.Identity as ClaimsIdentity);
+         var res = _eomService.GetEmpOfMonths(userId);
          return Ok(res);
        }
 

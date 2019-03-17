@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using EmployeeRecognitionPortal.Filters;
 using EmployeeRecognitionPortal.Models.Request;
 using EmployeeRecognitionPortal.Services;
@@ -11,10 +12,12 @@ using Microsoft.AspNetCore.Mvc;
    public class EmpOfYearController : Controller
    {
        private readonly IEmpOfYearService _eoyService;
-
-       public EmpOfYearController(IEmpOfYearService eoyService)
+       private readonly IUserService _userService;
+       
+       public EmpOfYearController(IEmpOfYearService eoyService, IUserService userService)
        {
-          _eoyService = eoyService;
+         _eoyService = eoyService;
+         _userService = userService;
        }
 
        [HttpPost]
@@ -28,7 +31,8 @@ using Microsoft.AspNetCore.Mvc;
        [HttpGet]
        public IActionResult Get()
        {
-         var res = _eoyService.GetEmpOfYears();
+         var userId = _userService.GetUserId(User.Identity as ClaimsIdentity);
+         var res = _eoyService.GetEmpOfYears(userId);
          return Ok(res);
        }
 
