@@ -1,13 +1,13 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/zach/Desktop/finalProj/EmployeeRecognitionPortal/EmployeeRecognitionPortalTests/EmployeeRecognitionPortalTests.csproj",
+    "projectUniqueName": "C:\\Users\\jcisneros.REPAY\\Documents\\EmployeeRecognitionPortal\\EmployeeRecognitionPortalTests\\EmployeeRecognitionPortalTests.csproj",
     "projectName": "EmployeeRecognitionPortalTests",
-    "projectPath": "/Users/zach/Desktop/finalProj/EmployeeRecognitionPortal/EmployeeRecognitionPortalTests/EmployeeRecognitionPortalTests.csproj",
-    "outputPath": "/Users/zach/Desktop/finalProj/EmployeeRecognitionPortal/EmployeeRecognitionPortalTests/obj/",
+    "projectPath": "C:\\Users\\jcisneros.REPAY\\Documents\\EmployeeRecognitionPortal\\EmployeeRecognitionPortalTests\\EmployeeRecognitionPortalTests.csproj",
+    "outputPath": "C:\\Users\\jcisneros.REPAY\\Documents\\EmployeeRecognitionPortal\\EmployeeRecognitionPortalTests\\obj\\",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
-      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ],
     "originalTargetFrameworks": [
       "netcoreapp2.2"
@@ -15,8 +15,8 @@
     "frameworks": {
       "netcoreapp2.2": {
         "projectReferences": {
-          "/Users/zach/Desktop/finalProj/EmployeeRecognitionPortal/EmployeeRecognitionPortal/EmployeeRecognitionPortal.csproj": {
-            "projectPath": "/Users/zach/Desktop/finalProj/EmployeeRecognitionPortal/EmployeeRecognitionPortal/EmployeeRecognitionPortal.csproj"
+          "C:\\Users\\jcisneros.REPAY\\Documents\\EmployeeRecognitionPortal\\EmployeeRecognitionPortal\\EmployeeRecognitionPortal.csproj": {
+            "projectPath": "C:\\Users\\jcisneros.REPAY\\Documents\\EmployeeRecognitionPortal\\EmployeeRecognitionPortal\\EmployeeRecognitionPortal.csproj"
           }
         }
       }

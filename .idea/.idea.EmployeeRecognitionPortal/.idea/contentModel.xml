@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.12.0/build/netcoreapp1.0/nunit.engine.netstandard.dll" t="Include" />
-    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.12.0/build/netcoreapp1.0/NUnit3.TestAdapter.dll" t="Include" />
-    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.12.0/build/netcoreapp1.0/NUnit3.TestAdapter.pdb" t="Include" />
-    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.reporters.netcoreapp10.dll" t="Include" />
-    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.utility.netcoreapp10.dll" t="Include" />
-    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
-    <e p="$PROJECT_DIR$" t="IncludeFlat">
+    <e p="C:\Users\jcisneros.REPAY\.nuget\packages\nunit3testadapter\3.12.0\build\netcoreapp1.0\nunit.engine.netstandard.dll" t="Include" />
+    <e p="C:\Users\jcisneros.REPAY\.nuget\packages\nunit3testadapter\3.12.0\build\netcoreapp1.0\NUnit3.TestAdapter.dll" t="Include" />
+    <e p="C:\Users\jcisneros.REPAY\.nuget\packages\nunit3testadapter\3.12.0\build\netcoreapp1.0\NUnit3.TestAdapter.pdb" t="Include" />
+    <e p="C:\Users\jcisneros.REPAY\.nuget\packages\xunit.runner.visualstudio\2.4.0\build\netcoreapp1.0\xunit.runner.reporters.netcoreapp10.dll" t="Include" />
+    <e p="C:\Users\jcisneros.REPAY\.nuget\packages\xunit.runner.visualstudio\2.4.0\build\netcoreapp1.0\xunit.runner.utility.netcoreapp10.dll" t="Include" />
+    <e p="C:\Users\jcisneros.REPAY\.nuget\packages\xunit.runner.visualstudio\2.4.0\build\netcoreapp1.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
+    <e p="C:\Users\jcisneros.REPAY\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\jcisneros.REPAY\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_EmployeeRecognitionPortal.-822365230.00" t="ExcludeRecursive" />
+    <e p="C:\Users\jcisneros.REPAY\Documents\EmployeeRecognitionPortal" t="IncludeFlat">
       <e p="EmployeeRecognitionPortal" t="IncludeRecursive">
         <e p=".gitignore" t="Include" />
         <e p="appsettings.Development.json" t="Include" />
@@ -15,9 +17,51 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="ClientApp" t="Include">
           <e p=".gitignore" t="Include" />
+          <e p="build" t="Include">
+            <e p="asset-manifest.json" t="Include" />
+            <e p="favicon.ico" t="Include" />
+            <e p="index.html" t="Include" />
+            <e p="manifest.json" t="Include" />
+            <e p="precache-manifest.dabb370c6f7c8ef569e4380b4303bc9e.js" t="Include" />
+            <e p="service-worker.js" t="Include" />
+            <e p="static" t="Include">
+              <e p="css" t="Include">
+                <e p="1.633f6580.chunk.css" t="Include" />
+                <e p="1.633f6580.chunk.css.map" t="Include" />
+                <e p="main.2f4d2eb8.chunk.css" t="Include" />
+                <e p="main.2f4d2eb8.chunk.css.map" t="Include" />
+              </e>
+              <e p="js" t="Include">
+                <e p="1.c945278d.chunk.js" t="Include" />
+                <e p="1.c945278d.chunk.js.map" t="Include" />
+                <e p="main.d7964275.chunk.js" t="Include" />
+                <e p="main.d7964275.chunk.js.map" t="Include" />
+                <e p="runtime~main.229c360f.js" t="Include" />
+                <e p="runtime~main.229c360f.js.map" t="Include" />
+              </e>
+              <e p="media" t="Include">
+                <e p="brand-icons.13db00b7.eot" t="Include" />
+                <e p="brand-icons.a046592b.woff" t="Include" />
+                <e p="brand-icons.a1a749e8.svg" t="Include" />
+                <e p="brand-icons.c5ebe0b3.ttf" t="Include" />
+                <e p="brand-icons.e8c322de.woff2" t="Include" />
+                <e p="flags.9c74e172.png" t="Include" />
+                <e p="icons.0ab54153.woff2" t="Include" />
+                <e p="icons.8e3c7f55.eot" t="Include" />
+                <e p="icons.962a1bf3.svg" t="Include" />
+                <e p="icons.b87b9ba5.ttf" t="Include" />
+                <e p="icons.faff9214.woff" t="Include" />
+                <e p="outline-icons.701ae6ab.eot" t="Include" />
+                <e p="outline-icons.82f60bd0.svg" t="Include" />
+                <e p="outline-icons.ad97afd3.ttf" t="Include" />
+                <e p="outline-icons.cd6c777f.woff2" t="Include" />
+                <e p="outline-icons.ef60a4f6.woff" t="Include" />
+              </e>
+            </e>
+          </e>
           <e p="node_modules" t="ExcludeRecursive">
-            <e p="@material-ui/core" t="IncludeRecursive" />
-            <e p="@material-ui/icons" t="IncludeRecursive" />
+            <e p="@material-ui\core" t="IncludeRecursive" />
+            <e p="@material-ui\icons" t="IncludeRecursive" />
             <e p="@types" t="IncludeRecursive">
               <e p="prop-types" t="IncludeRecursive" />
               <e p="react" t="IncludeRecursive" />
@@ -243,6 +287,9 @@
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
+          <e p="PublishProfiles" t="Include">
+            <e p="EmployeeRecognitionPortal20190310095032 - Web Deploy.pubxml" t="Include" />
+          </e>
         </e>
         <e p="Services" t="Include">
           <e p="AuthService.cs" t="Include" />
@@ -285,9 +332,5 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
     </e>
-    <e p="$USER_HOME$/Library/Caches/Rider2018.3/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2018.3/resharper-host/local/Transient/ReSharperHost/v183/SolutionCaches/_EmployeeRecognitionPortal.-1935422317.00" t="ExcludeRecursive" />
-    <e p="$APPLICATION_CONFIG_DIR$/consoles/db" t="IncludeRecursive" />
-    <e p="$APPLICATION_CONFIG_DIR$/Extensions" t="IncludeRecursive" />
   </component>
 </project>
