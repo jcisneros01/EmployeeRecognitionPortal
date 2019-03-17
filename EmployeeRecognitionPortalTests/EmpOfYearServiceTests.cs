@@ -135,7 +135,7 @@ namespace EmployeeRecognitionPortalTests
         [Test]
         public void GetEmpOfYears_WhenCalled_ReturnsEmpOfYears()
         {
-            var empOfYears = _empOfYearService.GetEmpOfYears();
+            var empOfYears = _empOfYearService.GetEmpOfYears(1);
             
             Assert.AreEqual(2, empOfYears.Count);
         }

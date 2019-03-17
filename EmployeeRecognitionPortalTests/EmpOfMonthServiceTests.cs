@@ -135,7 +135,7 @@ namespace EmployeeRecognitionPortalTests
         [Test]
         public void GetEmpOfMonths_WhenCalled_ReturnsEmpofMonths()
         {
-            var empofMonths = _empOfMonthService.GetEmpOfMonths();
+            var empofMonths = _empOfMonthService.GetEmpOfMonths(1);
             
             Assert.AreEqual(2, empofMonths.Count);
         }
