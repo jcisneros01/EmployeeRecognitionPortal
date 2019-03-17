@@ -112,7 +112,7 @@ class UserContainer extends Container {
     }
 
     deleteUser = (id) => {
-        Api.delete(`/users/${id}`, true).then(resp => {
+        Api.delete(`/users/${id}`, true, true).then(resp => {
             if (resp.ok) {
                 let users = this.state.users.filter(user => {
                     return user.id !== id

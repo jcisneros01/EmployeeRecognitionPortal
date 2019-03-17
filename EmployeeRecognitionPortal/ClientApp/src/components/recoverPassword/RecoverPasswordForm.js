@@ -63,7 +63,7 @@ class RecoverPasswordForm extends React.Component {
                 </Typography> 
                 <br/>
                 <Typography component="h1">
-                    We'll sent you a email with instructions.
+                    We'll send you an email to recover your password.
                 </Typography> 
                 {!!apiError && <p>{ apiError }</p>}
                 <FormControl margin="normal" required fullWidth>

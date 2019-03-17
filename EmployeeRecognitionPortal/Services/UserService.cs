@@ -93,7 +93,7 @@ namespace EmployeeRecognitionPortal.Services
 
         public AdminResponse GetAdmin(int id)
         {
-            var user = _context.Users.FirstOrDefault(x => x.Id == id);
+            var user = _context.Users.FirstOrDefault(x => x.Id == id && x.IsAdmin == true);
             if (user == null)
             {
                 throw new UserNotFoundException($"User with id {id} not found");
@@ -135,7 +135,7 @@ namespace EmployeeRecognitionPortal.Services
 
         public UserResponse GetUser(int id)
         {
-            var user = _context.Users.Include(x => x.AwardCreator).FirstOrDefault(x => x.Id == id);
+            var user = _context.Users.Include(x => x.AwardCreator).FirstOrDefault(x => x.Id == id && x.IsAdmin == false);
             if (user == null)
             {
                 throw new UserNotFoundException($"User with id {id} not found");

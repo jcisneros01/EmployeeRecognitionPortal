@@ -27,7 +27,7 @@ const DashboardPage = ({classes, location}) =>
          return(<Layout path="Dashboard">
          <Paper className={classes.paper}>
             <h2>
-               Awards
+               Award Data by Month
             </h2>
                <LineChart reports={reports}/>
          </Paper>
